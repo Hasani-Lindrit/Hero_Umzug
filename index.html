@@ -4,19 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hero Umzug – Stressfrei umziehen mit einem starken Team</title>
-<meta name="description" content="Hero Umzug – Umzüge, Möbelmontage & Entsorgung. Persönlich, zuverlässig und stressfrei. Jetzt unverbindlich anfragen.">
+<title>Hero Umzug – Stressfrei umziehen mit System</title>
+<meta name="description" content="Hero Umzug organisiert Umzüge, Möbelmontage & Entsorgung strukturiert, zuverlässig und stressfrei. Persönlicher Service statt Chaos.">
 
 <style>
 :root{
+  --bg-dark:#0b1411;
+  --bg-main:#0f1c17;
+  --bg-section:#132821;
   --green:#3BAF75;
-  --green-dark:#2f8f61;
+  --green-soft:#6fd19c;
   --orange:#F2994A;
-  --orange-soft:#f7b267;
-  --bg:#f6faf8;
-  --card:#ffffff;
-  --text:#1f2937;
-  --muted:#6b7280;
+  --text-main:#f4f8f6;
+  --text-muted:#a9c4b7;
+  --border-soft:rgba(111,209,156,.25);
 }
 
 *{box-sizing:border-box}
@@ -24,142 +25,247 @@
 body{
   margin:0;
   font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
-  background:linear-gradient(180deg,#f6faf8,#eef6f1);
-  color:var(--text);
-  line-height:1.7;
+  background:
+    radial-gradient(circle at top,#183c2f 0%,#0b1411 45%,#070e0c 100%);
+  color:var(--text-main);
+  line-height:1.65;
 }
 
+a{text-decoration:none;color:inherit}
+
 .container{
-  max-width:1200px;
+  max-width:1180px;
   margin:0 auto;
+  padding:0 20px;
 }
 
 /* HEADER */
 header{
+  padding:28px 0 90px;
+  position:relative;
+  overflow:hidden;
+}
+
+header::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
   background:
-    radial-gradient(1200px 400px at top left, rgba(59,175,117,.25), transparent),
-    linear-gradient(135deg,var(--green),var(--green-dark));
-  color:white;
-  padding:36px 20px 90px;
+    radial-gradient(circle at 30% 10%,rgba(59,175,117,.35),transparent 60%);
+  pointer-events:none;
 }
 
 /* NAV */
-.main-nav{
+.nav{
   display:flex;
-  gap:34px;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
 }
 
-.main-nav a{
-  color:white;
-  text-decoration:none;
-  font-size:17px;
-  font-weight:600;
-  position:relative;
+.logo-box{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  background:rgba(19,40,33,.85);
+  padding:10px 16px;
+  border-radius:18px;
+  border:1px solid var(--border-soft);
+  box-shadow:0 0 30px rgba(59,175,117,.35);
 }
 
-.main-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  background:var(--orange);
-  transition:width .25s ease;
+.logo-box img{height:62px}
+
+.nav-links{
+  display:flex;
+  gap:26px;
+  font-size:14px;
+  font-weight:500;
+  color:var(--text-muted);
 }
 
-.main-nav a:hover::after{width:100%}
+.nav-links a:hover{color:var(--green-soft)}
 
-/* BUTTONS */
-.btn{
-  display:inline-block;
-  background:linear-gradient(135deg,var(--orange),var(--orange-soft));
-  color:white;
-  padding:14px 28px;
+.phone-btn{
+  background:linear-gradient(135deg,var(--green),var(--green-soft));
+  color:#062018;
+  padding:12px 22px;
   border-radius:999px;
   font-weight:600;
-  text-decoration:none;
-  box-shadow:0 10px 30px rgba(242,153,74,.35);
-  transition:transform .15s ease, box-shadow .15s ease;
+  box-shadow:0 0 26px rgba(59,175,117,.6);
 }
 
-.btn:hover{
-  transform:translateY(-1px);
-  box-shadow:0 16px 40px rgba(242,153,74,.45);
+/* HERO */
+.hero{
+  margin-top:70px;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  align-items:center;
 }
 
-.btn.secondary{
-  background:#1f2937;
-  box-shadow:none;
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px;
+  border-radius:999px;
+  border:1px solid rgba(242,153,74,.45);
+  background:rgba(242,153,74,.12);
+  font-size:12px;
+  color:#ffd7a6;
+  margin-bottom:18px;
+}
+
+.badge-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 10px var(--orange);
+}
+
+.hero h1{
+  font-size:clamp(34px,4.2vw,52px);
+  line-height:1.1;
+  margin:0 0 18px;
+}
+
+.hero p{
+  color:var(--text-muted);
+  max-width:520px;
+}
+
+.hero-cta{
+  margin-top:28px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.btn-main{
+  background:linear-gradient(135deg,var(--orange),#f7b267);
+  color:#1a1205;
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:600;
+  box-shadow:0 0 32px rgba(242,153,74,.6);
+}
+
+.btn-outline{
+  border:1px solid rgba(244,248,246,.4);
+  padding:13px 24px;
+  border-radius:999px;
+  color:var(--text-main);
+}
+
+.hero-meta{
+  margin-top:18px;
+  font-size:13px;
+  display:flex;
+  gap:16px;
+  color:var(--text-muted);
+}
+
+/* HERO PANEL */
+.hero-panel{
+  background:
+    radial-gradient(circle at top,rgba(59,175,117,.35),rgba(19,40,33,.95));
+  border:1px solid var(--border-soft);
+  border-radius:26px;
+  padding:26px;
+  box-shadow:0 0 60px rgba(59,175,117,.45);
+}
+
+.hero-panel h3{
+  font-size:14px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.kpi{
+  background:rgba(11,20,17,.7);
+  border-radius:14px;
+  padding:14px;
+  font-size:12px;
+}
+
+.kpi strong{
+  display:block;
+  font-size:18px;
+  color:var(--green-soft);
 }
 
 /* SECTIONS */
-section{padding:90px 20px}
-section.light{background:#ffffff}
+section{
+  padding:90px 0;
+  background:var(--bg-main);
+}
 
-/* GRID / CARDS */
+.section-dark{background:var(--bg-section)}
+
+.section-title{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.section-sub{
+  color:var(--text-muted);
+  max-width:620px;
+  margin-bottom:36px;
+}
+
+/* CARDS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:28px;
+  gap:22px;
 }
 
 .card{
-  background:var(--card);
+  background:
+    radial-gradient(circle at top,rgba(59,175,117,.18),rgba(11,20,17,.95));
+  border:1px solid var(--border-soft);
   border-radius:22px;
-  padding:32px;
-  box-shadow:0 20px 50px rgba(0,0,0,.06);
+  padding:26px;
   transition:transform .2s ease, box-shadow .2s ease;
 }
 
 .card:hover{
   transform:translateY(-4px);
-  box-shadow:0 28px 70px rgba(0,0,0,.1);
+  box-shadow:0 0 40px rgba(59,175,117,.35);
 }
 
 /* SLIDER */
-.slider-wrapper{position:relative;margin-top:30px}
 .slider{
   display:flex;
-  gap:20px;
+  gap:18px;
   overflow-x:auto;
   scroll-behavior:smooth;
 }
 .slider img{
-  height:260px;
-  border-radius:22px;
+  height:240px;
+  border-radius:20px;
   flex-shrink:0;
-  box-shadow:0 18px 50px rgba(0,0,0,.15);
+  box-shadow:0 0 40px rgba(0,0,0,.45);
 }
 .slider::-webkit-scrollbar{display:none}
 
-.slider-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:var(--green);
-  color:white;
-  border:none;
-  width:46px;
-  height:46px;
-  border-radius:50%;
-  font-size:22px;
-  cursor:pointer;
-  box-shadow:0 10px 30px rgba(0,0,0,.2);
-}
-.slider-btn.left{left:-10px}
-.slider-btn.right{right:-10px}
-
 /* FOOTER */
 footer{
-  background:#111827;
-  color:#e5e7eb;
-  padding:70px 20px;
+  background:#070e0c;
+  padding:60px 0;
+  border-top:1px solid rgba(111,209,156,.2);
+  color:var(--text-muted);
 }
-.footer-buttons{display:flex;gap:16px;margin-top:20px}
 
-@media(max-width:800px){
-  .main-nav{flex-wrap:wrap;gap:18px}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -167,110 +273,97 @@ footer{
 <body>
 
 <header>
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;">
-    <div style="display:flex;align-items:center;gap:48px;">
-      <a href="/"><img src="/assets/logo.png" alt="Hero Umzug Logo" style="height:96px"></a>
-      <nav class="main-nav">
-        <a href="/">Startseite</a>
-        <a href="/leistungen/">Leistungen</a>
-        <a href="/unternehmen/">Unternehmen</a>
-        <a href="/kontakt/">Kontakt</a>
-      </nav>
+  <div class="container nav">
+    <a href="/" class="logo-box">
+      <img src="/assets/logo.png">
+      <strong>Hero Umzug</strong>
+    </a>
+
+    <div class="nav-links">
+      <a href="/">Startseite</a>
+      <a href="/leistungen/">Leistungen</a>
+      <a href="/unternehmen/">Unternehmen</a>
+      <a href="/kontakt/">Kontakt</a>
     </div>
-    <a href="tel:+49123456789" class="btn secondary">📞 +49 123 456789</a>
+
+    <a href="tel:+49123456789" class="phone-btn">📞 +49 123 456789</a>
   </div>
 
-  <div class="container">
-    <div style="margin-top:40px;display:inline-flex;gap:10px;padding:6px 16px;border-radius:999px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);">
-      <span style="width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange)"></span>
-      Persönlich · Zuverlässig · Stressfrei
+  <div class="container hero">
+    <div>
+      <div class="badge"><span class="badge-dot"></span> Persönlich · Zuverlässig · Stressfrei</div>
+      <h1>Umziehen ohne Chaos.<br>Mit Struktur, System & Team.</h1>
+      <p>
+        Hero Umzug organisiert Umzüge, Möbelmontage und Entsorgung nicht „irgendwie“,
+        sondern geplant, strukturiert und nachvollziehbar – damit Sie sich zurücklehnen können.
+      </p>
+
+      <div class="hero-cta">
+        <a href="/kontakt/" class="btn-main">Kostenlose Anfrage</a>
+        <a href="/kontakt/" class="btn-outline">Kontakt</a>
+      </div>
+
+      <div class="hero-meta">
+        <span>✔ Feste Termine</span>
+        <span>✔ Klare Abläufe</span>
+        <span>✔ Eingespieltes Team</span>
+      </div>
     </div>
 
-    <h1 style="margin-top:22px;font-size:44px;max-width:720px;">
-      Stressfrei umziehen –<br>wir kümmern uns um den Rest.
-    </h1>
-
-    <p style="max-width:620px;color:#e9f7ef;">
-      Umzüge, Möbelmontage & Entsorgung aus einer Hand.
-      Ein eingespieltes Team, klare Abläufe und ein gutes Gefühl von Anfang an.
-    </p>
-
-    <div style="margin-top:28px;display:flex;gap:16px;flex-wrap:wrap;">
-      <a href="/kontakt/" class="btn">Kostenlose Anfrage</a>
-      <a href="/kontakt/" class="btn secondary">Kontakt</a>
-    </div>
-
-    <div style="margin-top:18px;font-size:14px;color:#e9f7ef;display:flex;gap:18px;flex-wrap:wrap;">
-      <span>✔ Feste Termine</span>
-      <span>✔ Freundliches Team</span>
-      <span>✔ Faire Preise</span>
+    <div class="hero-panel">
+      <h3>Warum Hero Umzug?</h3>
+      <div class="kpi-grid">
+        <div class="kpi"><strong>0</strong> Chaos am Umzugstag</div>
+        <div class="kpi"><strong>100%</strong> persönlicher Kontakt</div>
+        <div class="kpi"><strong>1</strong> Ansprechpartner</div>
+      </div>
     </div>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <h2>Unser Team im Einsatz</h2>
-    <p style="max-width:560px;">
-      Hinter jedem erfolgreichen Umzug steht ein eingespieltes Team.
-      Hier ein paar Eindrücke aus unserem Arbeitsalltag.
+    <h2 class="section-title">Unser Team im Einsatz</h2>
+    <p class="section-sub">
+      Echte Menschen, echte Arbeit. Einblicke in unseren Alltag bei Umzügen,
+      Möbelaufbau und Transport.
     </p>
 
-    <div class="slider-wrapper">
-      <button class="slider-btn left" onclick="slide(-1)">‹</button>
-      <div class="slider" id="teamSlider">
-        <img src="/assets/team-montage.jpg">
-        <img src="/assets/team-montage.jpg">
-        <img src="/assets/team-montage.jpg">
-        <img src="/assets/team-montage.jpg">
-      </div>
-      <button class="slider-btn right" onclick="slide(1)">›</button>
+    <div class="slider">
+      <img src="/assets/team-montage.jpg">
+      <img src="/assets/team-montage.jpg">
+      <img src="/assets/team-montage.jpg">
+      <img src="/assets/team-montage.jpg">
     </div>
   </div>
 </section>
 
-<section class="light">
+<section class="section-dark">
   <div class="container">
-    <h2>So läuft Ihr Umzug mit Hero Umzug ab</h2>
-    <div class="grid" style="margin-top:32px;">
-      <div class="card"><h3>1 · Anfrage</h3><p>Sie schildern kurz Ihren Umzug – wir klären alle Details.</p></div>
-      <div class="card"><h3>2 · Planung</h3><p>Wir planen Ablauf, Team und Transport passend zu Ihrem Termin.</p></div>
-      <div class="card"><h3>3 · Umzugstag</h3><p>Tragen, Transport & Aufbau – sorgfältig und zuverlässig.</p></div>
-      <div class="card"><h3>4 · Ankommen</h3><p>Alles steht, Sie können entspannt ankommen.</p></div>
-    </div>
-  </div>
-</section>
+    <h2 class="section-title">So läuft ein Umzug mit uns ab</h2>
+    <p class="section-sub">
+      Klare Schritte, keine Überraschungen – damit Sie jederzeit wissen,
+      wo wir gerade stehen.
+    </p>
 
-<section>
-  <div class="container">
-    <h2>Warum Kunden uns weiterempfehlen</h2>
-    <div class="grid" style="margin-top:30px;">
-      <div class="card"><h3>🤝 Persönlich</h3><p>Direkter Kontakt, keine Hotline.</p></div>
-      <div class="card"><h3>🧼 Sorgfalt</h3><p>Respektvoller Umgang mit Ihrem Eigentum.</p></div>
-      <div class="card"><h3>⏱ Zuverlässig</h3><p>Absprachen werden eingehalten.</p></div>
+    <div class="grid">
+      <div class="card"><h3>1 · Anfrage</h3><p>Sie beschreiben kurz Ihren Umzug.</p></div>
+      <div class="card"><h3>2 · Planung</h3><p>Wir planen Ablauf, Team & Transport.</p></div>
+      <div class="card"><h3>3 · Umzugstag</h3><p>Tragen, Transport & Aufbau.</p></div>
+      <div class="card"><h3>4 · Fertig</h3><p>Alles steht – Sie kommen an.</p></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <h3>Hero Umzug</h3>
-    <p style="max-width:420px;">
-      Ihr zuverlässiger Partner für Umzüge, Möbelmontage und Entsorgung –
-      persönlich, fair und professionell.
+    <strong>Hero Umzug</strong>
+    <p>
+      Strukturierter Umzug statt Stress.
+      Persönlich · Zuverlässig · Professionell.
     </p>
-    <div class="footer-buttons">
-      <a href="/kontakt/" class="btn">Kontakt</a>
-      <a href="/impressum/" class="btn secondary">Impressum</a>
-    </div>
   </div>
 </footer>
-
-<script>
-function slide(direction){
-  document.getElementById("teamSlider").scrollBy({left:direction*300,behavior:"smooth"});
-}
-</script>
 
 </body>
 </html>
