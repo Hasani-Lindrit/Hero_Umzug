@@ -4,17 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hero Umzug – Umziehen mit Struktur statt Stress</title>
-<meta name="description" content="Hero Umzug steht für strukturierte, zuverlässige Umzüge. Persönlich betreut, klar geplant und professionell umgesetzt.">
+<title>Hero Umzug – Struktur statt Stress</title>
+<meta name="description" content="Hero Umzug organisiert Umzüge strukturiert, zuverlässig und persönlich. Keine Hektik, keine Überraschungen – einfach sauber umziehen.">
 
 <style>
 :root{
-  --bg-main:#0f1714;
-  --bg-soft:#141f1b;
-  --green:#3BAF75;
+  --bg-main:#182722;
+  --bg-soft:#1f332c;
+  --bg-highlight:#243d34;
+  --green:#5fcf9b;
+  --green-dim:#3a6f5b;
   --orange:#F2994A;
-  --text-main:#f4f7f6;
-  --text-muted:#9fb5ab;
+  --text-main:#f4f8f6;
+  --text-muted:#a7c0b5;
 }
 
 *{box-sizing:border-box}
@@ -23,9 +25,9 @@ body{
   margin:0;
   font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
   background:
-    radial-gradient(circle at top,#1c2f27 0%,var(--bg-main) 45%,#0b120f 100%);
+    radial-gradient(circle at top,#27483c 0%,var(--bg-main) 40%,#121d19 100%);
   color:var(--text-main);
-  line-height:1.7;
+  line-height:1.75;
 }
 
 a{color:inherit;text-decoration:none}
@@ -36,9 +38,9 @@ a{color:inherit;text-decoration:none}
   padding:0 20px;
 }
 
-/* NAV */
+/* ================= NAV ================= */
 header{
-  padding:28px 0 90px;
+  padding:32px 0 120px;
 }
 
 .nav{
@@ -54,11 +56,11 @@ header{
   gap:14px;
 }
 
-.logo img{height:64px}
+.logo img{height:62px}
 
 .nav-links{
   display:flex;
-  gap:26px;
+  gap:28px;
   font-size:14px;
   color:var(--text-muted);
 }
@@ -66,134 +68,178 @@ header{
 .nav-links a:hover{color:var(--green)}
 
 .phone{
-  padding:10px 20px;
+  padding:10px 22px;
   border-radius:999px;
-  background:rgba(59,175,117,.15);
-  border:1px solid rgba(59,175,117,.35);
+  border:1px solid rgba(95,207,155,.4);
   color:var(--green);
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
-  margin-top:80px;
+  margin-top:90px;
   display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:60px;
+  grid-template-columns:1.2fr .8fr;
+  gap:70px;
   align-items:center;
 }
 
 .badge{
-  display:inline-flex;
-  gap:8px;
+  display:inline-block;
   font-size:12px;
-  padding:6px 14px;
-  border-radius:999px;
-  background:rgba(242,153,74,.12);
+  letter-spacing:.08em;
+  text-transform:uppercase;
   color:var(--orange);
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
 
 .hero h1{
-  font-size:clamp(34px,4vw,50px);
+  font-size:clamp(36px,4.2vw,54px);
   line-height:1.15;
-  margin:0 0 20px;
+  margin:0 0 26px;
 }
 
 .hero p{
+  max-width:560px;
   color:var(--text-muted);
-  max-width:520px;
+  font-size:16px;
 }
 
 .hero-actions{
-  margin-top:28px;
+  margin-top:34px;
   display:flex;
-  gap:18px;
+  gap:22px;
 }
 
 .primary{
   background:linear-gradient(135deg,var(--orange),#f7b267);
   color:#1a1205;
-  padding:14px 26px;
+  padding:14px 30px;
   border-radius:999px;
   font-weight:600;
 }
 
 .secondary{
-  border-bottom:1px solid rgba(244,247,246,.4);
-  padding-bottom:4px;
   color:var(--text-main);
+  border-bottom:1px solid rgba(244,248,246,.4);
+  padding-bottom:4px;
 }
 
-/* IMAGE */
+/* Visual */
 .hero-visual{
-  border-radius:28px;
-  overflow:hidden;
-  box-shadow:0 40px 90px rgba(0,0,0,.45);
+  height:420px;
+  border-radius:32px;
+  background:
+    linear-gradient(180deg,rgba(95,207,155,.18),rgba(0,0,0,.15)),
+    url('/assets/team-montage.jpg') center/cover no-repeat;
+  box-shadow:0 40px 100px rgba(0,0,0,.5);
 }
 
-.hero-visual img{width:100%;display:block}
-
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section{
-  padding:120px 0;
+  padding:140px 0;
 }
 
-.section-title{
-  font-size:26px;
-  margin-bottom:16px;
-}
-
-.section-text{
-  max-width:720px;
+/* Intro Text Section */
+.intro-text{
+  max-width:820px;
+  font-size:18px;
   color:var(--text-muted);
 }
 
-/* FLOW */
+.intro-text strong{
+  color:var(--text-main);
+  font-weight:500;
+}
+
+/* Divider line */
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--green-dim),transparent);
+  margin:80px 0;
+}
+
+/* ================= WHY ================= */
+.why{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+}
+
+.why h2{
+  font-size:30px;
+  margin-bottom:24px;
+}
+
+.why p{
+  color:var(--text-muted);
+  font-size:16px;
+}
+
+.why ul{
+  margin-top:28px;
+  padding-left:18px;
+  color:var(--text-muted);
+}
+
+.why li{margin-bottom:12px}
+
+/* ================= FLOW ================= */
 .flow{
-  margin-top:60px;
+  margin-top:70px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:28px;
+  gap:50px;
 }
 
-.flow div{
-  font-size:14px;
-  color:var(--text-muted);
+.flow-step{
+  font-size:15px;
 }
 
-.flow strong{
-  color:var(--text-main);
+.flow-step span{
   display:block;
-  margin-bottom:6px;
+  font-size:13px;
+  color:var(--green);
+  margin-bottom:8px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
 }
 
-/* SERVICES */
+/* ================= SERVICES ================= */
 .services{
-  margin-top:60px;
+  margin-top:70px;
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:40px 60px;
+  grid-template-columns:1fr 1fr;
+  gap:60px 80px;
 }
 
 .services h3{
-  margin-bottom:6px;
+  font-size:20px;
+  margin-bottom:10px;
 }
 
 .services p{
   color:var(--text-muted);
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
-  padding:60px 0;
-  border-top:1px solid rgba(159,181,171,.15);
+  padding:80px 0;
+  border-top:1px solid rgba(167,192,181,.2);
   color:var(--text-muted);
+  font-size:14px;
 }
 
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .flow{grid-template-columns:1fr}
-  .services{grid-template-columns:1fr}
+  .hero,
+  .why{
+    grid-template-columns:1fr;
+  }
+  .flow{
+    grid-template-columns:1fr;
+  }
+  .services{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -219,12 +265,13 @@ footer{
 
   <div class="container hero">
     <div>
-      <div class="badge">Persönlich · Zuverlässig · Stressfrei</div>
-      <h1>Umziehen ist kompliziert.<br>Wir machen es einfach.</h1>
+      <div class="badge">Persönlich · Strukturiert · Zuverlässig</div>
+      <h1>Umziehen ist komplex.<br>Wir machen es planbar.</h1>
       <p>
-        Hero Umzug steht für strukturierte Umzüge ohne Hektik.
-        Keine improvisierten Abläufe, keine Überraschungen –
-        sondern Planung, Erfahrung und ein Team, das weiß, was es tut.
+        Ein Umzug bedeutet Veränderung – und die sollte nicht im Chaos enden.
+        <strong>Hero Umzug</strong> steht für klare Abläufe, feste Ansprechpartner
+        und ein Team, das weiß, was es tut. Kein Improvisieren, kein Zeitdruck,
+        keine Überraschungen.
       </p>
 
       <div class="hero-actions">
@@ -233,65 +280,96 @@ footer{
       </div>
     </div>
 
-    <div class="hero-visual">
-      <img src="/assets/team-montage.jpg" alt="Hero Umzug Team">
-    </div>
+    <div class="hero-visual"></div>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <h2 class="section-title">Warum Hero Umzug?</h2>
-    <p class="section-text">
-      Ein Umzug ist Vertrauenssache. Deshalb arbeiten wir nicht mit wechselnden Teams
-      oder anonymen Prozessen, sondern mit klaren Ansprechpartnern, festen Abläufen
-      und ehrlicher Kommunikation. Unsere Kunden wissen jederzeit, wo sie stehen –
-      und genau das schätzen sie.
-    </p>
-  </div>
-</section>
+    <div class="intro-text">
+      <strong>Wer wir sind.</strong><br><br>
+      Hero Umzug ist kein anonymer Dienstleister, sondern ein eingespieltes Team,
+      das Umzüge strukturiert plant und sauber umsetzt. Wir glauben nicht an
+      hektische Umzugstage oder halbfertige Lösungen, sondern an Vorbereitung,
+      Kommunikation und Verantwortung.
+    </div>
 
-<section>
-  <div class="container">
-    <h2 class="section-title">So läuft ein Umzug bei uns ab</h2>
-    <p class="section-text">
-      Jeder Umzug folgt bei uns einer klaren Struktur. Das sorgt für Sicherheit
-      und verhindert Stress am Umzugstag.
-    </p>
+    <div class="divider"></div>
 
-    <div class="flow">
-      <div><strong>Anfrage</strong>Kurze Abstimmung Ihrer Situation.</div>
-      <div><strong>Planung</strong>Ablauf, Team und Termin werden festgelegt.</div>
-      <div><strong>Umzug</strong>Tragen, Transport und Montage.</div>
-      <div><strong>Abschluss</strong>Alles steht, Übergabe erledigt.</div>
+    <div class="why">
+      <div>
+        <h2>Warum Kunden sich für uns entscheiden</h2>
+        <p>
+          Viele unserer Kunden kommen über Empfehlungen. Nicht, weil wir
+          die billigsten sind, sondern weil wir zuverlässig arbeiten
+          und Zusagen einhalten.
+        </p>
+      </div>
+      <div>
+        <ul>
+          <li>Ein fester Ansprechpartner von Anfang bis Ende</li>
+          <li>Klare Planung statt spontaner Entscheidungen</li>
+          <li>Sorgfältiger Umgang mit Möbeln und Eigentum</li>
+          <li>Realistische Zeitpläne ohne leere Versprechen</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2 class="section-title">Unsere Leistungen</h2>
-    <p class="section-text">
+    <h2>So läuft ein Umzug bei uns ab</h2>
+    <p class="intro-text">
+      Jeder Umzug folgt bei uns einer festen Struktur. Das schafft Sicherheit
+      und verhindert Stress – besonders am Umzugstag selbst.
+    </p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <span>Anfrage</span>
+        Kurze Abstimmung Ihrer Situation und Wünsche.
+      </div>
+      <div class="flow-step">
+        <span>Planung</span>
+        Ablauf, Team und Termin werden verbindlich festgelegt.
+      </div>
+      <div class="flow-step">
+        <span>Umzug</span>
+        Tragen, Transport und Montage durch unser Team.
+      </div>
+      <div class="flow-step">
+        <span>Abschluss</span>
+        Alles steht – Übergabe erledigt.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Unsere Leistungen</h2>
+    <p class="intro-text">
       Wir bieten keine aufgeblähten Pakete, sondern genau die Leistungen,
-      die für Ihren Umzug sinnvoll sind.
+      die für Ihren Umzug sinnvoll sind – flexibel kombinierbar.
     </p>
 
     <div class="services">
       <div>
         <h3>Privat- & Büroumzüge</h3>
-        <p>Geplant, effizient und mit minimalem Aufwand für Sie.</p>
+        <p>Effizient geplant und mit minimalem Aufwand für Sie.</p>
       </div>
       <div>
         <h3>Möbelmontage</h3>
-        <p>Fachgerechter Ab- und Aufbau – sauber und stabil.</p>
+        <p>Fachgerechter Ab- und Aufbau – sauber, stabil und zuverlässig.</p>
       </div>
       <div>
         <h3>Einpackservice</h3>
-        <p>Sicheres Verpacken empfindlicher und wertvoller Gegenstände.</p>
+        <p>Sicheres Verpacken empfindlicher Gegenstände.</p>
       </div>
       <div>
         <h3>Entsorgung & Lagerung</h3>
-        <p>Fachgerechte Entsorgung und flexible Zwischenlagerung.</p>
+        <p>Fachgerecht entsorgt oder flexibel zwischengelagert.</p>
       </div>
     </div>
   </div>
