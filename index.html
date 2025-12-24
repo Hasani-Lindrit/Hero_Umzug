@@ -140,6 +140,35 @@ footer{
   opacity:1;
 }
 
+.main-nav{
+  display:flex;
+  gap:32px;
+}
+
+.main-nav a{
+  color:white;
+  text-decoration:none;
+  font-size:17px;
+  font-weight:600;
+  padding:8px 4px;
+  position:relative;
+}
+
+.main-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:white;
+  transition:width 0.2s ease;
+}
+
+.main-nav a:hover::after{
+  width:100%;
+}
+
 </style>
 </head>
 
@@ -164,16 +193,18 @@ function slide(direction){
     <div style="display:flex;align-items:center;gap:36px;flex-wrap:wrap;">
       
       <!-- LOGO (größer) -->
-      <img src="/assets/logo.png"
-           alt="Hero Umzug Logo"
-           style="height:72px;width:auto;">
+    <a href="/" style="display:flex;align-items:center;">
+    <img src="/assets/logo.png"
+        alt="Hero Umzug Logo"
+        style="height:90px;width:auto;cursor:pointer;">
+    </a>
 
       <!-- NAVIGATION -->
-      <nav style="display:flex;gap:28px;font-weight:600;">
-        <a href="/" style="color:white;text-decoration:none;">Startseite</a>
-        <a href="#leistungen" style="color:white;text-decoration:none;">Leistungen</a>
-        <a href="#unternehmen" style="color:white;text-decoration:none;">Unternehmen</a>
-        <a href="/kontakt/" style="color:white;text-decoration:none;">Kontakt</a>
+      <nav class="main-nav">
+        <a href="/">Startseite</a>
+        <a href="/leistungen/">Leistungen</a>
+        <a href="/unternehmen/">Unternehmen</a>
+        <a href="/kontakt/">Kontakt</a>
       </nav>
     </div>
 
