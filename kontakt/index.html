@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt – Hero Umzug</title>
+<style>
+:root{
+  --primary:#3BAF75;
+  --secondary:#F2994A;
+  --bg:#f8faf9;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:900px;margin:0 auto;padding:40px 20px}
+.header{
+  background:linear-gradient(135deg,var(--primary),#6fd19c);
+  color:#fff;
+  padding:34px 20px;
+}
+.header .container{padding:0 20px}
+a{color:inherit}
+.nav{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap
+}
+.btn{
+  display:inline-block;background:var(--secondary);color:#fff;padding:12px 18px;border-radius:10px;
+  font-weight:600;text-decoration:none;border:none;cursor:pointer
+}
+.btn.secondary{background:#444}
+.card{background:var(--card);border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+p{color:var(--muted)}
+form{display:grid;gap:12px;margin-top:10px}
+input,select,textarea{padding:12px;border-radius:10px;border:1px solid #d1d5db;font-size:14px}
+textarea{resize:vertical}
+.footer{margin-top:22px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container nav">
+    <strong>Hero Umzug</strong>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn secondary" href="/">Startseite</a>
+      <a class="btn secondary" href="/impressum/">Impressum</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Kontakt</h1>
+  <p>Sie haben zwei Möglichkeiten: direkt anrufen oder das Formular ausfüllen. Je vollständiger die Angaben, desto schneller ein Angebot.</p>
+
+  <div class="card">
+    <h2>Direkt anrufen</h2>
+    <p><strong>Telefon:</strong> <a href="tel:+49123456789">+49 123 456789</a></p>
+  </div>
+
+  <div style="height:18px"></div>
+
+  <div class="card">
+    <h2>Umzugsanfrage</h2>
+    <p>Bitte geben Sie alle relevanten Informationen an. Wir melden uns zeitnah.</p>
+
+    <!-- Hinweis: Ohne Backend sendet dieses Formular noch nichts.
+         Im nächsten Schritt binden wir es an E-Mail (Formspree) oder Google Forms an. -->
+    <form>
+      <input name="name" placeholder="Name" required>
+      <input name="telefon" type="tel" placeholder="Telefonnummer" required>
+      <input name="email" type="email" placeholder="E-Mail (optional)">
+
+      <h3 style="margin:8px 0 0;">Umzug</h3>
+      <input name="von" placeholder="Adresse – von" required>
+      <input name="nach" placeholder="Adresse – nach" required>
+      <input name="datum" type="date" required>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+        <input name="stockwerk_von" placeholder="Stockwerk – von (z. B. 3)">
+        <input name="stockwerk_nach" placeholder="Stockwerk – nach (z. B. 1)">
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+        <select name="aufzug_von">
+          <option value="">Aufzug – von?</option>
+          <option>Ja</option>
+          <option>Nein</option>
+        </select>
+        <select name="aufzug_nach">
+          <option value="">Aufzug – nach?</option>
+          <option>Ja</option>
+          <option>Nein</option>
+        </select>
+      </div>
+
+      <h3 style="margin:8px 0 0;">Leistung</h3>
+      <select name="leistung" required>
+        <option value="">Art der Leistung wählen</option>
+        <option>Umzug</option>
+        <option>Möbelmontage</option>
+        <option>Entsorgung</option>
+        <option>Kombination</option>
+      </select>
+
+      <textarea name="moebel" rows="4" placeholder="Möbel / Umfang (z. B. Anzahl Zimmer, große Möbel, Küche, Waschmaschine etc.)"></textarea>
+      <textarea name="besonderheiten" rows="4" placeholder="Besonderheiten (Parken, Halteverbot, enge Treppe, empfindliche Gegenstände, Wunschzeitfenster)"></textarea>
+
+      <button class="btn" type="submit">Anfrage absenden</button>
+    </form>
+
+    <div class="footer">
+      Hinweis: Im nächsten Schritt verbinden wir das Formular so, dass du die Anfrage per E-Mail bekommst.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
