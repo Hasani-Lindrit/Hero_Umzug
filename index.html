@@ -95,31 +95,112 @@ footer{
   gap:14px;
   margin-top:20px;
 }
+.slider-wrapper{
+  position:relative;
+  overflow:hidden;
+  margin-top:20px;
+}
+
+.slider{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+}
+
+.slider img{
+  height:240px;
+  border-radius:16px;
+  flex-shrink:0;
+}
+
+.slider::-webkit-scrollbar{
+  display:none;
+}
+
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#1f2937;
+  color:white;
+  border:none;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  font-size:22px;
+  cursor:pointer;
+  opacity:0.85;
+}
+
+.slider-btn.left{left:10px}
+.slider-btn.right{right:10px}
+
+.slider-btn:hover{
+  opacity:1;
+}
+
 </style>
 </head>
+
+<script>
+function slide(direction){
+  const slider = document.getElementById("teamSlider");
+  slider.scrollBy({
+    left: direction * 300,
+    behavior: "smooth"
+  });
+}
+</script>
+
 
 <body>
 
 <!-- HEADER / HERO -->
 <header>
-  <div class="container">
-    <div style="display:flex;align-items:center;gap:14px;">
-    <img src="/assets/logo.png"
-        alt="Hero Umzug Logo"
-        style="height:48px;width:auto;">
-    <strong>Hero Umzug</strong>
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    
+    <!-- LOGO + NAV -->
+    <div style="display:flex;align-items:center;gap:36px;flex-wrap:wrap;">
+      
+      <!-- LOGO (größer) -->
+      <img src="/assets/logo.png"
+           alt="Hero Umzug Logo"
+           style="height:72px;width:auto;">
+
+      <!-- NAVIGATION -->
+      <nav style="display:flex;gap:28px;font-weight:600;">
+        <a href="/" style="color:white;text-decoration:none;">Startseite</a>
+        <a href="#leistungen" style="color:white;text-decoration:none;">Leistungen</a>
+        <a href="#unternehmen" style="color:white;text-decoration:none;">Unternehmen</a>
+        <a href="/kontakt/" style="color:white;text-decoration:none;">Kontakt</a>
+      </nav>
     </div>
 
-    <h1>Stressfrei umziehen. Wir kümmern uns darum.</h1>
-    <p>Umzüge, Möbelmontage und Entsorgung – zuverlässig, freundlich und professionell.</p>
+    <!-- TELEFON BUTTON -->
+    <a href="tel:+49123456789"
+       style="background:#1f2937;color:white;padding:14px 22px;border-radius:999px;
+              font-weight:600;text-decoration:none;white-space:nowrap;">
+      📞 +49 123 456789
+    </a>
+    <section style="padding:40px 0;">
+    <div class="container">
+        <h2>Unser Team im Einsatz</h2>
 
-    <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="/kontakt/" class="btn">Kontakt aufnehmen</a>
-      <a href="/kontakt/" class="btn secondary">Kostenlose Anfrage</a>
+        <div class="slider-wrapper">
+        <button class="slider-btn left" onclick="slide(-1)">‹</button>
+
+        <div class="slider" id="teamSlider">
+            <img src="/assets/team-montage.jpg" alt="Team beim Möbelaufbau">
+            <img src="/assets/team-montage.jpg" alt="Team beim Möbelaufbau">
+            <img src="/assets/team-montage.jpg" alt="Team beim Möbelaufbau">
+            <img src="/assets/team-montage.jpg" alt="Team beim Möbelaufbau">
+        </div>
+
+        <button class="slider-btn right" onclick="slide(1)">›</button>
+        </div>
     </div>
-
-    <!-- TEAM FOTO -->
-    <img src="/assets/team-montage.jpg" alt="Unser Team beim Möbelaufbau" class="placeholder">
+    </section>
   </div>
 </header>
 
