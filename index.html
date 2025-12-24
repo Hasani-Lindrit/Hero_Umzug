@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hero Umzug – Umzüge, Möbelmontage & Entsorgung</title>
-<meta name="description" content="Hero Umzug – zuverlässige Umzüge, Möbelaufbau und Entsorgung. Freundlich, professionell und stressfrei.">
+
+<title>Hero Umzug – Stressfrei umziehen mit einem starken Team</title>
+<meta name="description" content="Hero Umzug – Umzüge, Möbelmontage & Entsorgung. Persönlich, zuverlässig und stressfrei. Jetzt unverbindlich anfragen.">
+
 <style>
 :root{
   --green:#3BAF75;
@@ -27,36 +29,18 @@ body{
   line-height:1.7;
 }
 
+.container{
+  max-width:1200px;
+  margin:0 auto;
+}
+
 /* HEADER */
 header{
   background:
     radial-gradient(1200px 400px at top left, rgba(59,175,117,.25), transparent),
     linear-gradient(135deg,var(--green),var(--green-dark));
   color:white;
-  padding:36px 20px 64px;
-}
-
-.container{
-  max-width:1200px;
-  margin:0 auto;
-}
-
-h1{
-  font-size:42px;
-  margin:24px 0 12px;
-}
-
-h2{
-  font-size:30px;
-  margin-bottom:12px;
-}
-
-h3{margin-top:0}
-
-p{color:var(--muted)}
-
-section{
-  padding:80px 20px;
+  padding:36px 20px 90px;
 }
 
 /* NAV */
@@ -84,9 +68,7 @@ section{
   transition:width .25s ease;
 }
 
-.main-nav a:hover::after{
-  width:100%;
-}
+.main-nav a:hover::after{width:100%}
 
 /* BUTTONS */
 .btn{
@@ -111,7 +93,11 @@ section{
   box-shadow:none;
 }
 
-/* CARDS */
+/* SECTIONS */
+section{padding:90px 20px}
+section.light{background:#ffffff}
+
+/* GRID / CARDS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -131,26 +117,20 @@ section{
   box-shadow:0 28px 70px rgba(0,0,0,.1);
 }
 
-/* TEAM SLIDER */
-.slider-wrapper{
-  position:relative;
-  margin-top:30px;
-}
-
+/* SLIDER */
+.slider-wrapper{position:relative;margin-top:30px}
 .slider{
   display:flex;
   gap:20px;
   overflow-x:auto;
   scroll-behavior:smooth;
 }
-
 .slider img{
   height:260px;
   border-radius:22px;
   flex-shrink:0;
   box-shadow:0 18px 50px rgba(0,0,0,.15);
 }
-
 .slider::-webkit-scrollbar{display:none}
 
 .slider-btn{
@@ -167,7 +147,6 @@ section{
   cursor:pointer;
   box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
-
 .slider-btn.left{left:-10px}
 .slider-btn.right{right:-10px}
 
@@ -175,40 +154,22 @@ section{
 footer{
   background:#111827;
   color:#e5e7eb;
-  padding:50px 20px;
+  padding:70px 20px;
 }
+.footer-buttons{display:flex;gap:16px;margin-top:20px}
 
-.footer-buttons{
-  display:flex;
-  gap:16px;
-  margin-top:20px;
+@media(max-width:800px){
+  .main-nav{flex-wrap:wrap;gap:18px}
 }
-
 </style>
 </head>
 
-<script>
-function slide(direction){
-  const slider = document.getElementById("teamSlider");
-  slider.scrollBy({
-    left: direction * 300,
-    behavior: "smooth"
-  });
-}
-</script>
-
-
 <body>
 
-<!-- HEADER / HERO -->
 <header>
   <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;">
-    
     <div style="display:flex;align-items:center;gap:48px;">
-      <a href="/">
-        <img src="/assets/logo.png" alt="Hero Umzug Logo" style="height:96px">
-      </a>
-
+      <a href="/"><img src="/assets/logo.png" alt="Hero Umzug Logo" style="height:96px"></a>
       <nav class="main-nav">
         <a href="/">Startseite</a>
         <a href="/leistungen/">Leistungen</a>
@@ -216,21 +177,33 @@ function slide(direction){
         <a href="/kontakt/">Kontakt</a>
       </nav>
     </div>
-
-    <a href="tel:+49123456789" class="btn secondary">
-      📞 +49 123 456789
-    </a>
+    <a href="tel:+49123456789" class="btn secondary">📞 +49 123 456789</a>
   </div>
 
   <div class="container">
-    <h1>Stressfrei umziehen.<br>Wir kümmern uns darum.</h1>
-    <p style="max-width:620px;color:#e9f7ef">
-      Umzüge, Möbelmontage & Entsorgung – zuverlässig, sauber und professionell.
+    <div style="margin-top:40px;display:inline-flex;gap:10px;padding:6px 16px;border-radius:999px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);">
+      <span style="width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange)"></span>
+      Persönlich · Zuverlässig · Stressfrei
+    </div>
+
+    <h1 style="margin-top:22px;font-size:44px;max-width:720px;">
+      Stressfrei umziehen –<br>wir kümmern uns um den Rest.
+    </h1>
+
+    <p style="max-width:620px;color:#e9f7ef;">
+      Umzüge, Möbelmontage & Entsorgung aus einer Hand.
+      Ein eingespieltes Team, klare Abläufe und ein gutes Gefühl von Anfang an.
     </p>
 
     <div style="margin-top:28px;display:flex;gap:16px;flex-wrap:wrap;">
       <a href="/kontakt/" class="btn">Kostenlose Anfrage</a>
       <a href="/kontakt/" class="btn secondary">Kontakt</a>
+    </div>
+
+    <div style="margin-top:18px;font-size:14px;color:#e9f7ef;display:flex;gap:18px;flex-wrap:wrap;">
+      <span>✔ Feste Termine</span>
+      <span>✔ Freundliches Team</span>
+      <span>✔ Faire Preise</span>
     </div>
   </div>
 </header>
@@ -238,99 +211,54 @@ function slide(direction){
 <section>
   <div class="container">
     <h2>Unser Team im Einsatz</h2>
-    <p>Einblicke in unsere tägliche Arbeit – zuverlässig, eingespielt, erfahren.</p>
+    <p style="max-width:560px;">
+      Hinter jedem erfolgreichen Umzug steht ein eingespieltes Team.
+      Hier ein paar Eindrücke aus unserem Arbeitsalltag.
+    </p>
 
     <div class="slider-wrapper">
       <button class="slider-btn left" onclick="slide(-1)">‹</button>
-
       <div class="slider" id="teamSlider">
         <img src="/assets/team-montage.jpg">
         <img src="/assets/team-montage.jpg">
         <img src="/assets/team-montage.jpg">
         <img src="/assets/team-montage.jpg">
       </div>
-
       <button class="slider-btn right" onclick="slide(1)">›</button>
     </div>
   </div>
 </section>
 
-<!-- LEISTUNGEN -->
-<section>
+<section class="light">
   <div class="container">
-    <h2>Unsere Leistungen</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>🚚 Umzüge</h3>
-        <p>
-          Private und gewerbliche Umzüge – sorgfältig geplant, sicher durchgeführt
-          und termingerecht abgeschlossen.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🛠 Möbelmontage</h3>
-        <p>
-          Fachgerechter Ab- und Aufbau von Möbeln aller Art, inklusive Küchen
-          und großen Schränken.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>♻ Entsorgung</h3>
-        <p>
-          Umweltgerechte Entsorgung von Möbeln, Sperrmüll und nicht mehr
-          benötigten Gegenständen.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>📦 Tragehilfe</h3>
-        <p>
-          Zusätzliche Helfer für schwere Möbel, enge Treppenhäuser
-          oder zeitkritische Umzüge.
-        </p>
-      </div>
+    <h2>So läuft Ihr Umzug mit Hero Umzug ab</h2>
+    <div class="grid" style="margin-top:32px;">
+      <div class="card"><h3>1 · Anfrage</h3><p>Sie schildern kurz Ihren Umzug – wir klären alle Details.</p></div>
+      <div class="card"><h3>2 · Planung</h3><p>Wir planen Ablauf, Team und Transport passend zu Ihrem Termin.</p></div>
+      <div class="card"><h3>3 · Umzugstag</h3><p>Tragen, Transport & Aufbau – sorgfältig und zuverlässig.</p></div>
+      <div class="card"><h3>4 · Ankommen</h3><p>Alles steht, Sie können entspannt ankommen.</p></div>
     </div>
   </div>
 </section>
 
-<!-- VERTRAUEN -->
-<section style="background:#ffffff">
-  <div class="container">
-    <h2>Warum Hero Umzug?</h2>
-    <ul>
-      <li>Freundliches und erfahrenes Team</li>
-      <li>Sorgfältiger Umgang mit Ihrem Eigentum</li>
-      <li>Klare Kommunikation und zuverlässige Termine</li>
-      <li>Hohe Kundenzufriedenheit & Weiterempfehlungen</li>
-    </ul>
-  </div>
-</section>
-
-<!-- PREIS -->
 <section>
   <div class="container">
-    <h2>Wie setzt sich der Preis zusammen?</h2>
-    <p>Der Preis wird individuell und fair berechnet – abhängig von:</p>
-    <ul>
-      <li>Umfang des Umzugsguts</li>
-      <li>Entfernung zwischen den Adressen</li>
-      <li>Stockwerke & Aufzug</li>
-      <li>Zusatzleistungen (Montage, Entsorgung)</li>
-      <li>gewünschtem Termin</li>
-    </ul>
-    <p>
-      Sie erhalten ein transparentes Angebot – ohne versteckte Kosten.
-    </p>
+    <h2>Warum Kunden uns weiterempfehlen</h2>
+    <div class="grid" style="margin-top:30px;">
+      <div class="card"><h3>🤝 Persönlich</h3><p>Direkter Kontakt, keine Hotline.</p></div>
+      <div class="card"><h3>🧼 Sorgfalt</h3><p>Respektvoller Umgang mit Ihrem Eigentum.</p></div>
+      <div class="card"><h3>⏱ Zuverlässig</h3><p>Absprachen werden eingehalten.</p></div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
-    <p>© <span id="year"></span> Hero Umzug</p>
-
+    <h3>Hero Umzug</h3>
+    <p style="max-width:420px;">
+      Ihr zuverlässiger Partner für Umzüge, Möbelmontage und Entsorgung –
+      persönlich, fair und professionell.
+    </p>
     <div class="footer-buttons">
       <a href="/kontakt/" class="btn">Kontakt</a>
       <a href="/impressum/" class="btn secondary">Impressum</a>
@@ -339,7 +267,9 @@ function slide(direction){
 </footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+function slide(direction){
+  document.getElementById("teamSlider").scrollBy({left:direction*300,behavior:"smooth"});
+}
 </script>
 
 </body>
