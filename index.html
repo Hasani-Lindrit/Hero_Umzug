@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Professionelle Umzüge & Möbelmontage</title>
-<meta name="description" content="Zuverlässige Umzüge, Möbelaufbau und Entsorgung. Stressfrei, fair und professionell.">
+<title>Umzüge & Möbelservice – Zuverlässig & Fair</title>
+<meta name="description" content="Professionelle Umzüge, Möbelmontage und Entsorgung. Freundlich, zuverlässig und stressfrei.">
 
 <style>
 :root{
-  --primary:#2f80ed;
-  --secondary:#27ae60;
-  --bg:#f7f9fc;
+  --primary:#3BAF75;
+  --secondary:#F2994A;
+  --bg:#f8faf9;
+  --card:#ffffff;
   --text:#1f2937;
   --muted:#6b7280;
 }
@@ -25,9 +26,9 @@ body{
 }
 
 header{
-  background:linear-gradient(135deg,var(--primary),#56ccf2);
+  background:linear-gradient(135deg,var(--primary),#6fd19c);
   color:white;
-  padding:80px 20px;
+  padding:70px 20px;
 }
 
 .container{
@@ -35,7 +36,7 @@ header{
   margin:0 auto;
 }
 
-h1{font-size:42px;margin-bottom:12px}
+h1{font-size:40px;margin-bottom:10px}
 h2{font-size:28px;margin-bottom:10px}
 h3{margin-top:0}
 
@@ -49,6 +50,12 @@ p{color:var(--muted)}
   border-radius:8px;
   font-weight:600;
   text-decoration:none;
+  border:none;
+  cursor:pointer;
+}
+
+.btn.secondary{
+  background:#444;
 }
 
 .btn:hover{filter:brightness(1.05)}
@@ -64,15 +71,20 @@ section{
 }
 
 .card{
-  background:white;
-  border-radius:14px;
-  padding:24px;
+  background:var(--card);
+  border-radius:16px;
+  padding:26px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
-.card p{margin-bottom:0}
-
 ul{padding-left:18px}
+
+img.placeholder{
+  width:100%;
+  border-radius:16px;
+  margin-top:30px;
+  background:#ddd;
+}
 
 form{
   display:grid;
@@ -88,22 +100,19 @@ input,select,textarea{
 
 textarea{resize:vertical}
 
-.faq details{
-  background:white;
-  padding:16px 20px;
-  border-radius:10px;
-  margin-bottom:10px;
-  box-shadow:0 6px 20px rgba(0,0,0,.05);
-}
-
 footer{
-  background:#111827;
-  color:#d1d5db;
+  background:#1f2937;
+  color:#e5e7eb;
   padding:40px 20px;
 }
 
-footer a{color:#9ca3af;text-decoration:none}
-footer a:hover{text-decoration:underline}
+footer p{color:#d1d5db}
+
+.footer-buttons{
+  display:flex;
+  gap:14px;
+  margin-top:20px;
+}
 
 @media(max-width:600px){
   h1{font-size:32px}
@@ -115,9 +124,21 @@ footer a:hover{text-decoration:underline}
 
 <header>
   <div class="container">
-    <h1>Stressfrei umziehen. Wir kümmern uns darum.</h1>
-    <p>Zuverlässige Umzüge, Möbelmontage und Entsorgung – fair, professionell und termintreu.</p>
-    <a href="#anfrage" class="btn">Kostenlose Umzugsanfrage</a>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <!-- LOGO HIER SPÄTER EINFÜGEN -->
+      <div style="width:48px;height:48px;background:#ffffff55;border-radius:8px"></div>
+      <strong>Ihr Umzugs- & Möbelservice</strong>
+    </div>
+
+    <h1>Stressfrei umziehen. Wir packen an.</h1>
+    <p>Umzüge, Möbelaufbau und Entsorgung – zuverlässig, freundlich und professionell.</p>
+
+    <div style="margin-top:20px;">
+      <a href="#kontakt" class="btn">Kontakt aufnehmen</a>
+    </div>
+
+    <!-- TEAM FOTO PLATZHALTER -->
+    <img src="team-montage.jpg" alt="Unser Team beim Möbelaufbau" class="placeholder">
   </div>
 </header>
 
@@ -127,105 +148,134 @@ footer a:hover{text-decoration:underline}
     <div class="grid">
       <div class="card">
         <h3>🚚 Umzüge</h3>
-        <p>Privat- und Firmenumzüge – regional oder deutschlandweit, sorgfältig geplant und durchgeführt.</p>
+        <p>
+          Private und gewerbliche Umzüge – regional oder überregional.
+          Wir planen Ihren Umzug sorgfältig, transportieren Ihr Eigentum
+          sicher und sorgen für einen reibungslosen Ablauf.
+        </p>
       </div>
+
       <div class="card">
         <h3>🛠 Möbelmontage</h3>
-        <p>Ab- und Aufbau von Möbeln aller Art – fachgerecht und sicher.</p>
+        <p>
+          Fachgerechter Ab- und Aufbau von Möbeln aller Art:
+          Schränke, Betten, Regale und Küchen – stabil, sauber und zuverlässig.
+        </p>
       </div>
+
       <div class="card">
         <h3>♻ Entsorgung</h3>
-        <p>Fachgerechte Entsorgung von Möbeln, Altgeräten und Sperrmüll.</p>
+        <p>
+          Umweltgerechte Entsorgung von alten Möbeln, Sperrmüll
+          und nicht mehr benötigten Gegenständen.
+        </p>
       </div>
+
       <div class="card">
         <h3>📦 Tragehilfe</h3>
-        <p>Zusätzliche Helfer für schwere oder zeitkritische Transporte.</p>
+        <p>
+          Zusätzliche Helfer für schwere Möbel, enge Treppenhäuser
+          oder zeitkritische Umzüge.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:white">
+<section style="background:#ffffff">
   <div class="container">
-    <h2>Warum wir?</h2>
+    <h2>Warum Kunden uns wählen</h2>
     <ul>
-      <li>Transparente Preise ohne Überraschungen</li>
-      <li>Erfahrene und freundliche Mitarbeiter</li>
-      <li>Sorgfältiger Umgang mit Ihrem Eigentum</li>
-      <li>Zuverlässige Terminabwicklung</li>
+      <li>Freundliches und erfahrenes Team</li>
+      <li>Sorgfältiger Umgang mit Möbeln und Eigentum</li>
+      <li>Klare Kommunikation & zuverlässige Termine</li>
+      <li>Hohe Kundenzufriedenheit und Weiterempfehlungen</li>
     </ul>
   </div>
 </section>
 
-<section id="anfrage">
+<section>
   <div class="container">
-    <h2>Umzugsanfrage</h2>
-    <p>Füllen Sie das Formular aus – wir melden uns zeitnah mit einem Angebot.</p>
+    <h2>Wie setzt sich der Preis zusammen?</h2>
+    <p>Der Preis wird individuell und fair kalkuliert – unter anderem anhand:</p>
+    <ul>
+      <li>Umfang und Menge des Umzugsguts</li>
+      <li>Entfernung zwischen Start- und Zieladresse</li>
+      <li>Stockwerke und Aufzugssituation</li>
+      <li>Zusatzleistungen wie Möbelmontage oder Entsorgung</li>
+      <li>Gewünschter Umzugstermin</li>
+    </ul>
+    <p>
+      So erhalten Sie ein Angebot, das genau zu Ihrem Umzug passt –
+      ohne versteckte Kosten.
+    </p>
+  </div>
+</section>
 
+<section id="kontakt" style="background:#ffffff">
+  <div class="container">
+    <h2>Kontaktaufnahme</h2>
+    <p>
+      Sie haben zwei Möglichkeiten:  
+      <strong>direkt anrufen</strong> oder eine <strong>Umzugsanfrage senden</strong>.
+    </p>
+
+    <p><strong>Telefon:</strong> <a href="tel:+49123456789">+49 123 456789</a></p>
+
+    <h3>Umzugsanfrage</h3>
     <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="E-Mail" required>
-      <input type="tel" placeholder="Telefonnummer">
-      <input type="text" placeholder="Von (Adresse)">
-      <input type="text" placeholder="Nach (Adresse)">
-      <input type="date">
-      <select>
+      <input placeholder="Name" required>
+      <input type="tel" placeholder="Telefonnummer" required>
+      <input type="email" placeholder="E-Mail">
+
+      <input placeholder="Adresse – von" required>
+      <input placeholder="Adresse – nach" required>
+
+      <input type="date" required>
+
+      <select required>
         <option>Art der Leistung</option>
         <option>Umzug</option>
         <option>Möbelmontage</option>
         <option>Entsorgung</option>
         <option>Kombination</option>
       </select>
-      <textarea rows="4" placeholder="Zusätzliche Informationen (Stockwerke, Aufzug, Möbel etc.)"></textarea>
-      <button class="btn" type="submit">Anfrage senden</button>
+
+      <textarea rows="4" placeholder="Stockwerke, Aufzug, Möbel, Besonderheiten"></textarea>
+
+      <button class="btn" type="submit">Anfrage absenden</button>
     </form>
-  </div>
-</section>
-
-<section class="faq">
-  <div class="container">
-    <h2>Häufige Fragen</h2>
-
-    <details>
-      <summary>Wie kurzfristig kann ein Umzug gebucht werden?</summary>
-      <p>Je nach Verfügbarkeit sind auch kurzfristige Termine möglich.</p>
-    </details>
-
-    <details>
-      <summary>Sind meine Möbel versichert?</summary>
-      <p>Ja, Ihr Umzugsgut ist während des Transports versichert.</p>
-    </details>
-
-    <details>
-      <summary>Was kostet ein Umzug?</summary>
-      <p>Der Preis hängt vom Umfang, der Entfernung und den gewünschten Leistungen ab.</p>
-    </details>
-
-    <details>
-      <summary>Übernehmen Sie auch den Möbelabbau?</summary>
-      <p>Ja, Ab- und Aufbau von Möbeln ist Teil unseres Angebots.</p>
-    </details>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <h3>Kontakt</h3>
-    <p>E-Mail: kontakt@dein-umzug.de<br>
-       Telefon: 0123 456789</p>
+    <p>© <span id="year"></span> Ihr Umzugs- & Möbelservice</p>
 
-    <h3>Impressum</h3>
-    <p>
-      Firmenname<br>
-      Inhaber: Dein Name<br>
-      Straße, PLZ Ort<br>
-      Deutschland
-    </p>
-    <p>
-      E-Mail: kontakt@dein-umzug.de
-    </p>
+    <div class="footer-buttons">
+      <a href="#kontakt" class="btn">Kontakt</a>
+      <a href="#impressum" class="btn secondary">Impressum</a>
+    </div>
+
+    <div id="impressum" style="margin-top:30px;">
+      <h3>Impressum</h3>
+      <p>
+        Firmenname<br>
+        Inhaber: Dein Name<br>
+        Straße, PLZ Ort<br>
+        Deutschland
+      </p>
+      <p>
+        Telefon: +49 123 456789<br>
+        E-Mail: kontakt@dein-umzug.de
+      </p>
+    </div>
   </div>
 </footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
