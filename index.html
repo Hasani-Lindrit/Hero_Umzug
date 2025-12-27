@@ -461,7 +461,9 @@
       opacity:1;
       transform:none;
     }
-
+    .reveal{
+      transition-delay: var(--delay, 0s);
+    }
     /* Überschriften-Akzent */
     .section h2{
       position: relative;
@@ -572,28 +574,31 @@
         </p>
 
         <div class="grid-2" style="margin-top:14px;">
-          <div class="step">
+          <div class="step reveal" style="--delay:.0s">
             <div class="num">1</div>
             <div class="txt">
               <h3>Anfrage</h3>
               <p>Du schickst die Eckdaten. Wir melden uns zügig zurück und klären offene Punkte.</p>
             </div>
           </div>
-          <div class="step">
+          <div class="step reveal" style="--delay:.1s">
+
             <div class="num">2</div>
             <div class="txt">
               <h3>Planung</h3>
               <p>Wir planen Personal, Fahrzeug und Material. Transparent, realistisch, ohne Schönrechnen.</p>
             </div>
           </div>
-          <div class="step">
+          <div class="step reveal" style="--delay:.2s">
+
             <div class="num">3</div>
             <div class="txt">
               <h3>Umzug</h3>
               <p>Am Umzugstag läuft alles nach Plan: Schutz, Tragen, Transport, auf Wunsch Montage.</p>
             </div>
           </div>
-          <div class="step">
+          <div class="step reveal" style="--delay:.3s">
+
             <div class="num">4</div>
             <div class="txt">
               <h3>Abschluss</h3>
@@ -612,7 +617,7 @@
         </p>
 
         <div class="grid-3" style="margin-top:14px;">
-          <article class="card">
+          <article class="card reveal" style="--delay:.0s">
             <div class="icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <path d="M4 7h12l4 4v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" stroke="rgba(255,255,255,.92)" stroke-width="1.6" />
@@ -623,7 +628,7 @@
             <p>Wohnung, Haus oder WG – inklusive Tragen, Schutz und effizientem Aufbau vor Ort.</p>
           </article>
 
-          <article class="card">
+          <article class="card reveal" style="--delay:.1s">
             <div class="icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <path d="M4 20V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14" stroke="rgba(255,255,255,.92)" stroke-width="1.6" />
@@ -635,7 +640,7 @@
             <p>Büro, Praxis, Lager – mit Timing, das den Betrieb so wenig wie möglich stört.</p>
           </article>
 
-          <article class="card">
+          <article class="card reveal" style="--delay:.2s">
             <div class="icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <path d="M3 17V9l4-4h10l4 4v8" stroke="rgba(255,255,255,.92)" stroke-width="1.6" />
@@ -646,7 +651,7 @@
             <p>Möbel, Küche, Lampen – sauber demontiert, geschützt transportiert, ordentlich montiert.</p>
           </article>
 
-          <article class="card">
+          <article class="card reveal" style="--delay:.3s">
             <div class="icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z" stroke="rgba(255,255,255,.92)" stroke-width="1.6" />
@@ -657,7 +662,7 @@
             <p>Kartons, Folie, Polster – wir packen sicher ein und beschriften logisch für schnelles Auspacken.</p>
           </article>
 
-          <article class="card">
+          <article class="card reveal" style="--delay:.4s">
             <div class="icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <path d="M3 12h18" stroke="rgba(255,255,255,.92)" stroke-width="1.6" />
@@ -669,7 +674,7 @@
             <p>Ob in der Stadt oder bundesweit – wir planen Route, Zeiten und Ladung so, dass es passt.</p>
           </article>
 
-          <article class="card">
+          <article class="card reveal" style="--delay:.5s">
             <div class="icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4Z" stroke="rgba(255,255,255,.92)" stroke-width="1.6" />
@@ -694,7 +699,7 @@
             </p>
 
             <div class="grid-2" style="margin-top:14px;">
-              <div class="card">
+              <div class="card reveal" style="--delay:.0s">
                 <div class="icon" aria-hidden="true">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                     <path d="M7 12h10" stroke="rgba(255,255,255,.92)" stroke-width="1.6" />
@@ -707,7 +712,7 @@
                 <p>Klare Leistungen, nachvollziehbare Preise. Optional mit Festpreis – ohne versteckte Posten.</p>
               </div>
 
-              <div class="card">
+              <div class="card reveal" style="--delay:.1s">
                 <div class="icon" aria-hidden="true">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                     <path d="M20 7l-8 10-4-4" stroke="rgba(255,255,255,.92)" stroke-width="1.8" />
@@ -717,7 +722,7 @@
                 <p>Schutzmaterial, Struktur, sorgfältiges Tragen. Wir behandeln Möbel und Wohnung respektvoll.</p>
               </div>
 
-              <div class="card">
+              <div class="card reveal" style="--delay:.2s">
                 <div class="icon" aria-hidden="true">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                     <path d="M12 21s7-4.4 7-10V6l-7-3-7 3v5c0 5.6 7 10 7 10Z" stroke="rgba(255,255,255,.92)" stroke-width="1.6" />
@@ -728,7 +733,7 @@
                 <p>Pünktlich, freundlich, lösungsorientiert. Keine Hektik, sondern kontrollierte Abläufe.</p>
               </div>
 
-              <div class="card">
+              <div class="card reveal" style="--delay:.3s">
                 <div class="icon" aria-hidden="true">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                     <path d="M4 12a8 8 0 0 1 16 0" stroke="rgba(255,255,255,.92)" stroke-width="1.6" />
@@ -743,7 +748,8 @@
           </div>
 
           <div>
-            <div class="quote" id="bewertungen">
+            <div class="quote reveal" id="bewertungen">
+
               <p>
                 „Super organisiert, pünktlich und sehr sorgfältig. Kommunikation war klar, Umzug lief ohne Stress.“
               </p>
@@ -779,7 +785,7 @@
 
     <section class="section" id="kontakt">
       <div class="container">
-        <div class="cta">
+        <div class="cta reveal">
           <div>
             <h3>Jetzt Angebot anfragen</h3>
             <p>
@@ -797,7 +803,7 @@
         </div>
 
         <div class="grid-2" style="margin-top:14px;">
-          <div class="card">
+          <div class="card reveal" style="--delay:.0s">
             <h3 style="margin:0 0 6px;">Kontakt</h3>
             <p style="margin:0;color:var(--muted);">
               Telefon: <a href="tel:+491234567890">+49 123 4567890</a><br />
@@ -806,7 +812,7 @@
             </p>
           </div>
 
-          <div class="card">
+          <div class="card reveal" style="--delay:.0s">
             <h3 style="margin:0 0 6px;">Kurzformular (HTML only)</h3>
             <p style="margin:0;color:var(--muted); font-size: 13px;">
               Wenn du ein echtes Formular willst, sag kurz Bescheid, wohin es senden soll (z. B. Formspree, Netlify Forms).
