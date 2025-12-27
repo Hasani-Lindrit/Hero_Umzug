@@ -29,8 +29,8 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color: var(--text);
       background:
-        radial-gradient(900px 500px at 10% 10%, rgba(255,122,24,.22), transparent 60%),
-        radial-gradient(900px 500px at 90% 0%, rgba(255,176,86,.18), transparent 60%),
+        radial-gradient(900px 500px at 10% 10%, rgba(255,122,24,.22), transparent 70%),
+        radial-gradient(900px 500px at 90% 0%, rgba(255,176,86,.18), transparent 70%),
         linear-gradient(180deg, #3a5f52 0%, #35584b 30%, #2f4b40 60%, #1b2e27 100%);
       background-attachment: fixed;
       line-height: 1.5;
@@ -408,6 +408,85 @@
     @media (max-width: 600px){
       .brand img{ width: 64px; }
     }
+
+    .card,
+    .step{
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+    }
+
+    .card:hover,
+    .step:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 22px 60px rgba(0,0,0,.35);
+      background: rgba(255,255,255,.08);
+    }
+
+    /* Buttons – leichter Licht-Sweep */
+    .btn{
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255,255,255,.25),
+        transparent 70%
+      );
+      opacity:0;
+      transition: opacity .25s ease;
+    }
+
+    .btn:hover::after{
+      opacity:1;
+    }
+
+    /* Scroll-Reveal */
+    .reveal{
+      opacity:0;
+      transform: translateY(24px);
+      transition:
+        opacity .6s ease,
+        transform .6s ease;
+    }
+
+    .reveal.show{
+      opacity:1;
+      transform:none;
+    }
+
+    /* Überschriften-Akzent */
+    .section h2{
+      position: relative;
+    }
+
+    .section h2::after{
+      content:"";
+      display:block;
+      width:48px;
+      height:3px;
+      margin-top:10px;
+      border-radius:3px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      opacity:.9;
+    }
+
+    /* Hero-Bild minimal lebendig */
+    .hero-photo img{
+      transition: transform 1.2s ease;
+    }
+
+    .hero-photo:hover img{
+      transform: scale(1.04);
+    }
+
   </style>
 </head>
 
@@ -484,7 +563,7 @@
       </div>
     </section>
 
-    <section class="section steps" id="ablauf">
+    <section class="section steps reveal" id="ablauf">
       <div class="container">
         <h2>So läuft ein Umzug bei uns ab</h2>
         <p class="lead">
@@ -790,5 +869,20 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
+  <script>
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  document.querySelectorAll(".reveal")
+    .forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
