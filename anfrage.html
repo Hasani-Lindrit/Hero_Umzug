@@ -174,7 +174,19 @@
       <!-- DATEIUPLOAD -->
       <div>
         <label>Möbelliste / Fotos (optional)</label>
-        <input type="file" name="Anhang">
+        <input
+                type="file"
+                id="files"
+                name="Anhang[]"
+                multiple
+                accept=".pdf,.jpg,.jpeg,.png"
+                />
+
+                <button type="button" id="clearFiles" class="btn" style="margin-top:6px;">
+                Anhang entfernen
+                </button>
+
+                <div id="fileInfo" class="note"></div>
         <div class="note">PDF, JPG oder PNG – z. B. Möbelliste</div>
       </div>
 
@@ -188,5 +200,29 @@
       </div>
     </form>
   </div>
+  <script>
+    const fileInput = document.getElementById("files");
+    const fileInfo  = document.getElementById("fileInfo");
+    const clearBtn  = document.getElementById("clearFiles");
+
+    fileInput.addEventListener("change", () => {
+        if (!fileInput.files.length) {
+        fileInfo.textContent = "";
+        return;
+        }
+
+        const names = Array.from(fileInput.files)
+        .map(f => `• ${f.name}`)
+        .join("\n");
+
+        fileInfo.textContent =
+        `Ausgewählte Dateien:\n${names}`;
+    });
+
+    clearBtn.addEventListener("click", () => {
+        fileInput.value = "";
+        fileInfo.textContent = "Anhang entfernt.";
+    });
+</script>
 </body>
 </html>
