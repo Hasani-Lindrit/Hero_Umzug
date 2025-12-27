@@ -1,228 +1,207 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Umzugsanfrage | Hero Umzug</title>
+  <meta charset="utf-8">
+  <title>Anfrage – Hero Umzug</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    :root{
-      --brand:#ff7a18;
-      --brand2:#ffb056;
-      --text:#fff;
-      --muted:rgba(255,255,255,.85);
-      --bg:linear-gradient(180deg,#3a5f52,#1b2e27);
-      --card:rgba(255,255,255,.07);
-      --line:rgba(255,255,255,.14);
-      --radius:18px;
-    }
-
-    *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      background:var(--bg);
-      color:var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:#1b2e27;
+      color:#fff;
     }
 
     .container{
-      width:min(780px,calc(100% - 32px));
+      max-width:720px;
       margin:40px auto;
+      padding:24px;
+      background:rgba(255,255,255,.06);
+      border-radius:18px;
+      box-shadow:0 20px 60px rgba(0,0,0,.35);
     }
 
     h1{
-      font-size:36px;
-      margin:0 0 10px;
-    }
-
-    p{color:var(--muted)}
-
-    form{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:22px;
-      display:grid;
-      gap:14px;
+      margin-top:0;
+      font-size:32px;
     }
 
     label{
-      font-size:13px;
-      color:var(--muted);
+      display:block;
+      margin-top:14px;
+      margin-bottom:6px;
+      font-size:14px;
+      opacity:.9;
     }
 
-    input,select,textarea{
+    input, textarea, select{
       width:100%;
       padding:12px;
       border-radius:12px;
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.15);
       background:rgba(0,0,0,.25);
       color:#fff;
       font-size:14px;
     }
 
-    textarea{resize:vertical;min-height:90px}
+    textarea{ resize:vertical; }
 
-    .grid-2{
+    .row{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:12px;
     }
 
+    .files{
+      margin-top:10px;
+    }
+
+    .file-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:6px;
+      padding:8px 10px;
+      background:rgba(0,0,0,.25);
+      border-radius:10px;
+      font-size:13px;
+    }
+
+    .file-row button{
+      background:none;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+      color:#ff7a18;
+    }
+
     .btn{
+      margin-top:24px;
       padding:14px;
       border-radius:14px;
       border:none;
       cursor:pointer;
-      font-weight:700;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      font-size:16px;
+      font-weight:600;
+      background:linear-gradient(135deg,#ff7a18,#ffb056);
       color:#1b120a;
-      font-size:15px;
     }
 
-    .note{
-      font-size:12px;
-      color:var(--muted);
-    }
-
-    @media(max-width:700px){
-      .grid-2{grid-template-columns:1fr}
+    @media(max-width:600px){
+      .row{ grid-template-columns:1fr; }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Umzugsanfrage</h1>
-    <p>Fülle die Infos kurz aus – wir melden uns schnell mit einem klaren Angebot.</p>
 
-    <!-- FORMULAR -->
-    <form
-      action="https://formspree.io/f/DEINE_FORM_ID"
-      method="POST"
-      enctype="multipart/form-data"
+<div class="container">
+  <h1>Umzugsanfrage</h1>
+  <p>Bitte fülle das Formular so vollständig wie möglich aus. Wir melden uns schnell zurück.</p>
+
+  <form
+    action="mailto:kontakt@heroumzug.de"
+    method="post"
+    enctype="multipart/form-data"
+  >
+
+    <label>Name</label>
+    <input name="Name" required>
+
+    <label>E-Mail</label>
+    <input name="E-Mail" type="email" required>
+
+    <label>Telefon</label>
+    <input name="Telefon" required>
+
+    <label>Umzugsdatum</label>
+    <input name="Datum" type="date">
+
+    <div class="row">
+      <div>
+        <label>Startadresse</label>
+        <input name="Startadresse">
+      </div>
+      <div>
+        <label>Zieladresse</label>
+        <input name="Zieladresse">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Etage Start</label>
+        <input name="Etage Start">
+      </div>
+      <div>
+        <label>Etage Ziel</label>
+        <input name="Etage Ziel">
+      </div>
+    </div>
+
+    <label>Wohnfläche / Menge (ca.)</label>
+    <input name="Wohnfläche">
+
+    <label>Zusatzinfos (Möbel, Besonderheiten, Fahrstuhl etc.)</label>
+    <textarea name="Beschreibung" rows="4"></textarea>
+
+    <label>Anhänge (Fotos, Möbelliste, PDF)</label>
+    <input
+      type="file"
+      id="fileInput"
+      accept=".pdf,.jpg,.jpeg,.png"
+      multiple
     >
 
-      <!-- KONTAKT -->
-      <div class="grid-2">
-        <div>
-          <label>Name *</label>
-          <input name="Name" required>
-        </div>
-        <div>
-          <label>Telefon *</label>
-          <input name="Telefon" required>
-        </div>
-      </div>
+    <div id="fileList" class="files"></div>
 
-      <div>
-        <label>E-Mail *</label>
-        <input type="email" name="Email" required>
-      </div>
+    <button class="btn" type="submit">
+      Anfrage absenden
+    </button>
 
-      <!-- UMZUGSDATEN -->
-      <div class="grid-2">
-        <div>
-          <label>Umzugsdatum *</label>
-          <input type="date" name="Datum" required>
-        </div>
-        <div>
-          <label>Wohnfläche (ca. m²)</label>
-          <input name="Wohnfläche">
-        </div>
-      </div>
+  </form>
+</div>
 
-      <div class="grid-2">
-        <div>
-          <label>Startadresse *</label>
-          <input name="Startadresse" required>
-        </div>
-        <div>
-          <label>Zieladresse *</label>
-          <input name="Zieladresse" required>
-        </div>
-      </div>
+<script>
+  const fileInput = document.getElementById("fileInput");
+  const fileList  = document.getElementById("fileList");
 
-      <div class="grid-2">
-        <div>
-          <label>Etage Start</label>
-          <input name="Etage Start">
-        </div>
-        <div>
-          <label>Etage Ziel</label>
-          <input name="Etage Ziel">
-        </div>
-      </div>
+  let filesStore = [];
 
-      <!-- LEISTUNGEN -->
-      <div>
-        <label>Zusatzleistungen</label>
-        <select name="Leistungen">
-          <option>Nur Transport</option>
-          <option>Transport + Montage</option>
-          <option>Komplettservice (Einpacken)</option>
-        </select>
-      </div>
+  fileInput.addEventListener("change", () => {
+    filesStore.push(...Array.from(fileInput.files));
+    fileInput.value = "";
+    renderFiles();
+  });
 
-      <!-- BESCHREIBUNG -->
-      <div>
-        <label>Weitere Infos / Besonderheiten</label>
-        <textarea name="Nachricht"
-          placeholder="z. B. Küche, schwere Möbel, enge Treppe, Parkplatz…"></textarea>
-      </div>
+  function renderFiles(){
+    fileList.innerHTML = "";
 
-      <!-- DATEIUPLOAD -->
-      <div>
-        <label>Möbelliste / Fotos (optional)</label>
-        <input
-                type="file"
-                id="files"
-                name="Anhang[]"
-                multiple
-                accept=".pdf,.jpg,.jpeg,.png"
-                />
+    filesStore.forEach((file, index) => {
+      const div = document.createElement("div");
+      div.className = "file-row";
 
-                <button type="button" id="clearFiles" class="btn" style="margin-top:6px;">
-                Anhang entfernen
-                </button>
+      div.innerHTML = `
+        <span>${file.name}</span>
+        <button type="button" onclick="removeFile(${index})">🗑</button>
+      `;
 
-                <div id="fileInfo" class="note"></div>
-        <div class="note">PDF, JPG oder PNG – z. B. Möbelliste</div>
-      </div>
-
-      <!-- ABSENDEN -->
-      <button class="btn" type="submit">
-        Anfrage senden
-      </button>
-
-      <div class="note">
-        Deine Daten werden nur zur Bearbeitung deiner Anfrage verwendet.
-      </div>
-    </form>
-  </div>
-  <script>
-    const fileInput = document.getElementById("files");
-    const fileInfo  = document.getElementById("fileInfo");
-    const clearBtn  = document.getElementById("clearFiles");
-
-    fileInput.addEventListener("change", () => {
-        if (!fileInput.files.length) {
-        fileInfo.textContent = "";
-        return;
-        }
-
-        const names = Array.from(fileInput.files)
-        .map(f => `• ${f.name}`)
-        .join("\n");
-
-        fileInfo.textContent =
-        `Ausgewählte Dateien:\n${names}`;
+      fileList.appendChild(div);
     });
+  }
 
-    clearBtn.addEventListener("click", () => {
-        fileInput.value = "";
-        fileInfo.textContent = "Anhang entfernt.";
-    });
+  function removeFile(index){
+    filesStore.splice(index,1);
+    renderFiles();
+  }
+
+  document.querySelector("form").addEventListener("submit", () => {
+    const dt = new DataTransfer();
+    filesStore.forEach(f => dt.items.add(f));
+    fileInput.files = dt.files;
+  });
 </script>
+
 </body>
 </html>
