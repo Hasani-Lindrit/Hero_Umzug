@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Umzugsanfrage | Hero Umzug</title>
+
+  <style>
+    :root{
+      --brand:#ff7a18;
+      --brand2:#ffb056;
+      --text:#fff;
+      --muted:rgba(255,255,255,.85);
+      --bg:linear-gradient(180deg,#3a5f52,#1b2e27);
+      --card:rgba(255,255,255,.07);
+      --line:rgba(255,255,255,.14);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    .container{
+      width:min(780px,calc(100% - 32px));
+      margin:40px auto;
+    }
+
+    h1{
+      font-size:36px;
+      margin:0 0 10px;
+    }
+
+    p{color:var(--muted)}
+
+    form{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px;
+      display:grid;
+      gap:14px;
+    }
+
+    label{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    input,select,textarea{
+      width:100%;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.25);
+      color:#fff;
+      font-size:14px;
+    }
+
+    textarea{resize:vertical;min-height:90px}
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .btn{
+      padding:14px;
+      border-radius:14px;
+      border:none;
+      cursor:pointer;
+      font-weight:700;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      color:#1b120a;
+      font-size:15px;
+    }
+
+    .note{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    @media(max-width:700px){
+      .grid-2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Umzugsanfrage</h1>
+    <p>Fülle die Infos kurz aus – wir melden uns schnell mit einem klaren Angebot.</p>
+
+    <!-- FORMULAR -->
+    <form
+      action="https://formspree.io/f/DEINE_FORM_ID"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+
+      <!-- KONTAKT -->
+      <div class="grid-2">
+        <div>
+          <label>Name *</label>
+          <input name="Name" required>
+        </div>
+        <div>
+          <label>Telefon *</label>
+          <input name="Telefon" required>
+        </div>
+      </div>
+
+      <div>
+        <label>E-Mail *</label>
+        <input type="email" name="Email" required>
+      </div>
+
+      <!-- UMZUGSDATEN -->
+      <div class="grid-2">
+        <div>
+          <label>Umzugsdatum *</label>
+          <input type="date" name="Datum" required>
+        </div>
+        <div>
+          <label>Wohnfläche (ca. m²)</label>
+          <input name="Wohnfläche">
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label>Startadresse *</label>
+          <input name="Startadresse" required>
+        </div>
+        <div>
+          <label>Zieladresse *</label>
+          <input name="Zieladresse" required>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label>Etage Start</label>
+          <input name="Etage Start">
+        </div>
+        <div>
+          <label>Etage Ziel</label>
+          <input name="Etage Ziel">
+        </div>
+      </div>
+
+      <!-- LEISTUNGEN -->
+      <div>
+        <label>Zusatzleistungen</label>
+        <select name="Leistungen">
+          <option>Nur Transport</option>
+          <option>Transport + Montage</option>
+          <option>Komplettservice (Einpacken)</option>
+        </select>
+      </div>
+
+      <!-- BESCHREIBUNG -->
+      <div>
+        <label>Weitere Infos / Besonderheiten</label>
+        <textarea name="Nachricht"
+          placeholder="z. B. Küche, schwere Möbel, enge Treppe, Parkplatz…"></textarea>
+      </div>
+
+      <!-- DATEIUPLOAD -->
+      <div>
+        <label>Möbelliste / Fotos (optional)</label>
+        <input type="file" name="Anhang">
+        <div class="note">PDF, JPG oder PNG – z. B. Möbelliste</div>
+      </div>
+
+      <!-- ABSENDEN -->
+      <button class="btn" type="submit">
+        Anfrage senden
+      </button>
+
+      <div class="note">
+        Deine Daten werden nur zur Bearbeitung deiner Anfrage verwendet.
+      </div>
+    </form>
+  </div>
+</body>
+</html>
