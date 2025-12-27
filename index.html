@@ -488,7 +488,21 @@
     .hero-photo:hover img{
       transform: scale(1.04);
     }
+    section#leistungen .icon,
+    section#warum .icon{
+      background: linear-gradient(
+        135deg,
+        rgba(255,122,24,.35),
+        rgba(255,176,86,.25)
+      );
+      border-color: rgba(255,122,24,.6);
+    }
 
+    /* SVG Linien orange färben */
+    section#leistungen .icon svg path,
+    section#warum .icon svg path{
+      stroke: rgba(255,122,24,.95);
+    }
   </style>
 </head>
 
