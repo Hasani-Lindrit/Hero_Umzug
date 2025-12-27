@@ -95,7 +95,34 @@
 </head>
 
 <body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Hero Umzug Startseite">
+          <img src="assets/logo.png" alt="Hero Umzug Logo" />
+          <div class="name">
+            <strong>Hero Umzug</strong>
+            <span>Modern. Sicher. Stressfrei.</span>
+          </div>
+        </a>
 
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="#ablauf">Ablauf</a></li>
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#warum">Warum wir</a></li>
+            <li><a href="#bewertungen">Bewertungen</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <div class="actions">
+          <a class="btn" href="tel:+491234567890" aria-label="Anrufen">Anrufen</a>
+          <a class="btn primary" href="#kontakt" aria-label="Angebot anfragen">Angebot anfragen</a>
+        </div>
+      </div>
+    </div>
+  </header>
 <div class="container">
   <h1>Umzugsanfrage</h1>
   <p>Bitte fülle das Formular so vollständig wie möglich aus. Wir melden uns schnell zurück.</p>
@@ -107,27 +134,22 @@
   >
 
     <label>Name</label>
-    <input name="Name" required>
+    <input name="name" autocomplete="name" required>
 
     <label>E-Mail</label>
-    <input name="E-Mail" type="email" required>
+    <input type="email" name="email" autocomplete="email" required>
 
     <label>Telefon</label>
-    <input name="Telefon" required>
+    <input type="tel" name="phone" autocomplete="tel" required>
 
     <label>Umzugsdatum</label>
-    <input name="Datum" type="date">
+    <input type="date" name="move_date" autocomplete="off">
 
-    <div class="row">
-      <div>
-        <label>Startadresse</label>
-        <input name="Startadresse">
-      </div>
-      <div>
-        <label>Zieladresse</label>
-        <input name="Zieladresse">
-      </div>
-    </div>
+    <label>Startadresse</label>
+    <input name="start_address" autocomplete="street-address">
+
+    <label>Zieladresse</label>
+    <input name="target_address" autocomplete="street-address">
 
     <div class="row">
       <div>
