@@ -1,121 +1,215 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kontakt – Hero Umzug</title>
-<style>
-:root{
-  --primary:#3BAF75;
-  --secondary:#F2994A;
-  --bg:#f8faf9;
-  --card:#ffffff;
-  --text:#1f2937;
-  --muted:#6b7280;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-.container{max-width:900px;margin:0 auto;padding:40px 20px}
-.header{
-  background:linear-gradient(135deg,var(--primary),#6fd19c);
-  color:#fff;
-  padding:34px 20px;
-}
-.header .container{padding:0 20px}
-a{color:inherit}
-.nav{
-  display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap
-}
-.btn{
-  display:inline-block;background:var(--secondary);color:#fff;padding:12px 18px;border-radius:10px;
-  font-weight:600;text-decoration:none;border:none;cursor:pointer
-}
-.btn.secondary{background:#444}
-.card{background:var(--card);border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
-p{color:var(--muted)}
-form{display:grid;gap:12px;margin-top:10px}
-input,select,textarea{padding:12px;border-radius:10px;border:1px solid #d1d5db;font-size:14px}
-textarea{resize:vertical}
-.footer{margin-top:22px;color:var(--muted);font-size:13px}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt – Hero Umzug</title>
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    /* Kontakt-Layout */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 32px;
+      margin: 60px 0;
+      align-items: center;
+    }
+
+    .contact-card{
+      padding: 30px;
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      animation: fadeUp .7s ease both;
+    }
+
+    .contact-card h1{
+      margin-top: 0;
+      font-size: 42px;
+      letter-spacing: -0.6px;
+    }
+
+    .contact-card p{
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .contact-item{
+      margin-top: 22px;
+    }
+
+    .contact-item span{
+      display:block;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .contact-item a{
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    /* Foto */
+    .contact-photo{
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      max-width: 420px;
+      justify-self: center;
+      animation: fadeUp .7s ease .15s both;
+    }
+
+    .contact-photo img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+
+    .contact-photo:hover img{
+      transform: scale(1.05);
+    }
+
+    /* CTA unten */
+    .contact-cta{
+      margin: 80px 0 60px;
+      padding: 34px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(600px 200px at 20% 20%, rgba(255,122,24,.22), transparent 60%),
+        radial-gradient(600px 200px at 80% 0%, rgba(255,176,86,.18), transparent 60%),
+        rgba(255,255,255,.05);
+      box-shadow: var(--shadow);
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 24px;
+      animation: fadeUp .7s ease .25s both;
+    }
+
+    .contact-cta h2{
+      margin:0 0 8px;
+      font-size: 26px;
+    }
+
+    .contact-cta p{
+      margin:0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    @keyframes fadeUp{
+      from{ opacity:0; transform: translateY(26px); }
+      to{ opacity:1; transform:none; }
+    }
+
+    @media (max-width: 900px){
+      .contact-grid{
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .contact-photo{
+        max-width: 320px;
+      }
+      .contact-cta{
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="header">
-  <div class="container nav">
-    <strong>Hero Umzug</strong>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn secondary" href="/">Startseite</a>
-      <a class="btn secondary" href="/impressum/">Impressum</a>
-    </div>
-  </div>
-</div>
+<header>
+  <div class="container">
+    <div class="nav">
 
-<div class="container">
-  <h1>Kontakt</h1>
-  <p>Sie haben zwei Möglichkeiten: direkt anrufen oder das Formular ausfüllen. Je vollständiger die Angaben, desto schneller ein Angebot.</p>
-
-  <div class="card">
-    <h2>Direkt anrufen</h2>
-    <p><strong>Telefon:</strong> <a href="tel:+49123456789">+49 123 456789</a></p>
-  </div>
-
-  <div style="height:18px"></div>
-
-  <div class="card">
-    <h2>Umzugsanfrage</h2>
-    <p>Bitte geben Sie alle relevanten Informationen an. Wir melden uns zeitnah.</p>
-
-    <!-- Hinweis: Ohne Backend sendet dieses Formular noch nichts.
-         Im nächsten Schritt binden wir es an E-Mail (Formspree) oder Google Forms an. -->
-    <form>
-      <input name="name" placeholder="Name" required>
-      <input name="telefon" type="tel" placeholder="Telefonnummer" required>
-      <input name="email" type="email" placeholder="E-Mail (optional)">
-
-      <h3 style="margin:8px 0 0;">Umzug</h3>
-      <input name="von" placeholder="Adresse – von" required>
-      <input name="nach" placeholder="Adresse – nach" required>
-      <input name="datum" type="date" required>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
-        <input name="stockwerk_von" placeholder="Stockwerk – von (z. B. 3)">
-        <input name="stockwerk_nach" placeholder="Stockwerk – nach (z. B. 1)">
+      <div class="brand">
+        <img src="assets/logo.png" alt="Hero Umzug Logo">
+        <div class="name">
+          <strong>Hero Umzug</strong>
+          <span>Modern. Sicher. Stressfrei.</span>
+        </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
-        <select name="aufzug_von">
-          <option value="">Aufzug – von?</option>
-          <option>Ja</option>
-          <option>Nein</option>
-        </select>
-        <select name="aufzug_nach">
-          <option value="">Aufzug – nach?</option>
-          <option>Ja</option>
-          <option>Nein</option>
-        </select>
+      <nav aria-label="Navigation">
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="index.html">Leistungen</a></li>
+          <li><a href="index.html">Über Uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <a class="btn" href="tel:+491234567890">Anrufen</a>
+        <a class="btn primary" href="anfrage.html">Angebot anfragen</a>
       </div>
 
-      <h3 style="margin:8px 0 0;">Leistung</h3>
-      <select name="leistung" required>
-        <option value="">Art der Leistung wählen</option>
-        <option>Umzug</option>
-        <option>Möbelmontage</option>
-        <option>Entsorgung</option>
-        <option>Kombination</option>
-      </select>
-
-      <textarea name="moebel" rows="4" placeholder="Möbel / Umfang (z. B. Anzahl Zimmer, große Möbel, Küche, Waschmaschine etc.)"></textarea>
-      <textarea name="besonderheiten" rows="4" placeholder="Besonderheiten (Parken, Halteverbot, enge Treppe, empfindliche Gegenstände, Wunschzeitfenster)"></textarea>
-
-      <button class="btn" type="submit">Anfrage absenden</button>
-    </form>
-
-    <div class="footer">
-      Hinweis: Im nächsten Schritt verbinden wir das Formular so, dass du die Anfrage per E-Mail bekommst.
     </div>
   </div>
-</div>
+</header>
+
+<main class="container">
+
+  <section class="contact-grid">
+
+    <div class="contact-card">
+      <h1>Kontakt</h1>
+      <p>
+        Du hast Fragen oder möchtest direkt ein Angebot?
+        Ich bin persönlich für dich erreichbar.
+      </p>
+
+      <div class="contact-item">
+        <span>Telefon</span>
+        <a href="tel:+491234567890">+49 123 456 7890</a>
+      </div>
+
+      <div class="contact-item">
+        <span>E-Mail</span>
+        <a href="mailto:info@hero-umzug.de">info@hero-umzug.de</a>
+      </div>
+    </div>
+
+    <div class="contact-photo">
+      <img src="assets/isuf.jpg" alt="Isuf Hasani – Hero Umzug">
+    </div>
+
+  </section>
+
+  <section class="contact-cta">
+    <div>
+      <h2>Direkt Preisanfrage stellen</h2>
+      <p>
+        In wenigen Schritten zu deinem persönlichen Umzugsangebot.
+        Schnell, unverbindlich und transparent.
+      </p>
+    </div>
+    <a class="btn primary" href="anfrage.html">Zur Preisanfrage</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>© 2025 Hero Umzug</div>
+    <div>
+      <a href="impressum/index.html">Impressum</a> ·
+      <a href="datenschutz/index.html">Datenschutz</a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
