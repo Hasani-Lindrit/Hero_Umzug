@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Datenschutz | Hero Umzug</title>
+
+  <style>
+    :root{
+      --card: rgba(255,255,255,.06);
+      --text: rgba(255,255,255,.98);
+      --muted: rgba(255,255,255,.82);
+      --line: rgba(255,255,255,.12);
+      --brand: #ff7a18;
+      --brand2: #ffb056;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 10% 10%, rgba(255,122,24,.18), transparent 70%),
+        linear-gradient(180deg, #3a5f52 0%, #2f4b40 60%, #1b2e27 100%);
+      background-attachment: fixed;
+      line-height:1.6;
+    }
+
+    a{ color: var(--brand2); }
+    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background: rgba(42,66,58,.92);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid var(--line);
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      width:90px;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.25));
+    }
+
+    .brand strong{ font-size:20px; }
+    .brand span{ display:block; font-size:13px; opacity:.85; }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:18px;
+      margin:0;
+      padding:0;
+    }
+
+    nav a{
+      padding:8px 10px;
+      border-radius:12px;
+      color:var(--muted);
+      text-decoration:none;
+    }
+
+    nav a:hover{
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.12);
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .btn.primary{
+      background: linear-gradient(135deg,var(--brand),var(--brand2));
+      color:#1b120a;
+      font-weight:600;
+      border:none;
+    }
+
+    main{
+      padding:60px 0;
+    }
+
+    .card{
+      max-width:900px;
+      margin:0 auto;
+      padding:36px;
+      border-radius:var(--radius);
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    h1{
+      font-size:42px;
+      margin:0 0 20px;
+    }
+
+    h2{
+      margin-top:36px;
+      font-size:26px;
+    }
+
+    h3{
+      margin-top:28px;
+      font-size:20px;
+    }
+
+    p, li{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    ul{
+      padding-left:18px;
+    }
+
+    .sep{
+      height:1px;
+      background:var(--line);
+      margin:30px 0;
+    }
+
+    footer{
+      margin-top:60px;
+      padding:30px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+
+    @media(max-width:900px){
+      nav ul{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="../index.html">
+        <img src="../assets/logo.png" alt="Hero Umzug Logo">
+        <div>
+          <strong>Hero Umzug</strong>
+          <span>Modern. Sicher. Stressfrei.</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="../index.html#ablauf">Ablauf</a></li>
+          <li><a href="../index.html#leistungen">Leistungen</a></li>
+          <li><a href="../index.html#warum">Warum wir</a></li>
+          <li><a href="../index.html#bewertungen">Bewertungen</a></li>
+          <li><a href="../index.html#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <a class="btn" href="tel:+491234567890">Anrufen</a>
+        <a class="btn primary" href="../anfrage.html">Angebot anfragen</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+
+    <h1>Datenschutzerklärung</h1>
+
+    <h2>Datenschutz auf einen Blick</h2>
+
+    <h3>Allgemeine Hinweise</h3>
+    <p>
+      Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen
+      Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen
+      Sie persönlich identifiziert werden können.
+    </p>
+
+    <h3>Datenerfassung auf dieser Website</h3>
+    <p>
+      Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Andere Daten werden
+      automatisch beim Besuch der Website durch unsere IT-Systeme erfasst.
+    </p>
+
+    <div class="sep"></div>
+
+    <h2>Hinweis zur verantwortlichen Stelle</h2>
+    <p>
+      Verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
+    </p>
+    <p>
+      <strong>Hasani (Kleinunternehmen)</strong><br>
+      Inhaber: Isuf Hasani<br>
+      [Straße & Hausnummer]<br>
+      [PLZ Ort]<br><br>
+      Telefon: [Telefonnummer]<br>
+      E-Mail: [E-Mail-Adresse]
+    </p>
+
+    <div class="sep"></div>
+
+    <h2>Ihre Rechte</h2>
+    <ul>
+      <li>Recht auf Auskunft</li>
+      <li>Recht auf Berichtigung oder Löschung</li>
+      <li>Recht auf Einschränkung der Verarbeitung</li>
+      <li>Recht auf Datenübertragbarkeit</li>
+      <li>Widerspruchsrecht</li>
+      <li>Beschwerderecht bei der Aufsichtsbehörde</li>
+    </ul>
+
+    <div class="sep"></div>
+
+    <h2>Cookies & Server-Log-Dateien</h2>
+    <p>
+      Diese Website verwendet Cookies. Cookies richten auf Ihrem Endgerät keinen Schaden an und dienen
+      der technisch fehlerfreien Darstellung der Website.
+    </p>
+
+    <h3>Server-Log-Dateien</h3>
+    <ul>
+      <li>Browsertyp und Browserversion</li>
+      <li>verwendetes Betriebssystem</li>
+      <li>Referrer URL</li>
+      <li>Hostname des zugreifenden Rechners</li>
+      <li>Uhrzeit der Serveranfrage</li>
+      <li>IP-Adresse</li>
+    </ul>
+
+    <div class="sep"></div>
+
+    <h2>Kontaktformular / Kontaktaufnahme</h2>
+    <p>
+      Wenn Sie uns per Formular, E-Mail oder Telefon kontaktieren, werden Ihre Angaben zur Bearbeitung
+      Ihrer Anfrage verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+    </p>
+
+    <div class="sep"></div>
+
+    <h2>SSL- bzw. TLS-Verschlüsselung</h2>
+    <p>
+      Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung.
+    </p>
+
+    <div class="sep"></div>
+
+    <p style="font-size:13px;opacity:.7;">
+      Quelle: eRecht24
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  © <span id="y"></span> Hero Umzug
+</footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
