@@ -412,6 +412,30 @@
       .split{ grid-template-columns: 1fr; }
       .cta{ flex-direction: column; align-items:flex-start; }
     }
+    .contact-cta{
+    margin-top: 60px;
+    border-radius: var(--radius2);
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    background:
+      radial-gradient(800px 300px at 20% 20%, rgba(255,122,24,.22), transparent 60%),
+      radial-gradient(800px 300px at 80% 0%, rgba(255,176,86,.18), transparent 60%),
+      rgba(255,255,255,.06);
+
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: var(--shadow);
+  }
+
+  @media (max-width: 800px){
+    .contact-cta{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
     @media (max-width: 600px){
       .brand img{ width: 64px; }
     }
@@ -511,6 +535,59 @@
     section#warum .icon svg path{
       stroke: #1b120a;
     }
+    .contact-grid{
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 28px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.contact-photo{
+  border-radius: var(--radius2);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: var(--shadow);
+  background: rgba(255,255,255,.05);
+}
+
+.contact-photo img{
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Kontaktkarte */
+.contact-card{
+  padding: 26px;
+  border-radius: var(--radius2);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: var(--shadow);
+}
+
+.contact-item{
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-item span{
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.contact-item a{
+  font-size: 16px;
+  font-weight: 600;
+}
+@media (max-width: 800px){
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 
@@ -548,33 +625,33 @@
 
 <main class="container">
 
-  <section class="contact-grid">
+<section class="contact-grid reveal">
 
-    <div class="contact-card">
-      <h1>Kontakt</h1>
-      <p>
-        Du hast Fragen oder möchtest direkt ein Angebot?
-        Ich bin persönlich für dich erreichbar.
-      </p>
+  <div class="contact-photo">
+    <img src="../assets/isuf.jpg" alt="Isuf Hasani – Hero Umzug">
+  </div>
 
-      <div class="contact-item">
-        <span>Telefon</span>
-        <a href="tel:+491234567890">+49 123 456 7890</a>
-      </div>
+  <div class="contact-card">
+    <h1>Kontakt</h1>
+    <p>
+      Du hast Fragen oder möchtest direkt ein Angebot?
+      Ich bin persönlich für dich erreichbar.
+    </p>
 
-      <div class="contact-item">
-        <span>E-Mail</span>
-        <a href="mailto:info@hero-umzug.de">info@hero-umzug.de</a>
-      </div>
+    <div class="contact-item">
+      <span>Telefon</span>
+      <a href="tel:+491234567890">+49 123 456 7890</a>
     </div>
 
-    <div class="contact-photo">
-      <img src="../assets/isuf.jpg" alt="Isuf Hasani – Hero Umzug">
+    <div class="contact-item">
+      <span>E-Mail</span>
+      <a href="mailto:info@hero-umzug.de">info@hero-umzug.de</a>
     </div>
+  </div>
 
-  </section>
+</section>
 
-  <section class="contact-cta">
+  <section class="contact-cta reveal">
     <div>
       <h2>Direkt Preisanfrage stellen</h2>
       <p>
@@ -582,7 +659,7 @@
         Schnell, unverbindlich und transparent.
       </p>
     </div>
-    <a class="btn primary" href=".../anfrage.html">Zur Preisanfrage</a>
+    <a class="btn primary" href="../anfrage.html">Zur Preisanfrage</a>
   </section>
 
 </main>
@@ -596,6 +673,18 @@
     </div>
   </div>
 </footer>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
 
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(r => observer.observe(r));
+</script>
 </body>
 </html>
