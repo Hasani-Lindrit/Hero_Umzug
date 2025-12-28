@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Über uns – Hero Umzug</title>
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    /* === ÜBER-UNS spezifisch === */
+
+    .about-hero{
+      padding: 70px 0 40px;
+    }
+
+    .about-grid{
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .about-text h1{
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .about-text h1 span{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .about-text p{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 65ch;
+      margin-bottom: 16px;
+    }
+
+    .about-photo{
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+    }
+
+    .about-photo img{
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+
+    .about-photo:hover img{
+      transform: scale(1.04);
+    }
+
+    /* Werte */
+    .values{
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .value-card{
+      padding: 22px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+    }
+
+    .value-card h3{
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .value-card p{
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Google Bewertungen */
+    .reviews{
+      margin-top: 80px;
+    }
+
+    .reviews h2{
+      margin-bottom: 18px;
+    }
+
+    .review-track{
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+    }
+
+    .review{
+      min-width: 320px;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      padding: 20px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+    }
+
+    .review strong{
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .stars{
+      color: #ffc107;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .review p{
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .review-track::-webkit-scrollbar{
+      height: 6px;
+    }
+
+    .review-track::-webkit-scrollbar-thumb{
+      background: rgba(255,255,255,.25);
+      border-radius: 999px;
+    }
+
+    @media (max-width: 900px){
+      .about-grid{
+        grid-template-columns: 1fr;
+      }
+      .values{
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Hero Umzug Logo">
+        <div class="name">
+          <strong>Hero Umzug</strong>
+          <span>Modern. Sicher. Stressfrei.</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <a class="btn" href="tel:+491234567890">Anrufen</a>
+        <a class="btn primary" href="anfrage.html">Angebot anfragen</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="about-hero reveal">
+    <div class="about-grid">
+      <div class="about-text">
+        <h1>
+          Wir sind nicht einfach eine Umzugsfirma.<br>
+          <span>Wir sind Hero Umzug.</span>
+        </h1>
+
+        <p>
+          Ein Umzug ist mehr als Kisten tragen. Es ist Vertrauen. Verantwortung.
+          Und der Anspruch, dass am Ende alles genau dort steht, wo es hingehört –
+          ohne Stress, ohne Chaos, ohne böse Überraschungen.
+        </p>
+
+        <p>
+          Genau dafür stehen wir. Mit Erfahrung, klarer Kommunikation und einem
+          Team, das seinen Job ernst nimmt – und trotzdem menschlich bleibt.
+        </p>
+      </div>
+
+      <div class="about-photo">
+        <img src="assets/isuf.jpg" alt="Isuf Hasani – Hero Umzug">
+      </div>
+    </div>
+  </section>
+
+  <!-- WERTE -->
+  <section class="values reveal">
+    <div class="value-card">
+      <h3>Zuverlässigkeit</h3>
+      <p>
+        Was wir zusagen, halten wir ein. Termine, Preise und Absprachen
+        sind bei uns keine Richtwerte – sondern verbindlich.
+      </p>
+    </div>
+
+    <div class="value-card">
+      <h3>Sorgfalt & Respekt</h3>
+      <p>
+        Möbel, Wohnungen und Menschen werden bei uns mit Respekt behandelt.
+        Als wäre es unser eigener Umzug.
+      </p>
+    </div>
+
+    <div class="value-card">
+      <h3>Erfahrung, die man merkt</h3>
+      <p>
+        Jeder Handgriff sitzt. Keine Hektik, kein Improvisieren –
+        sondern strukturierte Abläufe, die funktionieren.
+      </p>
+    </div>
+  </section>
+
+  <!-- GOOGLE BEWERTUNGEN -->
+  <section class="reviews reveal">
+    <h2>Was unsere Kunden sagen</h2>
+
+    <div class="review-track">
+      <div class="review">
+        <strong>★★★★★ Google Bewertung</strong>
+        <div class="stars">★★★★★</div>
+        <p>
+          „Absolut professionell. Pünktlich, sauber gearbeitet und extrem freundlich.
+          Besser hätte unser Umzug nicht laufen können.“
+        </p>
+      </div>
+
+      <div class="review">
+        <strong>★★★★★ Google Bewertung</strong>
+        <div class="stars">★★★★★</div>
+        <p>
+          „Sehr fairer Preis und top Organisation. Man merkt sofort,
+          dass hier Profis am Werk sind.“
+        </p>
+      </div>
+
+      <div class="review">
+        <strong>★★★★★ Google Bewertung</strong>
+        <div class="stars">★★★★★</div>
+        <p>
+          „Ich würde Hero Umzug jederzeit wieder buchen.
+          Stressfrei, schnell und zuverlässig.“
+        </p>
+      </div>
+
+      <div class="review">
+        <strong>★★★★★ Google Bewertung</strong>
+        <div class="stars">★★★★★</div>
+        <p>
+          „Vom ersten Kontakt bis zur Übergabe einfach perfekt.
+          Klare Empfehlung!“
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>© 2025 Hero Umzug</div>
+    <div>
+      <a href="impressum/index.html">Impressum</a> ·
+      <a href="datenschutz/index.html">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('show');
+      }
+    });
+  },{threshold:.15});
+  reveals.forEach(r=>observer.observe(r));
+</script>
+
+</body>
+</html>
