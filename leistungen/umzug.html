@@ -3,77 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Umzug in Ludwigsburg & bundesweit | Hero Umzug</title>
-  <meta name="description" content="Privat- & Gewerbeumzüge in Ludwigsburg, regional & bundesweit. Mit System, Erfahrung und ruhigem Arbeiten.">
+  <title>Umzug – Hero Umzug</title>
 
   <link rel="stylesheet" href="../assets/style.css">
 
   <style>
-    /* HERO Zusatz */
-    .hero-services{
-      margin-top: 26px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-      font-size: 15px;
-      color: rgba(255,255,255,.85);
-    }
+    /* ===== HERO BOXEN (FEINSCHLIFF) ===== */
 
-    .hero-services span{
-      position: relative;
-      padding-left: 18px;
-    }
-
-    .hero-services span::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:50%;
-      transform: translateY(-50%);
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-    }
-
-    .hero-services .sep{
-      width:1px;
-      height:16px;
-      background: rgba(255,255,255,.25);
-      padding:0;
-    }
-
-    .hero-services .sep::before{
-      display:none;
-    }
-
-    .text-block{
-      max-width: 70ch;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .list{
-      margin-top: 16px;
+    .hero-boxes{
+      margin-top: 80px;
       display: grid;
-      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      justify-items: center;
     }
 
-    .list li{
-      list-style: none;
-      position: relative;
-      padding-left: 22px;
-      color: rgba(255,255,255,.9);
+    .hero-box{
+      width: 100%;
+      max-width: 280px;
+      padding: 28px 24px;
+      border-radius: 22px;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.10),
+        rgba(255,255,255,.05)
+      );
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 18px 45px rgba(0,0,0,.35);
+      transition: transform .25s ease, box-shadow .25s ease;
     }
 
-    .list li::before{
-      content:"✓";
-      position:absolute;
-      left:0;
+    .hero-box h4{
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 650;
       color: var(--brand2);
-      font-weight: 700;
+    }
+
+    .hero-box p{
+      margin: 0;
+      font-size: 14px;
+      color: rgba(255,255,255,.85);
+      line-height: 1.45;
+    }
+
+    .hero-box:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 26px 65px rgba(0,0,0,.45);
+    }
+
+    @media (max-width: 980px){
+      .hero-boxes{
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+      }
     }
   </style>
 </head>
@@ -83,6 +66,7 @@
 <header>
   <div class="container">
     <div class="nav">
+
       <a class="brand" href="../index.html">
         <img src="../assets/logo.png" alt="Hero Umzug Logo">
         <div class="name">
@@ -91,7 +75,7 @@
         </div>
       </a>
 
-      <nav>
+      <nav aria-label="Navigation">
         <ul>
           <li><a href="../index.html">Startseite</a></li>
           <li><a href="#">Leistungen</a></li>
@@ -104,6 +88,7 @@
         <a class="btn" href="tel:+491234567890">Anrufen</a>
         <a class="btn primary" href="../anfrage.html">Angebot anfragen</a>
       </div>
+
     </div>
   </div>
 </header>
@@ -115,96 +100,105 @@
   <div class="container">
     <div class="hero-grid">
 
+      <!-- LINKS: TEXT -->
       <div>
+
         <div class="pill">
           <span class="dot"></span>
           <span>Privat · Gewerbe · Nah & Fern</span>
         </div>
 
         <h1>
-          Umziehen mit <span class="hl">System</span><br>
+          Umziehen mit <span class="hl">System</span> –<br>
           nicht mit Stress
         </h1>
 
-        <p class="text-block">
-          Ein Umzug ist mehr als Möbel von A nach B zu tragen.  
+        <p>
+          Ein Umzug ist mehr als Möbel von A nach B zu tragen.
           Er bedeutet Organisation, Verantwortung und Vertrauen.
+          Genau deshalb setzen wir bei Hero Umzug auf klare Abläufe,
+          ruhiges Arbeiten und saubere Kommunikation.
         </p>
 
-        <p class="text-block" style="margin-top:14px;">
-          Genau deshalb setzen wir bei Hero Umzug auf klare Abläufe, ruhiges Arbeiten
-          und saubere Kommunikation. Ob kleine Wohnung, großes Haus oder kompletter
-          Firmenumzug – wir planen jeden Umzug so, dass er zuverlässig funktioniert.
+        <p style="margin-top:16px;">
+          Ob kleine Wohnung, großes Haus oder kompletter Firmenumzug –
+          wir planen jeden Umzug so, dass er zuverlässig funktioniert.
+          Ohne Chaos, ohne Hektik und ohne böse Überraschungen.
         </p>
 
-        <div class="hero-services">
-          <span>Privatumzug</span>
-          <span class="sep"></span>
-          <span>Gewerbeumzug</span>
-          <span class="sep"></span>
-          <span>Nah & Fern</span>
-          <span class="sep"></span>
-          <span>Montage & Einpackservice</span>
+        <div class="hero-cta">
+          <a class="btn primary" href="../anfrage.html">Kostenloses Angebot</a>
         </div>
 
-        <div class="hero-cta" style="margin-top:24px;">
-          <a class="btn primary" href="../anfrage.html">Kostenloses Angebot anfragen</a>
-        </div>
       </div>
 
-      <aside class="hero-photo">
-        <img src="../assets/team-montage.jpg" alt="Hero Umzug beim Umzug">
-        <div class="cap">
-          <b>Strukturiert. Ruhig. Verlässlich.</b>
-          So arbeiten wir – bei jedem Umzug.
+      <!-- RECHTS: BOXEN -->
+      <div class="hero-boxes">
+
+        <div class="hero-box">
+          <h4>Privatumzug</h4>
+          <p>Wohnung · Haus · WG</p>
         </div>
-      </aside>
+
+        <div class="hero-box">
+          <h4>Gewerbeumzug</h4>
+          <p>Büro · Praxis · Lager</p>
+        </div>
+
+        <div class="hero-box">
+          <h4>Nah & Fern</h4>
+          <p>Regional & bundesweit</p>
+        </div>
+
+        <div class="hero-box">
+          <h4>Optional</h4>
+          <p>Montage & Einpackservice</p>
+        </div>
+
+      </div>
 
     </div>
   </div>
 </section>
 
-<!-- REGION -->
+<!-- TEXTBLOCK -->
 <section class="section">
   <div class="container">
+
     <h2>Umzüge in Ludwigsburg und darüber hinaus</h2>
+
     <p class="lead">
-      Unser Schwerpunkt liegt in Ludwigsburg und der Region – gleichzeitig übernehmen
-      wir Umzüge deutschlandweit.
+      Unser Schwerpunkt liegt in Ludwigsburg und der Region.
+      Gleichzeitig übernehmen wir auch Umzüge in weiter entfernte
+      Standorte – zuverlässig, strukturiert und sauber geplant.
     </p>
 
-    <p class="text-block">
-      Egal ob innerstädtischer Umzug, Ortswechsel in der Region oder Fernumzug in eine
-      andere Stadt: Wir planen Routen, Zeiten und Abläufe so, dass alles reibungslos läuft.
+    <p>
+      Egal ob innerhalb der Stadt, in eine andere Region oder bundesweit:
+      Wir kümmern uns um Planung, Transport und – wenn gewünscht –
+      um die komplette Montage. Dabei achten wir besonders auf
+      Termintreue, sorgfältiges Arbeiten und einen respektvollen Umgang
+      mit Möbeln und Wohnraum.
     </p>
-  </div>
-</section>
 
-<!-- LEISTUNGEN -->
-<section class="section">
-  <div class="container">
-    <h2>Was wir beim Umzug übernehmen</h2>
+    <p style="margin-top:14px;">
+      Viele unserer Kunden kommen auf Empfehlung – weil sie merken,
+      dass wir unseren Job ernst nehmen und trotzdem menschlich bleiben.
+      Genau das ist unser Anspruch bei jedem einzelnen Umzug.
+    </p>
 
-    <ul class="list">
-      <li>Privatumzüge (Wohnung, Haus, WG)</li>
-      <li>Gewerbeumzüge (Büro, Praxis, Lager)</li>
-      <li>Tragen, Transport und Absicherung</li>
-      <li>Demontage & Montage von Möbeln</li>
-      <li>Einpackservice & Schutzmaterial</li>
-      <li>Regionale und bundesweite Umzüge</li>
-    </ul>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="section">
   <div class="container">
-    <div class="cta">
+    <div class="cta reveal">
       <div>
         <h3>Bereit für einen stressfreien Umzug?</h3>
         <p>
-          Teile uns kurz deine Eckdaten mit – wir melden uns schnell
-          mit einem transparenten Angebot.
+          Teile uns kurz deine Eckdaten mit und wir melden uns
+          schnell mit einem sauberen Angebot zurück.
         </p>
       </div>
       <a class="btn primary" href="../anfrage.html">Jetzt Angebot anfragen</a>
@@ -216,17 +210,13 @@
 
 <footer>
   <div class="container foot">
-    <div>© <span id="y"></span> Hero Umzug</div>
+    <div>© 2025 Hero Umzug</div>
     <div>
       <a href="../impressum/index.html">Impressum</a> ·
       <a href="../datenschutz/index.html">Datenschutz</a>
     </div>
   </div>
 </footer>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
