@@ -510,6 +510,63 @@
     section#warum .icon svg path{
       stroke: #1b120a;
     }
+
+    /* ================= LEISTUNGEN DROPDOWN ================= */
+
+.has-dropdown{
+  position: relative;
+}
+
+.has-dropdown > a{
+  cursor: pointer;
+}
+
+/* Dropdown Box */
+.dropdown{
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 240px;
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(20, 30, 27, 0.95);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+  display: none;
+  z-index: 100;
+}
+
+/* Einträge */
+.dropdown li{
+  list-style: none;
+}
+
+.dropdown a{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: var(--text);
+  transition: background .2s ease;
+}
+
+.dropdown a span{
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.dropdown a:hover{
+  background: rgba(255,255,255,.08);
+}
+
+/* Desktop: Hover */
+@media (hover: hover){
+  .has-dropdown:hover .dropdown{
+    display: block;
+  }
+}
+
   </style>
 </head>
 
@@ -528,7 +585,25 @@
         <nav aria-label="Navigation">
           <ul>
             <li><a href="index.html">Startseite</a></li>
-            <li><a href="index.html">Leistungen</a></li>
+            <li class="has-dropdown">
+              <a href="#" aria-haspopup="true">Leistungen</a>
+
+              <ul class="dropdown">
+                <li>
+                  <a href="leistungen/umzug.html">
+                    <strong>Umzug</strong>
+                    <span>Privat & Gewerbe</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="leistungen/entruempelung.html">
+                    <strong>Entrümpelung</strong>
+                    <span>Wohnung, Keller, Büro</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
             <li><a href="kontakt/ueber-uns.html">Über Uns</a></li>
             <li><a href="kontakt/index.html">Kontakt</a></li>
           </ul>
@@ -883,5 +958,22 @@
   document.querySelectorAll(".reveal")
     .forEach(el => observer.observe(el));
 </script>
+<script>
+  const dropdownTrigger = document.querySelector(".has-dropdown > a");
+  const dropdownMenu = document.querySelector(".has-dropdown .dropdown");
+
+  dropdownTrigger.addEventListener("click", e => {
+    e.preventDefault();
+    dropdownMenu.style.display =
+      dropdownMenu.style.display === "block" ? "none" : "block";
+  });
+
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".has-dropdown")) {
+      dropdownMenu.style.display = "none";
+    }
+  });
+</script>
+
 </body>
 </html>
