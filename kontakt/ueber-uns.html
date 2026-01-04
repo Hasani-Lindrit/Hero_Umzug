@@ -301,33 +301,56 @@ const observer = new IntersectionObserver(entries=>{
 },{threshold:0.15});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-/* Slider */
 let index = 0;
 const track = document.querySelector(".review-track");
 const reviews = document.querySelectorAll(".review");
+let autoSlideTimer;
 
 function updateSlider(){
   if(!reviews.length) return;
-  const w = reviews[0].offsetWidth + 20;
+  const w = reviews[0].offsetWidth + 24;
   track.style.transform = `translateX(-${index * w}px)`;
 }
 
 function nextReview(){
-  if(index < reviews.length - 2){
-    index++;
-    updateSlider();
+  index++;
+  if(index > reviews.length - 2){
+    index = 0; // 🔁 zurück zum Anfang
   }
+  updateSlider();
 }
 
 function prevReview(){
-  if(index > 0){
-    index--;
-    updateSlider();
+  index--;
+  if(index < 0){
+    index = reviews.length - 2;
   }
+  updateSlider();
 }
 
-window.addEventListener("load", updateSlider);
+/* Auto Slide */
+function startAutoSlide(){
+  autoSlideTimer = setInterval(nextReview, 5000);
+}
+
+function stopAutoSlide(){
+  clearInterval(autoSlideTimer);
+}
+
+/* Events */
+window.addEventListener("load", () => {
+  index = 0;
+  updateSlider();
+  startAutoSlide();
+});
+
 window.addEventListener("resize", updateSlider);
+
+/* Stop bei Hover */
+document.querySelector(".review-wrapper")
+  .addEventListener("mouseenter", stopAutoSlide);
+document.querySelector(".review-wrapper")
+  .addEventListener("mouseleave", startAutoSlide);
 </script>
 
 </body>
