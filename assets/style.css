@@ -391,3 +391,74 @@ footer{
 
 .review-arrow.left{ margin-right: 16px; }
 .review-arrow.right{ margin-left: 16px; }
+/* =========================
+   FIX: BEWERTUNGEN SICHTBAR
+========================= */
+
+.review-wrapper{
+  position: relative;
+  width: 100%;
+  margin-top: 32px;
+  padding: 0 60px;
+}
+
+.review-slider{
+  width: 100%;
+  overflow: hidden;
+  min-height: 220px; /* 🔥 WICHTIG */
+}
+
+.review-track{
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  transition: transform .45s ease;
+}
+
+.review{
+  flex: 0 0 520px;   /* 🔥 WICHTIG */
+  min-height: 180px;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 16px 40px rgba(0,0,0,.35);
+}
+
+.review p{
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255,255,255,.95);
+}
+
+.review span{
+  font-size: 13px;
+  color: rgba(255,255,255,.75);
+}
+
+/* Pfeile */
+.review-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.55);
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.review-arrow.left{ left: 0; }
+.review-arrow.right{ right: 0; }
+
+/* Mobile */
+@media (max-width: 900px){
+  .review{
+    flex: 0 0 85vw;
+  }
+}
