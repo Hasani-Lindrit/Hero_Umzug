@@ -442,3 +442,40 @@ footer{
     grid-template-columns: 1fr;
   }
 }
+.hero-services{
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-size: 15px;
+  color: rgba(255,255,255,.85);
+}
+
+.hero-services span{
+  position: relative;
+  padding-left: 18px;
+}
+
+.hero-services span::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:50%;
+  transform: translateY(-50%);
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+}
+
+.hero-services .sep{
+  width:1px;
+  height:16px;
+  background: rgba(255,255,255,.25);
+  padding:0;
+}
+
+.hero-services .sep::before{
+  display:none;
+}
