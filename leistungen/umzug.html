@@ -5,60 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Umzug – Hero Umzug</title>
 
+  <!-- ZENTRALE STYLES -->
   <link rel="stylesheet" href="../assets/style.css">
-
-  <style>
-    /* ===== HERO BOXEN (FEINSCHLIFF) ===== */
-
-    .hero-boxes{
-      margin-top: 80px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      justify-items: center;
-    }
-
-    .hero-box{
-      width: 100%;
-      max-width: 280px;
-      padding: 28px 24px;
-      border-radius: 22px;
-      background: linear-gradient(
-        180deg,
-        rgba(255,255,255,.10),
-        rgba(255,255,255,.05)
-      );
-      border: 1px solid rgba(255,255,255,.18);
-      box-shadow: 0 18px 45px rgba(0,0,0,.35);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-
-    .hero-box h4{
-      margin: 0 0 8px;
-      font-size: 18px;
-      font-weight: 650;
-      color: var(--brand2);
-    }
-
-    .hero-box p{
-      margin: 0;
-      font-size: 14px;
-      color: rgba(255,255,255,.85);
-      line-height: 1.45;
-    }
-
-    .hero-box:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 26px 65px rgba(0,0,0,.45);
-    }
-
-    @media (max-width: 980px){
-      .hero-boxes{
-        grid-template-columns: 1fr;
-        margin-top: 40px;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -78,8 +26,8 @@
       <nav aria-label="Navigation">
         <ul>
           <li><a href="../index.html">Startseite</a></li>
-          <li><a href="#">Leistungen</a></li>
-          <li><a href="../ueber-uns/index.html">Über uns</a></li>
+          <li><a href="../index.html">Leistungen</a></li>
+          <li><a href="../kontakt/ueber-uns.html">Über uns</a></li>
           <li><a href="../kontakt/index.html">Kontakt</a></li>
         </ul>
       </nav>
@@ -100,36 +48,28 @@
   <div class="container">
     <div class="hero-grid">
 
-      <!-- LINKS: TEXT -->
       <div>
-
         <div class="pill">
           <span class="dot"></span>
           <span>Privat · Gewerbe · Nah & Fern</span>
         </div>
 
         <h1>
-          Umziehen mit <span class="hl">System</span> –<br>
-          nicht mit Stress
+          Umziehen mit <span class="hl">System</span> – nicht mit Stress
         </h1>
 
         <p>
-          Ein Umzug ist mehr als Möbel von A nach B zu tragen.
+          Ein Umzug ist mehr als Möbel von A nach B zu tragen.  
           Er bedeutet Organisation, Verantwortung und Vertrauen.
           Genau deshalb setzen wir bei Hero Umzug auf klare Abläufe,
           ruhiges Arbeiten und saubere Kommunikation.
         </p>
 
-        <p style="margin-top:16px;">
+        <p style="margin-top:14px;">
           Ob kleine Wohnung, großes Haus oder kompletter Firmenumzug –
           wir planen jeden Umzug so, dass er zuverlässig funktioniert.
           Ohne Chaos, ohne Hektik und ohne böse Überraschungen.
         </p>
-
-        <div class="hero-cta">
-          <a class="btn primary" href="../anfrage.html">Kostenloses Angebot</a>
-        </div>
-
       </div>
 
       <!-- RECHTS: BOXEN -->
@@ -180,29 +120,95 @@
 <!-- TEXTBLOCK -->
 <section class="section">
   <div class="container">
-
     <h2>Umzüge in Ludwigsburg und darüber hinaus</h2>
-
     <p class="lead">
-      Unser Schwerpunkt liegt in Ludwigsburg und der Region.
-      Gleichzeitig übernehmen wir auch Umzüge in weiter entfernte
-      Standorte – zuverlässig, strukturiert und sauber geplant.
+      Unser Schwerpunkt liegt in Ludwigsburg und der Region –
+      gleichzeitig übernehmen wir regelmäßig Umzüge in weiter
+      entfernte Städte und Bundesländer.
     </p>
 
-    <p>
-      Egal ob innerhalb der Stadt, in eine andere Region oder bundesweit:
-      Wir kümmern uns um Planung, Transport und – wenn gewünscht –
-      um die komplette Montage. Dabei achten wir besonders auf
-      Termintreue, sorgfältiges Arbeiten und einen respektvollen Umgang
-      mit Möbeln und Wohnraum.
+    <div class="grid-2">
+      <div class="card reveal">
+        <h3>Regional stark</h3>
+        <p>
+          In Ludwigsburg, Bietigheim-Bissingen, Kornwestheim,
+          Markgröningen und Umgebung kennen wir die Gegebenheiten genau:
+          Parksituationen, Zufahrten, Treppenhäuser und Zeitfenster.
+          Das spart Zeit – und Nerven.
+        </p>
+      </div>
+
+      <div class="card reveal" style="--delay:.1s">
+        <h3>Auch überregional zuverlässig</h3>
+        <p>
+          Ob Stuttgart, Karlsruhe, München oder weiter entfernt –
+          wir planen Fernumzüge strukturiert und realistisch.
+          Strecke, Ladevolumen und Zeit werden sauber kalkuliert,
+          damit alles sicher ankommt.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN DETAIL -->
+<section class="section">
+  <div class="container">
+    <h2>Was wir beim Umzug übernehmen</h2>
+    <p class="lead">
+      Du entscheidest, wie viel wir für dich übernehmen –
+      vom reinen Transport bis zum Komplettservice.
     </p>
 
-    <p style="margin-top:14px;">
-      Viele unserer Kunden kommen auf Empfehlung – weil sie merken,
-      dass wir unseren Job ernst nehmen und trotzdem menschlich bleiben.
-      Genau das ist unser Anspruch bei jedem einzelnen Umzug.
-    </p>
+    <div class="grid-3">
+      <div class="card reveal">
+        <h3>Tragen & Transport</h3>
+        <p>
+          Sicheres Tragen, professionelles Verladen und geschützter
+          Transport deiner Möbel und Kartons.
+        </p>
+      </div>
 
+      <div class="card reveal" style="--delay:.1s">
+        <h3>Möbelmontage</h3>
+        <p>
+          Fachgerechte Demontage vor dem Umzug und präziser Aufbau
+          am neuen Standort – ohne Improvisation.
+        </p>
+      </div>
+
+      <div class="card reveal" style="--delay:.2s">
+        <h3>Einpackservice</h3>
+        <p>
+          Auf Wunsch packen wir deinen Haushalt sicher ein,
+          beschriften logisch und sorgen für Ordnung.
+        </p>
+      </div>
+
+      <div class="card reveal" style="--delay:.3s">
+        <h3>Schutz & Material</h3>
+        <p>
+          Decken, Folien, Gurte und Kantenschutz –
+          damit Möbel und Wohnung unbeschädigt bleiben.
+        </p>
+      </div>
+
+      <div class="card reveal" style="--delay:.4s">
+        <h3>Klare Planung</h3>
+        <p>
+          Feste Ansprechpartner, realistische Zeitplanung
+          und transparente Absprachen von Anfang an.
+        </p>
+      </div>
+
+      <div class="card reveal" style="--delay:.5s">
+        <h3>Sauberer Abschluss</h3>
+        <p>
+          Gemeinsamer Check am Ende, ordentliche Übergabe
+          und kein offener Punkt.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -211,13 +217,13 @@
   <div class="container">
     <div class="cta reveal">
       <div>
-        <h3>Bereit für einen stressfreien Umzug?</h3>
+        <h3>Jetzt Umzug anfragen</h3>
         <p>
-          Teile uns kurz deine Eckdaten mit und wir melden uns
-          schnell mit einem sauberen Angebot zurück.
+          Teile uns Startadresse, Zieladresse, Wohnfläche und Wunschdatum mit.
+          Wir melden uns schnell zurück und erstellen ein faires Angebot.
         </p>
       </div>
-      <a class="btn primary" href="../anfrage.html">Jetzt Angebot anfragen</a>
+      <a class="btn primary" href="../anfrage.html">Angebot anfragen</a>
     </div>
   </div>
 </section>
@@ -233,6 +239,16 @@
     </div>
   </div>
 </footer>
+
+<script>
+/* Scroll-Reveal */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add("show"); }
+  });
+},{threshold:0.15});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
 
 </body>
 </html>
