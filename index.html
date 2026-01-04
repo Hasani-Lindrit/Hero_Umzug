@@ -517,21 +517,31 @@
   position: relative;
 }
 
-.has-dropdown > a{
-  cursor: pointer;
+.has-dropdown{
+  position: relative;
 }
 
-/* Dropdown Box */
 .dropdown{
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
-  min-width: 240px;
-  padding: 10px;
-  border-radius: 16px;
-  background: rgba(20, 30, 27, 0.95);
-  border: 1px solid rgba(255,255,255,.12);
-  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+  min-width: 260px;
+  padding: 12px;
+  border-radius: 18px;
+
+  /* 🔥 GLEICHER GRÜN-TON WIE SEITE */
+  background:
+    radial-gradient(300px 120px at 20% 0%, rgba(255,122,24,.18), transparent 60%),
+    linear-gradient(
+      180deg,
+      rgba(58, 95, 82, .96),
+      rgba(47, 75, 64, .96)
+    );
+
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 24px 70px rgba(0,0,0,.45);
+  backdrop-filter: blur(16px);
+
   display: none;
   z-index: 100;
 }
@@ -544,23 +554,30 @@
 .dropdown a{
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 12px 14px;
-  border-radius: 12px;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 14px;
   color: var(--text);
-  transition: background .2s ease;
+  transition: all .2s ease;
 }
 
+/* Orange Akzent beim Hover */
+.dropdown a:hover{
+  background: linear-gradient(
+    135deg,
+    rgba(255,122,24,.35),
+    rgba(255,176,86,.25)
+  );
+  box-shadow: 0 10px 30px rgba(255,122,24,.25);
+}
+
+/* Untertitel */
 .dropdown a span{
   font-size: 12px;
-  color: var(--muted);
+  color: rgba(255,255,255,.75);
 }
 
-.dropdown a:hover{
-  background: rgba(255,255,255,.08);
-}
-
-/* Desktop: Hover */
+/* Desktop Hover */
 @media (hover: hover){
   .has-dropdown:hover .dropdown{
     display: block;
@@ -592,13 +609,11 @@
                 <li>
                   <a href="leistungen/umzug.html">
                     <strong>Umzug</strong>
-                    <span>Privat & Gewerbe</span>
                   </a>
                 </li>
                 <li>
                   <a href="leistungen/entruempelung.html">
                     <strong>Entrümpelung</strong>
-                    <span>Wohnung, Keller, Büro</span>
                   </a>
                 </li>
               </ul>
