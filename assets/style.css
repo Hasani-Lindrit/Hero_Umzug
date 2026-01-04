@@ -418,7 +418,7 @@ footer{
 }
 
 /* =========================
-   REVIEWS – SAUBER LINKS
+   REVIEWS – FINAL FIX
 ========================= */
 
 .review-wrapper{
@@ -430,14 +430,14 @@ footer{
 .review-slider{
   overflow: hidden;
   width: 100%;
+  min-height: 240px;
 }
 
 .review-track{
   display: flex;
   gap: 24px;
-  align-items: stretch;
-  transform: translateX(0); /* 🔥 immer links starten */
-  transition: transform .5s ease;
+  transition: transform .45s ease;
+  will-change: transform;
 }
 
 .review{

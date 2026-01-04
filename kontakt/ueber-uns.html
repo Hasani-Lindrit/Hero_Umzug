@@ -293,56 +293,41 @@
 </footer>
 
 <script>
+/* Reveal */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add("show"); }
+  });
+},{threshold:0.15});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+/* Slider */
 let index = 0;
 const track = document.querySelector(".review-track");
 const reviews = document.querySelectorAll(".review");
-let autoSlideTimer;
 
 function updateSlider(){
   if(!reviews.length) return;
-  const w = reviews[0].offsetWidth + 24;
+  const w = reviews[0].offsetWidth + 20;
   track.style.transform = `translateX(-${index * w}px)`;
 }
 
 function nextReview(){
-  index++;
-  if(index > reviews.length - 2){
-    index = 0; // 🔁 zurück zum Anfang
+  if(index < reviews.length - 2){
+    index++;
+    updateSlider();
   }
-  updateSlider();
 }
 
 function prevReview(){
-  index--;
-  if(index < 0){
-    index = reviews.length - 2;
+  if(index > 0){
+    index--;
+    updateSlider();
   }
-  updateSlider();
 }
 
-/* Auto Slide */
-function startAutoSlide(){
-  autoSlideTimer = setInterval(nextReview, 5000);
-}
-
-function stopAutoSlide(){
-  clearInterval(autoSlideTimer);
-}
-
-/* Events */
-window.addEventListener("load", () => {
-  index = 0;
-  updateSlider();
-  startAutoSlide();
-});
-
+window.addEventListener("load", updateSlider);
 window.addEventListener("resize", updateSlider);
-
-/* Stop bei Hover */
-document.querySelector(".review-wrapper")
-  .addEventListener("mouseenter", stopAutoSlide);
-document.querySelector(".review-wrapper")
-  .addEventListener("mouseleave", startAutoSlide);
 </script>
 
 </body>
