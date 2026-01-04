@@ -551,6 +551,7 @@
   list-style: none;
 }
 
+
 .dropdown a{
   display: flex;
   flex-direction: column;
@@ -584,6 +585,24 @@
   }
 }
 
+/* Trennlinie im Dropdown */
+.dropdown-divider{
+  height: 1px;
+  margin: 8px 6px;
+  border-radius: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,176,86,.55),
+    transparent
+  );
+
+  box-shadow: 0 0 8px rgba(255,122,24,.25);
+  pointer-events: none;
+}
+
+
   </style>
 </head>
 
@@ -611,6 +630,7 @@
                     <strong>Umzug</strong>
                   </a>
                 </li>
+                <li class="dropdown-divider"></li>
                 <li>
                   <a href="leistungen/entruempelung.html">
                     <strong>Entrümpelung</strong>
