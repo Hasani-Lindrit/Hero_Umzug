@@ -6,6 +6,78 @@
   <title>Über uns – Hero Umzug</title>
 
   <link rel="stylesheet" href="../assets/style.css">
+  <style>
+/* =========================
+   BEWERTUNGEN – FIX (SICHTBAR)
+========================= */
+
+.review-wrapper{
+  position: relative;
+  width: 100%;
+  margin-top: 28px;
+}
+
+.review-slider{
+  width: 100%;
+  overflow: hidden;
+}
+
+.review-track{
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  transition: transform .45s ease;
+}
+
+.review{
+  width: 520px;
+  min-height: 160px;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+  color: white;
+}
+
+.review p{
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.95);
+}
+
+.review span{
+  font-size: 13px;
+  color: rgba(255,255,255,.75);
+}
+
+/* Pfeile */
+.review-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.55);
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.review-arrow.left{ left: -24px; }
+.review-arrow.right{ right: -24px; }
+
+/* Mobile */
+@media (max-width: 900px){
+  .review{
+    width: 88vw;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -134,7 +206,7 @@
             <p>„Montage lief ohne einen einzigen Kratzer.“</p>
             <span>★★★★★ – Möbelmontage</span>
           </div>
-
+ 
           <div class="review">
             <p>„Preis-Leistung absolut fair und transparent.“</p>
             <span>★★★★★ – Privatumzug</span>
@@ -236,18 +308,26 @@ const track = document.querySelector(".review-track");
 const reviews = document.querySelectorAll(".review");
 
 function updateSlider(){
-  const w = reviews[0].offsetWidth + 18;
+  if(!reviews.length) return;
+  const w = reviews[0].offsetWidth + 20;
   track.style.transform = `translateX(-${index * w}px)`;
 }
 
 function nextReview(){
-  if(index < reviews.length - 2){ index++; updateSlider(); }
+  if(index < reviews.length - 2){
+    index++;
+    updateSlider();
+  }
 }
 
 function prevReview(){
-  if(index > 0){ index--; updateSlider(); }
+  if(index > 0){
+    index--;
+    updateSlider();
+  }
 }
 
+window.addEventListener("load", updateSlider);
 window.addEventListener("resize", updateSlider);
 </script>
 
