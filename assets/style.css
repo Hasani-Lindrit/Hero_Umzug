@@ -547,70 +547,46 @@ footer{
   }
 }
 /* ===============================
-   ENTRÜMPELUNG – BOXEN (2x2)
+   HERO – RECHTS: KEYPOINT LISTE
 ================================ */
 
-/* ===============================
-   ENTRÜMPELUNG – BOXEN FIX 2x2
-================================ */
-
-.clearance-boxes{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 🔥 zwingend 2 Spalten */
-  gap: 16px;
-  align-items: stretch;
-  max-width: 560px;   /* 🔥 kleiner & kompakter */
-}
-
-/* Einzelne Box */
-.clearance-box{
+.hero-points{
   display: flex;
   flex-direction: column;
-
-  height: 210px;      /* 🔥 kleiner + identisch */
-  padding: 18px;
-
-  border-radius: 14px; /* 🔥 mehr „Kasten“, weniger Bubble */
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.09),
-    rgba(255,255,255,.04)
-  );
-  border: 1px solid rgba(255,255,255,.18);
-  box-shadow: 0 16px 36px rgba(0,0,0,.32);
+  gap: 18px;
+  padding-top: 6px;
 }
 
-/* Titel */
-.clearance-box h4{
-  margin: 0 0 6px;
+.point{
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.point .icon{
+  font-size: 22px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.point strong{
+  display: block;
   font-size: 16px;
   font-weight: 650;
   color: var(--brand2);
+  margin-bottom: 4px;
 }
 
-/* Subline */
-.clearance-box .sub{
-  font-size: 13px;
+.point p{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
   color: rgba(255,255,255,.85);
-  margin-bottom: 8px;
 }
 
-/* Beschreibung */
-.clearance-box .desc{
-  font-size: 13px;
-  line-height: 1.45;
-  color: rgba(255,255,255,.8);
-  margin-top: auto; /* 🔥 Text unten bündig */
-}
-
-/* ❗ WICHTIG: NICHT zu früh umbrechen */
-@media (max-width: 680px){
-  .clearance-boxes{
-    grid-template-columns: 1fr;
-    max-width: 100%;
-  }
-
-  .clearance-box{
-    height: auto;
+/* Mobile */
+@media (max-width: 980px){
+  .hero-points{
+    margin-top: 28px;
   }
 }
