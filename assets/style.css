@@ -569,21 +569,20 @@ footer{
 
 /* Boxen-Grid */
 .hero-boxes{
-  width: 100%;
-  max-width: 540px;            /* 🔥 ENTSCHEIDEND */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* 🔥 4 gleich breite Boxen */
   gap: 18px;
   align-items: stretch;
 }
+
 
 /* Einzelne Box */
 .hero-box{
   display: flex;
   flex-direction: column;
-  min-height: 240px;           /* 🔥 alle gleich hoch */
+  height: 260px;                /* 🔥 FIX: alle gleich hoch */
   padding: 22px;
-  border-radius: 22px;
+  border-radius: 16px;          /* 🔥 weniger rund = mehr „Kasten“ */
   background: linear-gradient(
     180deg,
     rgba(255,255,255,.10),
@@ -591,4 +590,21 @@ footer{
   );
   border: 1px solid rgba(255,255,255,.18);
   box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+.hero-box .desc{
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255,255,255,.85);
+  margin-top: auto;   /* 🔥 Text bleibt unten bündig */
+}
+@media (max-width: 1100px){
+  .hero-boxes{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px){
+  .hero-boxes{
+    grid-template-columns: 1fr;
+  }
 }
