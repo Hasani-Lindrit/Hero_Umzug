@@ -636,3 +636,68 @@ footer{
 .pdf-link:hover{
   background:rgba(255,255,255,.18);
 }
+/* ====== DROPDOWN NAV ====== */
+
+.has-dropdown{
+  position: relative;
+}
+
+.has-dropdown > a{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Pfeil */
+.has-dropdown > a::after{
+  content: "▾";
+  font-size: 12px;
+  opacity: .8;
+}
+
+/* Dropdown Menü */
+.dropdown{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+
+  background: rgba(42,66,58,.98);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 14px;
+  padding: 8px;
+
+  box-shadow: 0 18px 50px rgba(0,0,0,.4);
+
+  display: none;              /* 🔴 WICHTIG */
+  z-index: 1000;
+}
+
+/* Anzeigen bei Hover */
+.has-dropdown:hover .dropdown{
+  display: block;
+}
+
+/* Dropdown Links */
+.dropdown li{
+  list-style: none;
+}
+
+.dropdown a{
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: rgba(255,255,255,.9);
+}
+
+.dropdown a:hover{
+  background: rgba(255,255,255,.12);
+  color: #fff;
+}
+
+/* Trennlinie */
+.dropdown-divider{
+  height: 1px;
+  margin: 6px 0;
+  background: rgba(255,255,255,.15);
+}
