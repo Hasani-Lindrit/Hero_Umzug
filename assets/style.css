@@ -550,11 +550,16 @@ footer{
    ENTRÜMPELUNG – BOXEN (2x2)
 ================================ */
 
+/* ===============================
+   ENTRÜMPELUNG – BOXEN FIX 2x2
+================================ */
+
 .clearance-boxes{
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* ✅ 2 oben, 2 unten */
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 🔥 zwingend 2 Spalten */
+  gap: 16px;
   align-items: stretch;
+  max-width: 560px;   /* 🔥 kleiner & kompakter */
 }
 
 /* Einzelne Box */
@@ -562,60 +567,47 @@ footer{
   display: flex;
   flex-direction: column;
 
-  height: 260px; /* 🔥 fix – alle gleich hoch */
-  padding: 22px;
+  height: 210px;      /* 🔥 kleiner + identisch */
+  padding: 18px;
 
-  border-radius: 18px;
+  border-radius: 14px; /* 🔥 mehr „Kasten“, weniger Bubble */
   background: linear-gradient(
     180deg,
-    rgba(255,255,255,.10),
+    rgba(255,255,255,.09),
     rgba(255,255,255,.04)
   );
   border: 1px solid rgba(255,255,255,.18);
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.15);
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
-}
-
-.clearance-box:hover{
-  transform: translateY(-4px);
-  box-shadow:
-    0 28px 70px rgba(0,0,0,.45),
-    inset 0 1px 0 rgba(255,255,255,.2);
+  box-shadow: 0 16px 36px rgba(0,0,0,.32);
 }
 
 /* Titel */
 .clearance-box h4{
   margin: 0 0 6px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 650;
   color: var(--brand2);
 }
 
 /* Subline */
 .clearance-box .sub{
-  font-size: 14px;
-  color: rgba(255,255,255,.9);
-  margin-bottom: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,.85);
+  margin-bottom: 8px;
 }
 
-/* Beschreibung – bleibt unten bündig */
+/* Beschreibung */
 .clearance-box .desc{
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.45;
   color: rgba(255,255,255,.8);
-  margin-top: auto; /* 🔥 sorgt für gleiche Optik */
+  margin-top: auto; /* 🔥 Text unten bündig */
 }
 
-/* Responsive */
-@media (max-width: 980px){
+/* ❗ WICHTIG: NICHT zu früh umbrechen */
+@media (max-width: 680px){
   .clearance-boxes{
     grid-template-columns: 1fr;
+    max-width: 100%;
   }
 
   .clearance-box{
