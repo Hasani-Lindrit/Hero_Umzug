@@ -550,7 +550,7 @@ footer{
   display: grid;
   grid-template-columns: 1.25fr .75fr; /* links Text, rechts Punkte */
   gap: 28px;
-  align-items: start;
+  align-items: center;
 }
 
 /* Rechte Seite */
@@ -558,7 +558,7 @@ footer{
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding-top: 10px;
+  padding-top: 0;
 }
 
 .point{
