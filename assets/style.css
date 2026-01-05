@@ -478,84 +478,37 @@ footer{
 
 .hero-services .sep::before{
   display:none;
-}
-.hero-box .sub{
-  color: rgba(255,255,255,.85);
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.hero-box .desc{
-  font-size: 14px;
-  line-height: 1.55;
-  color: rgba(255,255,255,.78);
-}
-
-/* ===============================
-   HERO – BOXEN RECHTS HERVORHEBEN
+}/* ===============================
+   HERO – BOXEN RECHTS (GLEICHE HÖHE)
 ================================ */
 
-/* HERO BOXEN – GLEICHE HÖHE */
 .hero-boxes{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
-  align-items: stretch; /* 🔥 wichtig */
+  align-items: stretch;   /* 🔥 sorgt dafür, dass alle Boxen gleich hoch sind */
 }
 
+/* einzelne Box */
 .hero-box{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 220px;     /* 🔥 alle gleich hoch */
-  padding: 22px;
-  border-radius: 18px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.18);
-  box-shadow: 0 14px 40px rgba(0,0,0,.35);
-}
 
-/* Überschrift */
-.hero-box h4{
-  margin-bottom: 6px;
-  font-size: 18px;
-}
-
-/* Subline */
-.hero-box .sub{
-  font-size: 14px;
-  color: rgba(255,255,255,.85);
-  margin-bottom: 10px;
-}
-
-/* Beschreibung */
-.hero-box .desc{
-  font-size: 14px;
-  line-height: 1.5;
-  color: rgba(255,255,255,.9);
-}
-
-
-.hero-boxes{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  align-content: center;
-}
-
-.hero-box{
+  min-height: 260px;      /* 🔥 HIER stellst du die Höhe ein */
   padding: 22px 22px 24px;
+
   border-radius: 22px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.10),
-      rgba(255,255,255,.04)
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.10),
+    rgba(255,255,255,.04)
+  );
   border: 1px solid rgba(255,255,255,.18);
   box-shadow:
     0 20px 50px rgba(0,0,0,.35),
     inset 0 1px 0 rgba(255,255,255,.15);
+
   transition:
     transform .25s ease,
     box-shadow .25s ease,
@@ -567,14 +520,14 @@ footer{
   box-shadow:
     0 28px 70px rgba(0,0,0,.45),
     inset 0 1px 0 rgba(255,255,255,.2);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.14),
-      rgba(255,255,255,.06)
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.14),
+    rgba(255,255,255,.06)
+  );
 }
 
+/* Titel */
 .hero-box h4{
   margin: 0 0 6px;
   font-size: 18px;
@@ -582,12 +535,14 @@ footer{
   color: var(--brand2);
 }
 
+/* Subline */
 .hero-box .sub{
   font-size: 14px;
   color: rgba(255,255,255,.9);
   margin-bottom: 10px;
 }
 
+/* Beschreibung */
 .hero-box .desc{
   font-size: 14px;
   line-height: 1.55;
@@ -599,5 +554,9 @@ footer{
   .hero-boxes{
     grid-template-columns: 1fr;
     margin-top: 28px;
+  }
+
+  .hero-box{
+    min-height: auto; /* auf Mobile keine feste Höhe */
   }
 }
