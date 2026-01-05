@@ -546,15 +546,19 @@ footer{
     height: auto;
   }
 }
-/* ===============================
-   HERO – RECHTS: KEYPOINT LISTE
-================================ */
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.25fr .75fr; /* links Text, rechts Punkte */
+  gap: 28px;
+  align-items: start;
+}
 
+/* Rechte Seite */
 .hero-points{
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding-top: 6px;
+  padding-top: 10px;
 }
 
 .point{
@@ -586,7 +590,11 @@ footer{
 
 /* Mobile */
 @media (max-width: 980px){
+  .hero-grid{
+    grid-template-columns: 1fr;
+  }
+
   .hero-points{
-    margin-top: 28px;
+    margin-top: 24px;
   }
 }
