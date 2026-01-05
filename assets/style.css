@@ -701,3 +701,20 @@ footer{
   margin: 6px 0;
   background: rgba(255,255,255,.15);
 }
+nav ul li a{
+  display: inline-flex;
+  align-items: center;
+  height: 40px;          /* 🔥 fixes Höhenproblem */
+  line-height: 40px;     /* 🔥 gleiche Baseline */
+  padding: 0 12px;
+}
+
+/* Dropdown Pfeil */
+.has-dropdown > a::after{
+  content: "▾";
+  font-size: 12px;
+  margin-left: 6px;
+  position: relative;
+  top: 1px;              /* 🔥 Feinausrichtung */
+  opacity: .8;
+}
