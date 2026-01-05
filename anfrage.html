@@ -183,17 +183,34 @@ textarea{resize:vertical}
       </div>
     </a>
 
-    <nav>
-      <ul>
+        <nav aria-label="Navigation">
+          <ul>
             <li><a href="../index.html">Startseite</a></li>
-            <li><a href="../index.html">Leistungen</a></li>
-            <li><a href="../index.html">Über Uns</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </nav>
+            <li class="has-dropdown">
+              <a href="#" aria-haspopup="true">Leistungen</a>
+
+              <ul class="dropdown">
+                <li>
+                  <a href="../leistungen/umzug.html">
+                    <strong>Umzug</strong>
+                  </a>
+                </li>
+                <li class="dropdown-divider"></li>
+                <li>
+                  <a href="../leistungen/entruempelung.html">
+                    <strong>Entrümpelung</strong>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li><a href="../kontakt/ueber-uns.html">Über Uns</a></li>
+            <li><a href="../kontakt/index.html">Kontakt</a></li>
+          </ul>
+        </nav>
 
     <div class="actions">
-      <a class="btn ghost" href="tel:+491234567890">Anrufen</a>
+      <a class="btn ghost" href="tel:+4915906807385">Anrufen</a>
       <a class="btn primary" href="anfrage.html">Angebot anfragen</a>
     </div>
   </div>
@@ -203,6 +220,12 @@ textarea{resize:vertical}
   <div class="container">
     <h1>Umzugsanfrage</h1>
     <p>Bitte fülle das Formular möglichst vollständig aus. Wir melden uns schnell zurück.</p>
+    <p style="margin-bottom:18px;">
+  Optional zum Download:
+  <a href="../assets/umzugscheckliste.pdf" download class="pdf-link">
+    📄 Umzugs-Checkliste (PDF)
+  </a>
+</p>
 
     <!-- FORM: Formspree URL HIER EINTRAGEN -->
     <form action="https://formspree.io/f/DEINE_ID" method="POST" enctype="multipart/form-data">
@@ -246,6 +269,19 @@ textarea{resize:vertical}
       <input type="file" id="fileInput" multiple>
 
       <div id="fileList" class="files"></div>
+
+      <div class="privacy">
+        <label class="privacy-label">
+          <input type="checkbox" name="privacy" required>
+          Ich habe die
+          <a href="../datenschutz/index.html" target="_blank">
+            Datenschutzerklärung
+          </a>
+          gelesen und stimme der Verarbeitung meiner Daten zu.
+        </label>
+      </div>
+
+
 
       <button class="submit" type="submit">Anfrage absenden</button>
     </form>
