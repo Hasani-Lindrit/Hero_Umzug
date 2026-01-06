@@ -14,6 +14,49 @@
   --radius2: 26px;
   --max: 1120px;
 }
+/* =========================
+   HEADER – NUR MOBILE
+========================= */
+@media (max-width: 900px){
+
+  header{
+    padding: 6px 0;
+  }
+
+  .nav{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Logo kleiner */
+  .brand img{
+    width: 64px;
+  }
+
+  .brand .name strong{
+    font-size: 18px;
+  }
+
+  .brand .name span{
+    font-size: 12px;
+  }
+
+  /* Navigation ausblenden (vorerst) */
+  nav{
+    display: none;
+  }
+
+  /* Buttons untereinander */
+  .actions{
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .actions .btn{
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
 
 /* Reset */
 *{
