@@ -643,25 +643,27 @@ footer{
 }
 /* ====== DATENSCHUTZ ====== */
 .privacy{
-  margin-top:18px;
+  margin-top: 18px;
 }
 
 .privacy-label{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  font-size:13px;
-  color:var(--muted);
-  line-height:1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(255,255,255,.85);
+  cursor: pointer;
 }
 
 .privacy-label input{
-  margin-top:3px;
+  margin-top: 3px; /* optisch auf Textmitte */
+  accent-color: var(--brand);
 }
 
 .privacy-label a{
-  color:var(--brand);
-  text-decoration:underline;
+  color: var(--brand2);
+  text-decoration: underline;
 }
 /* ====== PDF DOWNLOAD ====== */
 .pdf-link{
