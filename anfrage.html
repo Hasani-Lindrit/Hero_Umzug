@@ -252,11 +252,58 @@ textarea{resize:vertical}
       <label>Umzugsdatum</label>
       <input type="date" name="date">
 
-      <label>Startadresse</label>
-      <input name="start_address" autocomplete="street-address">
+<h3 style="margin-top:22px;">Startadresse</h3>
 
-      <label>Zieladresse</label>
-      <input name="target_address" autocomplete="street-address">
+<div class="row">
+  <div>
+    <label>Straße</label>
+    <input name="start_street" placeholder="z. B. Bahnhofstraße" required>
+  </div>
+
+  <div>
+    <label>Hausnummer</label>
+    <input name="start_house" placeholder="z. B. 12a" required>
+  </div>
+</div>
+
+<div class="row">
+  <div>
+    <label>PLZ</label>
+    <input name="start_zip" placeholder="z. B. 71634" required>
+  </div>
+
+  <div>
+    <label>Ort</label>
+    <input name="start_city" placeholder="z. B. Ludwigsburg" required>
+  </div>
+</div>
+
+<h3 style="margin-top:26px;">Zieladresse</h3>
+
+<div class="row">
+  <div>
+    <label>Straße</label>
+    <input name="target_street" placeholder="z. B. Hauptstraße" required>
+  </div>
+
+  <div>
+    <label>Hausnummer</label>
+    <input name="target_house" placeholder="z. B. 8" required>
+  </div>
+</div>
+
+<div class="row">
+  <div>
+    <label>PLZ</label>
+    <input name="target_zip" placeholder="z. B. 70173" required>
+  </div>
+
+  <div>
+    <label>Ort</label>
+    <input name="target_city" placeholder="z. B. Stuttgart" required>
+  </div>
+</div>
+
 
       <div class="row">
         <div>
