@@ -695,54 +695,16 @@ nav ul li a{
 ========================= */
 @media (max-width: 900px){
 
-  /* NAV Container */
-  header nav{
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-
-    background: rgba(42,66,58,.98);
-    border-top: 1px solid rgba(255,255,255,.12);
-    box-shadow: 0 20px 40px rgba(0,0,0,.4);
-    padding: 16px;
-
-    z-index: 999;
-  }
-
-  header nav.open{
-    display: block;
-  }
-
-  /* UL sauber vertikal */
-  header nav ul{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  /* LI volle Breite */
-  header nav ul li{
-    width: 100%;
-  }
-
-  /* LINKS: KEINE PILLS */
   header nav a{
-    display: block;
-    width: 100%;
-    padding: 14px 16px;
-
-    background: none;
-    border-radius: 12px;
-
+    background: transparent;
+    border-radius: 0;
+    padding: 14px 10px;
     font-size: 16px;
     font-weight: 500;
-    color: #fff;
   }
 
   header nav a:hover{
-    background: rgba(255,255,255,.12);
+    background: rgba(255,255,255,.08);
   }
 }
 @media (max-width: 900px){
@@ -765,6 +727,32 @@ nav ul li a{
     background: rgba(255,255,255,.06);
   }
 }
+@media (max-width: 900px){
+
+  .has-dropdown > a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+  }
+}
+@media (max-width: 900px){
+
+  .dropdown{
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    margin-top: 4px;
+  }
+
+  .dropdown a{
+    padding: 12px 18px;
+    font-size: 15px;
+    color: rgba(255,255,255,.9);
+  }
+}
+
 /* ===== MOBILE BURGER ===== */
 /* ===== MOBILE BURGER – ORANGE ===== */
 .mobile-toggle{
