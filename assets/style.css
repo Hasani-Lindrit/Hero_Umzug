@@ -630,9 +630,13 @@ footer{
 
 /* Desktop Hover */
 @media (min-width: 901px){
-  .has-dropdown:hover .dropdown{
-    display: block;
-  }
+.dropdown{
+  display: none;
+}
+
+.dropdown.open{
+  display: block;
+}
 }
 
 /* Mobile: Hover deaktiviert */

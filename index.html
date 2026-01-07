@@ -884,6 +884,18 @@
     transform: rotate(180deg);
   }
 }
+@media (max-width: 900px){
+
+  /* Dropdown Links = gleicher Stil wie normale Nav-Links */
+  .dropdown a{
+    background: transparent !important;
+    color: rgba(255,255,255,.88);
+  }
+
+  .dropdown a:hover{
+    background: rgba(255,255,255,.06);
+  }
+}
   </style>
 </head>
 
@@ -1280,21 +1292,15 @@
 <script>
   const media = window.matchMedia("(max-width: 900px)");
   const trigger = document.querySelector(".has-dropdown > a");
-  const dropdown = document.querySelector(".dropdown");
+  const dropdown = document.querySelector(".has-dropdown .dropdown");
 
   trigger.addEventListener("click", e => {
-    if (!media.matches) return; // Desktop: nix tun
+    if (!media.matches) return;
     e.preventDefault();
     dropdown.classList.toggle("open");
   });
-
-  document.addEventListener("click", e => {
-    if (!media.matches) return;
-    if (!e.target.closest(".has-dropdown")) {
-      dropdown.classList.remove("open");
-    }
-  });
 </script>
+
 <script>
   const toggle = document.querySelector(".mobile-toggle");
   const nav = document.querySelector("header nav");
