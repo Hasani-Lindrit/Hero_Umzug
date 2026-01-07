@@ -750,20 +750,18 @@
           <ul>
             <li><a href="index.html">Startseite</a></li>
             <li class="has-dropdown">
-              <a href="leistungen/umzug.html">Leistungen</a>
-
+              <button class="mobile-subtoggle">
+                Leistungen
+                <span>▾</span>
+              </button>
 
               <ul class="dropdown">
                 <li>
-                  <a href="leistungen/umzug.html">
-                    <strong>Umzug</strong>
-                  </a>
+                  <a href="leistungen/umzug.html"><strong>Umzug</strong></a>
                 </li>
                 <li class="dropdown-divider"></li>
                 <li>
-                  <a href="leistungen/entruempelung.html">
-                    <strong>Entrümpelung</strong>
-                  </a>
+                  <a href="leistungen/entruempelung.html"><strong>Entrümpelung</strong></a>
                 </li>
               </ul>
             </li>
@@ -1144,6 +1142,15 @@
 
   toggle.addEventListener("click", () => {
     nav.classList.toggle("open");
+  });
+</script>
+<script>
+  document.querySelectorAll(".mobile-subtoggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const dropdown = btn.nextElementSibling;
+      btn.classList.toggle("active");
+      dropdown.classList.toggle("open");
+    });
   });
 </script>
 

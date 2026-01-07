@@ -803,3 +803,12 @@ nav ul li a{
   /* Desktop Hover im Mobile aus */
   .has-dropdown:hover .dropdown{ display: none; }
 }
+@media (max-width: 900px){
+  .mobile-subtoggle span{
+    transition: transform .25s ease;
+  }
+
+  .mobile-subtoggle.active span{
+    transform: rotate(180deg);
+  }
+}
