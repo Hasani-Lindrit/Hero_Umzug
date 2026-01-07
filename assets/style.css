@@ -677,115 +677,58 @@ nav ul li a{
    MOBILE LAYOUT – SAUBER & KONTROLLIERT
    bricht Desktop NICHT
 ================================================= */
+/* =========================
+   MOBILE MENU – CLEAN
+========================= */
 @media (max-width: 900px){
 
-  /* ---------- HEADER ---------- */
-  .nav{
-    flex-wrap: wrap;
+  /* NAV Container */
+  header nav{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    background: rgba(42,66,58,.98);
+    border-top: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 20px 40px rgba(0,0,0,.4);
+    padding: 16px;
+
+    z-index: 999;
+  }
+
+  header nav.open{
+    display: block;
+  }
+
+  /* UL sauber vertikal */
+  header nav ul{
+    display: flex;
+    flex-direction: column;
     gap: 10px;
   }
 
-  .brand{
-    min-width: auto;
-  }
-
-  .brand img{
-    width: 64px;
-  }
-
-  .brand .name strong{
-    font-size: 17px;
-  }
-
-  .brand .name span{
-    font-size: 12px;
-  }
-
-  /* Navigation als Dropdown-Panel */
-  nav{
-    width: 100%;
-    order: 3;
-  }
-
-  nav ul{
-    flex-direction: column;
-    gap: 8px;
-    background: rgba(42,66,58,.98);
-    border: 1px solid rgba(255,255,255,.14);
-    border-radius: 16px;
-    padding: 12px;
-    margin-top: 10px;
-  }
-
-  nav ul li{
+  /* LI volle Breite */
+  header nav ul li{
     width: 100%;
   }
 
-  nav a{
+  /* LINKS: KEINE PILLS */
+  header nav a{
+    display: block;
     width: 100%;
-    justify-content: flex-start;
-    padding: 12px;
-    background: rgba(255,255,255,.06);
+    padding: 14px 16px;
+
+    background: none;
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
   }
 
-  /* ---------- BUTTONS ---------- */
-  .actions{
-    width: 100%;
-    justify-content: space-between;
-    order: 2;
-  }
-
-  .actions .btn{
-    flex: 1;
-    font-size: 14px;
-    padding: 10px 12px;
-  }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    padding: 36px 0 24px;
-  }
-
-  .hero-grid{
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .hero h1{
-    font-size: 34px;
-    line-height: 1.1;
-  }
-
-  .hero p{
-    font-size: 15px;
-  }
-
-  .hero-photo{
-    margin-top: 16px;
-  }
-
-  /* ---------- SECTIONS ---------- */
-  .section{
-    padding: 32px 0;
-  }
-
-  .section h2{
-    font-size: 26px;
-  }
-
-  /* ---------- GRIDS ---------- */
-  .grid-2,
-  .grid-3{
-    grid-template-columns: 1fr;
-  }
-
-  /* ---------- CARDS ---------- */
-  .card{
-    padding: 16px;
-  }
-
-  /* ---------- FOOTER ---------- */
-  .foot{
-    gap: 24px;
+  header nav a:hover{
+    background: rgba(255,255,255,.12);
   }
 }
