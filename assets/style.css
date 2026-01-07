@@ -17,46 +17,6 @@
 /* =========================
    HEADER – NUR MOBILE
 ========================= */
-@media (max-width: 900px){
-
-  header{
-    padding: 6px 0;
-  }
-
-  .nav{
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  /* Logo kleiner */
-  .brand img{
-    width: 64px;
-  }
-
-  .brand .name strong{
-    font-size: 18px;
-  }
-
-  .brand .name span{
-    font-size: 12px;
-  }
-
-  /* Navigation ausblenden (vorerst) */
-  nav{
-    display: none;
-  }
-
-  /* Buttons untereinander */
-  .actions{
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .actions .btn{
-    padding: 10px 12px;
-    font-size: 14px;
-  }
-}
 
 /* Reset */
 *{
@@ -355,30 +315,6 @@ footer{
 
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 980px){
-  .hero-grid{
-    grid-template-columns: 1fr;
-  }
-  nav ul{
-    display:none;
-  }
-}
-
-@media (max-width: 840px){
-  .grid-3{
-    grid-template-columns: 1fr;
-  }
-  .grid-2{
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px){
-  .brand img{
-    width: 70px;
-  }
-}
-
 /* =========================
    REVIEWS – SAUBER LINKS
 ========================= */
@@ -443,11 +379,6 @@ footer{
 .review-arrow.right{ right: 0; }
 
 /* Mobile */
-@media (max-width: 900px){
-  .review{
-    flex: 0 0 85vw;
-  }
-}
 
 .umzug-highlights{
   display: grid;
@@ -480,11 +411,7 @@ footer{
   font-size: 14px;
   color: var(--muted);
 }
-@media (max-width: 600px){
-  .umzug-highlights{
-    grid-template-columns: 1fr;
-  }
-}
+
 .hero-services{
   margin-top: 26px;
   display: flex;
@@ -573,22 +500,8 @@ footer{
 }
 
 /* Tablet */
-@media (max-width: 1200px){
-  .hero-boxes{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 /* Mobile */
-@media (max-width: 600px){
-  .hero-boxes{
-    grid-template-columns: 1fr;
-  }
-
-  .hero-box{
-    height: auto;
-  }
-}
 .hero-grid{
   display: grid;
   grid-template-columns: 1.25fr .75fr; /* links Text, rechts Punkte */
@@ -632,15 +545,6 @@ footer{
 }
 
 /* Mobile */
-@media (max-width: 980px){
-  .hero-grid{
-    grid-template-columns: 1fr;
-  }
-
-  .hero-points{
-    margin-top: 24px;
-  }
-}
 /* ====== DATENSCHUTZ ====== */
 .privacy{
   margin-top: 18px;
@@ -769,61 +673,119 @@ nav ul li a{
   top: 1px;              /* 🔥 Feinausrichtung */
   opacity: .8;
 }
-/* ===== MOBILE RESET ===== */
+/* =================================================
+   MOBILE LAYOUT – SAUBER & KONTROLLIERT
+   bricht Desktop NICHT
+================================================= */
 @media (max-width: 900px){
 
-  /* Layouts immer einspaltig */
-  .hero-grid,
-  .grid-2,
-  .grid-3,
-  .split,
-  .contact-grid{
-    grid-template-columns: 1fr !important;
+  /* ---------- HEADER ---------- */
+  .nav{
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
-  /* Keine festen Höhen */
-  .hero-box,
-  .review,
-  .card,
-  .hero-photo{
-    height: auto !important;
-    min-height: unset !important;
+  .brand{
+    min-width: auto;
   }
 
-  /* Abstände reduzieren */
-  section{
-    padding: 32px 0 !important;
+  .brand img{
+    width: 64px;
   }
 
-  /* Text kleiner */
-  h1{
-    font-size: 36px !important;
+  .brand .name strong{
+    font-size: 17px;
   }
 
-  h2{
-    font-size: 26px !important;
+  .brand .name span{
+    font-size: 12px;
   }
 
-}
-@media (max-width: 980px){
+  /* Navigation als Dropdown-Panel */
+  nav{
+    width: 100%;
+    order: 3;
+  }
+
   nav ul{
-    display: flex;
     flex-direction: column;
     gap: 8px;
     background: rgba(42,66,58,.98);
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    padding: 14px;
-    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 16px;
+    padding: 12px;
+    margin-top: 10px;
   }
-}
-@media (max-width: 900px){
-  .hero-grid > *{
-    order: unset;
+
+  nav ul li{
+    width: 100%;
+  }
+
+  nav a{
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px;
+    background: rgba(255,255,255,.06);
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .actions{
+    width: 100%;
+    justify-content: space-between;
+    order: 2;
+  }
+
+  .actions .btn{
+    flex: 1;
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding: 36px 0 24px;
+  }
+
+  .hero-grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hero h1{
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+  .hero p{
+    font-size: 15px;
   }
 
   .hero-photo{
-    margin-top: 20px;
+    margin-top: 16px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .section{
+    padding: 32px 0;
+  }
+
+  .section h2{
+    font-size: 26px;
+  }
+
+  /* ---------- GRIDS ---------- */
+  .grid-2,
+  .grid-3{
+    grid-template-columns: 1fr;
+  }
+
+  /* ---------- CARDS ---------- */
+  .card{
+    padding: 16px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .foot{
+    gap: 24px;
   }
 }
