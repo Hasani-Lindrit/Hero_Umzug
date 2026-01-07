@@ -602,21 +602,6 @@
   }
 
   /* NAVIGATION UNTER HEADER */
-  nav{
-    width: 100%;
-    order: 3;
-  }
-
-  nav ul{
-    flex-direction: column;
-    gap: 8px;
-    background: rgba(42,66,58,.98);
-    border: 1px solid rgba(255,255,255,.14);
-    border-radius: 16px;
-    padding: 12px;
-    margin-top: 10px;
-  }
-
   nav ul li{
     width: 100%;
   }
@@ -682,7 +667,89 @@
     padding: 16px;
   }
 }
+/* =================================================
+   MOBILE HEADER – FINAL & SAUBER
+================================================= */
+@media (max-width: 900px){
 
+  .nav{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .brand img{
+    width: 64px;
+  }
+
+  .brand .name strong{ font-size: 17px; }
+  .brand .name span{ font-size: 12px; }
+
+  /* Burger Button */
+  .mobile-toggle{
+    font-size: 20px;
+    padding: 10px 14px;
+  }
+
+  /* Buttons unter Logo */
+  .actions{
+    width: 100%;
+    order: 2;
+    justify-content: space-between;
+  }
+
+  .actions .btn{
+    flex: 1;
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  /* NAV standardmäßig ZU */
+  nav{
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+    background: rgba(42,66,58,.98);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 18px;
+    padding: 12px;
+  }
+
+  nav.open{
+    display: block;
+  }
+
+  nav ul{
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  nav a{
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,.06);
+  }
+
+  /* HERO */
+  .hero{
+    padding: 32px 0 20px;
+  }
+
+  .hero-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hero h1{
+    font-size: 34px;
+  }
+}
+
+/* Desktop: Burger aus */
+@media (min-width: 901px){
+  .mobile-toggle{
+    display: none;
+  }
+}
 
 
   </style>
@@ -732,6 +799,12 @@
         </div>
       </div>
     </div>
+    <div class="actions">
+  <button class="btn mobile-toggle" aria-label="Menü öffnen">☰</button>
+  <a class="btn" href="tel:+4915906807385">Anrufen</a>
+  <a class="btn primary" href="anfrage.html">Angebot anfragen</a>
+</div>
+
   </header>
 
   <main id="top">
@@ -1089,6 +1162,14 @@
     if (!e.target.closest(".has-dropdown")) {
       dropdownMenu.style.display = "none";
     }
+  });
+</script>
+<script>
+  const toggle = document.querySelector(".mobile-toggle");
+  const nav = document.querySelector("nav");
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
   });
 </script>
 
