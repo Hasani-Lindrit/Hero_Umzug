@@ -628,9 +628,22 @@ footer{
   z-index: 1000;
 }
 
-/* Anzeigen bei Hover */
-.has-dropdown:hover .dropdown{
-  display: block;
+/* Desktop Hover */
+@media (min-width: 901px){
+  .has-dropdown:hover .dropdown{
+    display: block;
+  }
+}
+
+/* Mobile: Hover deaktiviert */
+@media (max-width: 900px){
+  .has-dropdown:hover .dropdown{
+    display: none;
+  }
+
+  .dropdown.open{
+    display: block;
+  }
 }
 
 /* Dropdown Links */
@@ -730,5 +743,25 @@ nav ul li a{
 
   header nav a:hover{
     background: rgba(255,255,255,.12);
+  }
+}
+@media (max-width: 900px){
+
+  .has-dropdown > a{
+    justify-content: space-between;
+  }
+
+  .dropdown{
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: none;
+    padding: 0;
+    margin-top: 6px;
+  }
+
+  .dropdown a{
+    padding-left: 28px;
+    background: rgba(255,255,255,.06);
   }
 }

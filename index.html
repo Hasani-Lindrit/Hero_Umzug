@@ -544,11 +544,6 @@
   z-index: 1000;
 }
 
-/* Anzeigen bei Hover */
-.has-dropdown:hover .dropdown{
-  display: block;
-}
-
 /* Dropdown Links */
 .dropdown li{
   list-style: none;
@@ -1144,29 +1139,22 @@
     .forEach(el => observer.observe(el));
 </script>
 <script>
-  const dropdownTrigger = document.querySelector(".has-dropdown > a");
-  const dropdownMenu = document.querySelector(".has-dropdown .dropdown");
+  const media = window.matchMedia("(max-width: 900px)");
+  const trigger = document.querySelector(".has-dropdown > a");
+  const dropdown = document.querySelector(".dropdown");
 
-  dropdownTrigger.addEventListener("click", e => {
+  trigger.addEventListener("click", e => {
+    if (!media.matches) return; // Desktop: nix tun
     e.preventDefault();
-    dropdownMenu.style.display =
-      dropdownMenu.style.display === "block" ? "none" : "block";
+    dropdown.classList.toggle("open");
   });
 
   document.addEventListener("click", e => {
+    if (!media.matches) return;
     if (!e.target.closest(".has-dropdown")) {
-      dropdownMenu.style.display = "none";
+      dropdown.classList.remove("open");
     }
   });
 </script>
-<script>
-  const toggle = document.querySelector(".mobile-toggle");
-  const nav = document.querySelector("nav");
-
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-  });
-</script>
-
 </body>
 </html>
