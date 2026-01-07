@@ -545,8 +545,10 @@
 }
 
 /* Anzeigen bei Hover */
-.has-dropdown:hover .dropdown{
-  display: block;
+@media (min-width: 901px){
+  .has-dropdown:hover .dropdown{
+    display: block;
+  }
 }
 
 /* Dropdown Links */
@@ -719,6 +721,15 @@
     display: none;
   }
 }
+@media (max-width: 900px){
+  header nav{
+    display: none;
+  }
+
+  header nav.open{
+    display: block;
+  }
+}
   </style>
 </head>
 
@@ -739,7 +750,8 @@
           <ul>
             <li><a href="index.html">Startseite</a></li>
             <li class="has-dropdown">
-              <a href="#" aria-haspopup="true">Leistungen</a>
+              <a href="leistungen/umzug.html">Leistungen</a>
+
 
               <ul class="dropdown">
                 <li>
