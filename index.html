@@ -546,15 +546,22 @@
 
 /* Anzeigen bei Hover */
 /* Dropdown standard */
+/* Grundzustand */
 .dropdown{
   display: none;
 }
 
-/* Dropdown offen */
-.dropdown.open{
+/* Mobile + Klick */
+.has-dropdown.open .dropdown{
   display: block;
 }
 
+/* Desktop Hover */
+@media (min-width: 901px){
+  .has-dropdown:hover .dropdown{
+    display: block;
+  }
+}
 /* Dropdown Links */
 .dropdown li{
   list-style: none;
@@ -1302,15 +1309,18 @@
 </script>
 <script>
   const media = window.matchMedia("(max-width: 900px)");
-  const trigger = document.querySelector(".has-dropdown > a");
-  const dropdown = document.querySelector(".has-dropdown .dropdown");
+  const dropdownItem = document.querySelector(".has-dropdown");
+  const trigger = dropdownItem.querySelector("a");
 
   trigger.addEventListener("click", e => {
     if (!media.matches) return;
     e.preventDefault();
-    dropdown.classList.toggle("open");
+    e.stopPropagation();
+
+    dropdownItem.classList.toggle("open");
   });
 </script>
+
 
 <script>
   const toggle = document.querySelector(".mobile-toggle");
