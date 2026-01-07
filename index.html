@@ -545,10 +545,8 @@
 }
 
 /* Anzeigen bei Hover */
-@media (min-width: 901px){
-  .has-dropdown:hover .dropdown{
-    display: block;
-  }
+.has-dropdown:hover .dropdown{
+  display: block;
 }
 
 /* Dropdown Links */
@@ -576,160 +574,14 @@
 }
 
 /* Desktop Hover */
-/* =================================================
-   MOBILE LAYOUT – FINAL
-================================================= */
-@media (max-width: 900px){
-
-  /* HEADER */
-  .nav{
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .brand{
-    min-width: auto;
-  }
-
-  .brand img{
-    width: 64px;
-  }
-
-  .brand .name strong{
-    font-size: 17px;
-  }
-
-  .brand .name span{
-    font-size: 12px;
-  }
-
-  /* NAVIGATION UNTER HEADER */
-  nav ul li{
-    width: 100%;
-  }
-
-  nav a{
-    width: 100%;
-    padding: 12px;
-    background: rgba(255,255,255,.06);
-  }
-
-  /* BUTTONS */
-  .actions{
-    width: 100%;
-    justify-content: space-between;
-    order: 2;
-  }
-
-  .actions .btn{
-    flex: 1;
-    font-size: 14px;
-    padding: 10px 12px;
-  }
-
-  /* HERO */
-  .hero{
-    padding: 36px 0 24px;
-  }
-
-  .hero-grid{
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .hero h1{
-    font-size: 34px;
-    line-height: 1.1;
-  }
-
-  .hero p{
-    font-size: 15px;
-  }
-
-  .hero-photo{
-    margin-top: 16px;
-  }
-
-  /* CONTENT */
-  .grid-2,
-  .grid-3,
-  .split{
-    grid-template-columns: 1fr;
-  }
-
-  .section{
-    padding: 32px 0;
-  }
-
-  .section h2{
-    font-size: 26px;
-  }
-
-  .card{
-    padding: 16px;
-  }
-}
-/* =================================================
-   MOBILE HEADER – FINAL & SAUBER
-================================================= */
-/* =========================
-   MOBILE BURGER
-========================= */
-.mobile-toggle{
-  display: none;
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 12px;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Mobile */
-@media (max-width: 900px){
-  .mobile-toggle{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 42px;
-    padding: 0 14px;
-    font-size: 20px;
-  }
-
-  /* Header-Buttons aus */
-  header .actions{
-    display: none;
-  }
-}
-
-/* Desktop */
-@media (min-width: 901px){
-  .mobile-toggle{
-    display: none;
-  }
-}
-
-
-/* Desktop: Burger aus */
-@media (min-width: 901px){
-  .mobile-toggle{
-    display: none;
-  }
-}
-
-@media (max-width: 900px){
-  header .actions{
-    display: none;
-  }
-}
-@media (max-width: 900px){
-  header nav{
-    display: none;
-  }
-
-  header nav.open{
+@media (hover: hover){
+  .has-dropdown:hover .dropdown{
     display: block;
   }
 }
+
+
+
   </style>
 </head>
 
@@ -744,24 +596,24 @@
             <span>Modern. Sicher. Stressfrei.</span>
           </div>
         </a>
-        <button class="mobile-toggle" aria-label="Menü öffnen">☰</button>
 
         <nav aria-label="Navigation">
           <ul>
             <li><a href="index.html">Startseite</a></li>
             <li class="has-dropdown">
-              <button class="mobile-subtoggle">
-                Leistungen
-                <span>▾</span>
-              </button>
+              <a href="#" aria-haspopup="true">Leistungen</a>
 
               <ul class="dropdown">
                 <li>
-                  <a href="leistungen/umzug.html"><strong>Umzug</strong></a>
+                  <a href="leistungen/umzug.html">
+                    <strong>Umzug</strong>
+                  </a>
                 </li>
                 <li class="dropdown-divider"></li>
                 <li>
-                  <a href="leistungen/entruempelung.html"><strong>Entrümpelung</strong></a>
+                  <a href="leistungen/entruempelung.html">
+                    <strong>Entrümpelung</strong>
+                  </a>
                 </li>
               </ul>
             </li>
@@ -1134,23 +986,6 @@
     if (!e.target.closest(".has-dropdown")) {
       dropdownMenu.style.display = "none";
     }
-  });
-</script>
-<script>
-  const toggle = document.querySelector(".mobile-toggle");
-  const nav = document.querySelector("nav");
-
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-  });
-</script>
-<script>
-  document.querySelectorAll(".mobile-subtoggle").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const dropdown = btn.nextElementSibling;
-      btn.classList.toggle("active");
-      dropdown.classList.toggle("open");
-    });
   });
 </script>
 
