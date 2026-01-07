@@ -916,24 +916,19 @@
 }
 @media (max-width: 900px){
 
-  header nav ul{
-    display: flex;
-    flex-direction: column;
-    gap: 0; /* 🔥 wir kontrollieren Abstände selbst */
-  }
-
+  /* Einheitlicher Abstand für ALLE Hauptmenüpunkte */
   header nav ul li{
-    padding: 14px 0;   /* 🔥 EINHEITLICHER vertikaler Abstand */
+    padding: 14px 0;
   }
 
-  header nav ul li a{
+  /* Dropdown-Unterpunkte NICHT mitziehen */
+  header nav ul li .dropdown li{
     padding: 0;
-    line-height: 1.4;
   }
 
-  /* Dropdown-Container soll keinen Extra-Abstand erzeugen */
+  /* Leistungen explizit wie normale Punkte behandeln */
   .has-dropdown{
-    padding-bottom: 0;
+    padding: 14px 0;
   }
 }
   </style>
