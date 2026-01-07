@@ -763,25 +763,25 @@
           <img src="assets/logo.png" alt="Hero Umzug Logo" />
           <button class="mobile-menu-toggle" aria-label="Menü öffnen">☰</button>
 
-<div class="mobile-menu">
-  <ul>
-    <li><a href="index.html">Startseite</a></li>
+          <div class="mobile-menu">
+            <ul>
+              <li><a href="index.html">Startseite</a></li>
 
-    <li class="mobile-has-sub">
-      <button class="mobile-sub-toggle">
-        Leistungen
-        <span>▾</span>
-      </button>
-      <ul class="mobile-sub">
-        <li><a href="leistungen/umzug.html">Umzug</a></li>
-        <li><a href="leistungen/entruempelung.html">Entrümpelung</a></li>
-      </ul>
-    </li>
+              <li class="mobile-has-sub">
+                <button class="mobile-sub-toggle">
+                  Leistungen
+                  <span>▾</span>
+                </button>
+                <ul class="mobile-sub">
+                  <li><a href="leistungen/umzug.html">Umzug</a></li>
+                  <li><a href="leistungen/entruempelung.html">Entrümpelung</a></li>
+                </ul>
+              </li>
 
-    <li><a href="kontakt/ueber-uns.html">Über uns</a></li>
-    <li><a href="kontakt/index.html">Kontakt</a></li>
-  </ul>
-</div>
+              <li><a href="kontakt/ueber-uns.html">Über uns</a></li>
+              <li><a href="kontakt/index.html">Kontakt</a></li>
+            </ul>
+          </div>
 
           <div class="name">
             <strong>Hero Umzug</strong>
@@ -1188,33 +1188,6 @@
     nav.classList.toggle("open");
   });
 </script>
-<script>
-  const mobileToggle = document.querySelector(".mobile-menu-toggle");
-  const mobileMenu = document.querySelector(".mobile-menu");
-
-  // Hauptmenü öffnen/schließen
-  mobileToggle.addEventListener("click", e => {
-    e.stopPropagation();
-    mobileMenu.classList.toggle("open");
-  });
-
-  // Submenu (Leistungen)
-  document.querySelectorAll(".mobile-sub-toggle").forEach(btn => {
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      btn.classList.toggle("active");
-      btn.nextElementSibling.classList.toggle("open");
-    });
-  });
-
-  // Klick außerhalb → alles zu
-  document.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-    document.querySelectorAll(".mobile-sub").forEach(s => s.classList.remove("open"));
-    document.querySelectorAll(".mobile-sub-toggle").forEach(b => b.classList.remove("active"));
-  });
-</script>
-
 
 </body>
 </html>
