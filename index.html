@@ -1192,17 +1192,29 @@
   const mobileToggle = document.querySelector(".mobile-menu-toggle");
   const mobileMenu = document.querySelector(".mobile-menu");
 
-  mobileToggle.addEventListener("click", () => {
+  // Hauptmenü öffnen/schließen
+  mobileToggle.addEventListener("click", e => {
+    e.stopPropagation();
     mobileMenu.classList.toggle("open");
   });
 
+  // Submenu (Leistungen)
   document.querySelectorAll(".mobile-sub-toggle").forEach(btn => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
       btn.classList.toggle("active");
       btn.nextElementSibling.classList.toggle("open");
     });
   });
+
+  // Klick außerhalb → alles zu
+  document.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+    document.querySelectorAll(".mobile-sub").forEach(s => s.classList.remove("open"));
+    document.querySelectorAll(".mobile-sub-toggle").forEach(b => b.classList.remove("active"));
+  });
 </script>
+
 
 </body>
 </html>
