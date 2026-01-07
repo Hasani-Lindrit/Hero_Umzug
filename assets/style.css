@@ -680,96 +680,55 @@ nav ul li a{
 /* =========================
    MOBILE MENU – CLEAN
 ========================= */
-/* ================= MOBILE MENU RECHTS ================= */
 @media (max-width: 900px){
 
-  /* Burger neben Logo */
-  .mobile-menu-toggle{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    padding: 10px 14px;
-    border-radius: 12px;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.18);
-    color: #fff;
-    cursor: pointer;
-  }
-
-  /* Desktop Nav aus */
+  /* NAV Container */
   header nav{
-    display: none !important;
-  }
-
-  /* Mobile Menü Container */
-  .mobile-menu{
     display: none;
-    width: 100%;
-    margin-top: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
     background: rgba(42,66,58,.98);
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 18px;
-    padding: 12px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 20px 40px rgba(0,0,0,.4);
+    padding: 16px;
+
+    z-index: 999;
   }
 
-  .mobile-menu.open{
+  header nav.open{
     display: block;
   }
 
-  .mobile-menu ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  /* UL sauber vertikal */
+  header nav ul{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
-  .mobile-menu a,
-  .mobile-sub-toggle{
+  /* LI volle Breite */
+  header nav ul li{
     width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    background: rgba(255,255,255,.06);
-    color: #fff;
-    font-size: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 0;
-    cursor: pointer;
   }
 
-  /* Submenu */
-  .mobile-sub{
-    display: none;
-    padding-left: 10px;
-    margin-top: 6px;
-  }
-
-  .mobile-sub.open{
+  /* LINKS: KEINE PILLS */
+  header nav a{
     display: block;
+    width: 100%;
+    padding: 14px 16px;
+
+    background: none;
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
   }
 
-  .mobile-sub a{
-    background: rgba(255,255,255,.04);
-    font-size: 15px;
-  }
-
-  .mobile-sub-toggle span{
-    transition: transform .25s ease;
-  }
-
-  .mobile-sub-toggle.active span{
-    transform: rotate(180deg);
-  }
-}
-
-/* Desktop: Mobile Menu AUS */
-@media (min-width: 901px){
-  .mobile-menu,
-  .mobile-menu-toggle{
-    display: none;
+  header nav a:hover{
+    background: rgba(255,255,255,.12);
   }
 }
