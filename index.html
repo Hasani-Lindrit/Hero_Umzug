@@ -860,7 +860,30 @@
     transform: translateY(-1px);
   }
 }
+@media (max-width: 900px){
 
+  /* Untermenü visuell einrücken */
+  .has-dropdown .dropdown{
+    margin-left: 18px;          /* 👉 nach rechts */
+    padding-left: 12px;
+    border-left: 2px solid rgba(255,255,255,.12);
+  }
+
+  .has-dropdown .dropdown a{
+    padding: 12px 10px;
+    font-size: 15px;
+    color: rgba(255,255,255,.85);
+  }
+}
+@media (max-width: 900px){
+  .has-dropdown > a::after{
+    transition: transform .25s ease;
+  }
+
+  .has-dropdown .dropdown.open ~ a::after{
+    transform: rotate(180deg);
+  }
+}
   </style>
 </head>
 
