@@ -750,6 +750,9 @@
           <ul>
             <li><a href="index.html">Startseite</a></li>
             <li class="has-dropdown">
+                <button class="mobile-subtoggle">
+                Leistungen <span>+</span>
+                </button>
               <a href="leistungen/umzug.html">Leistungen</a>
 
 
@@ -1139,13 +1142,20 @@
   });
 </script>
 <script>
-  const toggle = document.querySelector(".mobile-toggle");
-  const nav = document.querySelector("nav");
+  const burger = document.querySelector(".mobile-toggle");
+  const nav = document.querySelector("header nav");
+  const subToggle = document.querySelector(".mobile-subtoggle");
+  const dropdown = document.querySelector(".dropdown");
 
-  toggle.addEventListener("click", () => {
+  burger.addEventListener("click", () => {
     nav.classList.toggle("open");
   });
+
+  subToggle.addEventListener("click", () => {
+    dropdown.classList.toggle("open");
+  });
 </script>
+
 
 </body>
 </html>
