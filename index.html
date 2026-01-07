@@ -914,6 +914,28 @@
     display: block;
   }
 }
+@media (max-width: 900px){
+
+  header nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* 🔥 wir kontrollieren Abstände selbst */
+  }
+
+  header nav ul li{
+    padding: 14px 0;   /* 🔥 EINHEITLICHER vertikaler Abstand */
+  }
+
+  header nav ul li a{
+    padding: 0;
+    line-height: 1.4;
+  }
+
+  /* Dropdown-Container soll keinen Extra-Abstand erzeugen */
+  .has-dropdown{
+    padding-bottom: 0;
+  }
+}
   </style>
 </head>
 
