@@ -749,27 +749,17 @@
         <nav aria-label="Navigation">
           <ul>
             <li><a href="index.html">Startseite</a></li>
-            <li class="has-dropdown">
-                <button class="mobile-subtoggle">
-                Leistungen <span>+</span>
-                </button>
-              <a href="leistungen/umzug.html">Leistungen</a>
+          <li class="has-dropdown">
+            <button class="mobile-subtoggle" type="button" aria-expanded="false">
+              Leistungen <span class="plus">+</span>
+            </button>
 
+            <ul class="dropdown" aria-label="Leistungen Untermenü">
+              <li><a href="leistungen/umzug.html">Umzug</a></li>
+              <li><a href="leistungen/entruempelung.html">Entrümpelung</a></li>
+            </ul>
+          </li>
 
-              <ul class="dropdown">
-                <li>
-                  <a href="leistungen/umzug.html">
-                    <strong>Umzug</strong>
-                  </a>
-                </li>
-                <li class="dropdown-divider"></li>
-                <li>
-                  <a href="leistungen/entruempelung.html">
-                    <strong>Entrümpelung</strong>
-                  </a>
-                </li>
-              </ul>
-            </li>
 
             <li><a href="kontakt/ueber-uns.html">Über Uns</a></li>
             <li><a href="kontakt/index.html">Kontakt</a></li>
@@ -1126,21 +1116,25 @@
     .forEach(el => observer.observe(el));
 </script>
 <script>
-  const dropdownTrigger = document.querySelector(".has-dropdown > a");
-  const dropdownMenu = document.querySelector(".has-dropdown .dropdown");
+  const burger = document.querySelector(".mobile-toggle");
+  const nav = document.querySelector("header nav");
+  const subToggle = document.querySelector(".mobile-subtoggle");
+  const dropdown = document.querySelector(".has-dropdown .dropdown");
+  const plus = document.querySelector(".mobile-subtoggle .plus");
 
-  dropdownTrigger.addEventListener("click", e => {
-    e.preventDefault();
-    dropdownMenu.style.display =
-      dropdownMenu.style.display === "block" ? "none" : "block";
+  burger.addEventListener("click", () => {
+    nav.classList.toggle("open");
   });
 
-  document.addEventListener("click", e => {
-    if (!e.target.closest(".has-dropdown")) {
-      dropdownMenu.style.display = "none";
-    }
+  subToggle.addEventListener("click", () => {
+    dropdown.classList.toggle("open");
+
+    const open = dropdown.classList.contains("open");
+    subToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    plus.textContent = open ? "–" : "+";
   });
 </script>
+
 <script>
   const burger = document.querySelector(".mobile-toggle");
   const nav = document.querySelector("header nav");
