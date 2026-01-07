@@ -680,135 +680,96 @@ nav ul li a{
 /* =========================
    MOBILE MENU – CLEAN
 ========================= */
+/* ================= MOBILE MENU RECHTS ================= */
 @media (max-width: 900px){
 
-  /* NAV Container */
-  header nav{
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-
-    background: rgba(42,66,58,.98);
-    border-top: 1px solid rgba(255,255,255,.12);
-    box-shadow: 0 20px 40px rgba(0,0,0,.4);
-    padding: 16px;
-
-    z-index: 999;
-  }
-
-  header nav.open{
-    display: block;
-  }
-
-  /* UL sauber vertikal */
-  header nav ul{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  /* LI volle Breite */
-  header nav ul li{
-    width: 100%;
-  }
-
-  /* LINKS: KEINE PILLS */
-  header nav a{
-    display: block;
-    width: 100%;
-    padding: 14px 16px;
-
-    background: none;
+  /* Burger neben Logo */
+  .mobile-menu-toggle{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    padding: 10px 14px;
     border-radius: 12px;
-
-    font-size: 16px;
-    font-weight: 500;
-    color: #fff;
-  }
-
-  header nav a:hover{
     background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.18);
+    color: #fff;
+    cursor: pointer;
   }
-}
-@media (max-width: 900px){
 
-  /* Nav als Dropdown-Panel unter Header */
+  /* Desktop Nav aus */
   header nav{
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding: 14px;
-    background: rgba(42,66,58,.98);
-    border-top: 1px solid rgba(255,255,255,.12);
-    box-shadow: 0 18px 50px rgba(0,0,0,.45);
+    display: none !important;
   }
-  header nav.open{ display:block; }
 
-  header nav ul{
+  /* Mobile Menü Container */
+  .mobile-menu{
+    display: none;
+    width: 100%;
+    margin-top: 12px;
+    background: rgba(42,66,58,.98);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 18px;
+    padding: 12px;
+  }
+
+  .mobile-menu.open{
+    display: block;
+  }
+
+  .mobile-menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin: 0;
-    padding: 0;
   }
 
-  header nav li{ list-style:none; }
-
-  /* Links als volle Zeile, sauber lesbar */
-  header nav a,
-  .mobile-subtoggle{
+  .mobile-menu a,
+  .mobile-sub-toggle{
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 14px;
-    font-size: 16px;
-    line-height: 1.2;
+    padding: 14px;
     border-radius: 12px;
     background: rgba(255,255,255,.06);
-    color: rgba(255,255,255,.95);
-  }
-
-  /* Button Reset */
-  .mobile-subtoggle{
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border: 0;
     cursor: pointer;
   }
 
-  /* Untermenü */
-  .has-dropdown .dropdown{
+  /* Submenu */
+  .mobile-sub{
     display: none;
-    position: static;          /* wichtig: kein absolute im Mobile */
-    min-width: auto;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    padding: 6px 0 0;
-    margin: 0;
+    padding-left: 10px;
+    margin-top: 6px;
   }
-  .has-dropdown .dropdown.open{ display:block; }
 
-  /* Unterpunkte eingerückt */
-  .has-dropdown .dropdown a{
-    padding-left: 22px;
+  .mobile-sub.open{
+    display: block;
+  }
+
+  .mobile-sub a{
     background: rgba(255,255,255,.04);
     font-size: 15px;
-    opacity: .95;
   }
 
-  /* Desktop Hover im Mobile aus */
-  .has-dropdown:hover .dropdown{ display: none; }
-}
-@media (max-width: 900px){
-  .mobile-subtoggle span{
+  .mobile-sub-toggle span{
     transition: transform .25s ease;
   }
 
-  .mobile-subtoggle.active span{
+  .mobile-sub-toggle.active span{
     transform: rotate(180deg);
+  }
+}
+
+/* Desktop: Mobile Menu AUS */
+@media (min-width: 901px){
+  .mobile-menu,
+  .mobile-menu-toggle{
+    display: none;
   }
 }
