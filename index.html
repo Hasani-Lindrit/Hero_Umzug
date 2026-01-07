@@ -545,7 +545,13 @@
 }
 
 /* Anzeigen bei Hover */
-.has-dropdown:hover .dropdown{
+/* Dropdown standard */
+.dropdown{
+  display: none;
+}
+
+/* Dropdown offen */
+.dropdown.open{
   display: block;
 }
 
@@ -894,6 +900,11 @@
 
   .dropdown a:hover{
     background: rgba(255,255,255,.06);
+  }
+}
+@media (min-width: 901px){
+  .has-dropdown:hover .dropdown{
+    display: block;
   }
 }
   </style>
