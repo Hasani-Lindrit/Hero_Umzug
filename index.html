@@ -751,6 +751,53 @@
   }
 }
 
+@media (max-width: 900px){
+
+  /* Buttons STANDARD sichtbar */
+  .actions{
+    width: 100%;
+    order: 2;
+    justify-content: space-between;
+  }
+
+  .actions .btn{
+    flex: 1;
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  /* WENN MENÜ OFFEN → Buttons AUS */
+  header.menu-open .actions{
+    display: none;
+  }
+}
+@media (max-width: 900px){
+
+  nav{
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+    background: rgba(42,66,58,.98);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 18px;
+    padding: 12px;
+  }
+
+  nav.open{
+    display: block;
+  }
+
+  nav ul{
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav a{
+    width: 100%;
+    padding: 14px;
+    background: rgba(255,255,255,.06);
+  }
+}
 
   </style>
 </head>
@@ -1167,9 +1214,11 @@
 <script>
   const toggle = document.querySelector(".mobile-toggle");
   const nav = document.querySelector("nav");
+  const header = document.querySelector("header");
 
   toggle.addEventListener("click", () => {
     nav.classList.toggle("open");
+    header.classList.toggle("menu-open");
   });
 </script>
 
