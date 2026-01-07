@@ -670,79 +670,42 @@
 /* =================================================
    MOBILE HEADER – FINAL & SAUBER
 ================================================= */
+/* =========================
+   MOBILE BURGER
+========================= */
+.mobile-toggle{
+  display: none;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Mobile */
 @media (max-width: 900px){
-
-  .nav{
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .brand img{
-    width: 64px;
-  }
-
-  .brand .name strong{ font-size: 17px; }
-  .brand .name span{ font-size: 12px; }
-
-  /* Burger Button */
   .mobile-toggle{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    padding: 0 14px;
     font-size: 20px;
-    padding: 10px 14px;
   }
 
-  /* Buttons unter Logo */
-  .actions{
-    width: 100%;
-    order: 2;
-    justify-content: space-between;
-  }
-
-  .actions .btn{
-    flex: 1;
-    font-size: 14px;
-    padding: 10px 12px;
-  }
-
-  /* NAV standardmäßig ZU */
-  nav{
+  /* Header-Buttons aus */
+  header .actions{
     display: none;
-    width: 100%;
-    margin-top: 10px;
-    background: rgba(42,66,58,.98);
-    border: 1px solid rgba(255,255,255,.14);
-    border-radius: 18px;
-    padding: 12px;
-  }
-
-  nav.open{
-    display: block;
-  }
-
-  nav ul{
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  nav a{
-    width: 100%;
-    padding: 12px;
-    background: rgba(255,255,255,.06);
-  }
-
-  /* HERO */
-  .hero{
-    padding: 32px 0 20px;
-  }
-
-  .hero-grid{
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .hero h1{
-    font-size: 34px;
   }
 }
+
+/* Desktop */
+@media (min-width: 901px){
+  .mobile-toggle{
+    display: none;
+  }
+}
+
 
 /* Desktop: Burger aus */
 @media (min-width: 901px){
@@ -770,6 +733,7 @@
             <span>Modern. Sicher. Stressfrei.</span>
           </div>
         </a>
+        <button class="mobile-toggle" aria-label="Menü öffnen">☰</button>
 
         <nav aria-label="Navigation">
           <ul>
