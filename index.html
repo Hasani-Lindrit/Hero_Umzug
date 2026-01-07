@@ -574,12 +574,182 @@
 }
 
 /* Desktop Hover */
-@media (hover: hover){
-  .has-dropdown:hover .dropdown{
+/* =================================================
+   MOBILE LAYOUT – FINAL
+================================================= */
+@media (max-width: 900px){
+
+  /* HEADER */
+  .nav{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .brand{
+    min-width: auto;
+  }
+
+  .brand img{
+    width: 64px;
+  }
+
+  .brand .name strong{
+    font-size: 17px;
+  }
+
+  .brand .name span{
+    font-size: 12px;
+  }
+
+  /* NAVIGATION UNTER HEADER */
+  nav ul li{
+    width: 100%;
+  }
+
+  nav a{
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,.06);
+  }
+
+  /* BUTTONS */
+  .actions{
+    width: 100%;
+    justify-content: space-between;
+    order: 2;
+  }
+
+  .actions .btn{
+    flex: 1;
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  /* HERO */
+  .hero{
+    padding: 36px 0 24px;
+  }
+
+  .hero-grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hero h1{
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+  .hero p{
+    font-size: 15px;
+  }
+
+  .hero-photo{
+    margin-top: 16px;
+  }
+
+  /* CONTENT */
+  .grid-2,
+  .grid-3,
+  .split{
+    grid-template-columns: 1fr;
+  }
+
+  .section{
+    padding: 32px 0;
+  }
+
+  .section h2{
+    font-size: 26px;
+  }
+
+  .card{
+    padding: 16px;
+  }
+}
+/* =================================================
+   MOBILE HEADER – FINAL & SAUBER
+================================================= */
+@media (max-width: 900px){
+
+  .nav{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .brand img{
+    width: 64px;
+  }
+
+  .brand .name strong{ font-size: 17px; }
+  .brand .name span{ font-size: 12px; }
+
+  /* Burger Button */
+  .mobile-toggle{
+    font-size: 20px;
+    padding: 10px 14px;
+  }
+
+  /* Buttons unter Logo */
+  .actions{
+    width: 100%;
+    order: 2;
+    justify-content: space-between;
+  }
+
+  .actions .btn{
+    flex: 1;
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  /* NAV standardmäßig ZU */
+  nav{
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+    background: rgba(42,66,58,.98);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 18px;
+    padding: 12px;
+  }
+
+  nav.open{
     display: block;
+  }
+
+  nav ul{
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  nav a{
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,.06);
+  }
+
+  /* HERO */
+  .hero{
+    padding: 32px 0 20px;
+  }
+
+  .hero-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hero h1{
+    font-size: 34px;
   }
 }
 
+/* Desktop: Burger aus */
+@media (min-width: 901px){
+  .mobile-toggle{
+    display: none;
+  }
+}
 
 
   </style>
@@ -986,6 +1156,14 @@
     if (!e.target.closest(".has-dropdown")) {
       dropdownMenu.style.display = "none";
     }
+  });
+</script>
+<script>
+  const toggle = document.querySelector(".mobile-toggle");
+  const nav = document.querySelector("nav");
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
   });
 </script>
 
