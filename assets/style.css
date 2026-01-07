@@ -796,10 +796,12 @@ nav ul li a{
     transform: translateY(-1px);
   }
 }
-/* ===== MOBILE BURGER – FORCE ORANGE ===== */
+/* ===============================
+   MOBILE BURGER – ORANGE FINAL
+================================ */
 @media (max-width: 900px){
-  button.mobile-toggle{
-    display: inline-flex !important;
+  .mobile-toggle{
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 
@@ -807,13 +809,17 @@ nav ul li a{
     padding: 10px 14px;
     border-radius: 12px;
 
-    background: linear-gradient(135deg, var(--brand), var(--brand2)) !important;
-    color: #1b120a !important;
-    font-weight: 700;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    color: #1b120a;
+    font-weight: 800;
 
-    border: 1px solid rgba(255,122,24,.6) !important;
-    box-shadow: 0 14px 40px rgba(255,122,24,.35) !important;
+    border: 1px solid rgba(255,122,24,.6);
+    box-shadow: 0 14px 40px rgba(255,122,24,.35);
 
     cursor: pointer;
+  }
+
+  .mobile-toggle:active{
+    transform: scale(.97);
   }
 }
