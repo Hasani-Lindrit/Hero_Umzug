@@ -858,3 +858,78 @@ nav ul li a{
   font-size: 16px;
   font-weight: 600;
 }
+/* =========================
+   ÜBER UNS – BEWERTUNGEN
+========================= */
+
+.review-wrapper{
+  position: relative;
+  width: 100%;
+  margin-top: 28px;
+}
+
+.review-slider{
+  width: 100%;
+  overflow: hidden;
+}
+
+.review-track{
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  transition: transform .45s ease;
+}
+
+.review{
+  width: 520px;
+  min-height: 160px;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+  color: white;
+}
+
+.review p{
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.95);
+}
+
+.review span{
+  font-size: 13px;
+  color: rgba(255,255,255,.75);
+}
+
+/* Pfeile */
+.review-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.55);
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.review-arrow.left{
+  left: -24px;
+}
+
+.review-arrow.right{
+  right: -24px;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .review{
+    width: 88vw;
+  }
+}
