@@ -944,24 +944,25 @@ nav ul li a{
   }
 
   .review{
-    flex: 0 0 calc(100vw - 32px); /* 🔥 links + rechts je 16px Luft */
-    max-width: calc(100vw - 32px);
+    flex: 0 0 calc(100vw - 40px);   /* 🔥 etwas schmaler */
+    max-width: calc(100vw - 40px);
 
-    margin: 0 16px;              /* 🔥 optischer Rand */
-    padding: 16px 18px;
+    margin: 0 20px;                /* 🔥 gleichmäßige Luft */
+    padding: 12px 14px;            /* 🔥 deutlich kompakter */
 
     box-sizing: border-box;
-    border-radius: 16px;
+    border-radius: 14px;           /* 🔥 weniger „Blob-Gefühl“ */
   }
 
   .review p{
-    font-size: 14px;
-    line-height: 1.45;
+    font-size: 13px;               /* 🔥 kleiner, aber gut lesbar */
+    line-height: 1.4;
   }
 
   .review span{
-    font-size: 12px;
-    opacity: .7;
+    font-size: 11px;
+    opacity: .65;
   }
 
 }
+
