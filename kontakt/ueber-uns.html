@@ -291,25 +291,44 @@ const track = document.querySelector(".review-track");
 const reviews = document.querySelectorAll(".review");
 let autoSlideTimer;
 
+/* 🔥 erkennt Mobile zuverlässig */
+function isMobile(){
+  return window.matchMedia("(max-width: 900px)").matches;
+}
+
 function updateSlider(){
   if(!reviews.length) return;
-  const w = reviews[0].offsetWidth + 24;
-  track.style.transform = `translateX(-${index * w}px)`;
+
+  let step;
+
+  if(isMobile()){
+    /* 🔥 EXAKT eine Karte pro Schritt */
+    step = reviews[0].getBoundingClientRect().width;
+  } else {
+    /* Desktop: alter Abstand */
+    step = reviews[0].offsetWidth + 24;
+  }
+
+  track.style.transform = `translateX(-${index * step}px)`;
 }
 
 function nextReview(){
   index++;
-  if(index > reviews.length - 2){
-    index = 0; // 🔁 zurück zum Anfang
+
+  if(index >= reviews.length){
+    index = 0;
   }
+
   updateSlider();
 }
 
 function prevReview(){
   index--;
+
   if(index < 0){
-    index = reviews.length - 2;
+    index = reviews.length - 1;
   }
+
   updateSlider();
 }
 
@@ -329,9 +348,12 @@ window.addEventListener("load", () => {
   startAutoSlide();
 });
 
-window.addEventListener("resize", updateSlider);
+window.addEventListener("resize", () => {
+  index = 0;            /* 🔥 wichtig bei Rotation */
+  updateSlider();
+});
 
-/* Stop bei Hover */
+/* Stop bei Hover (Desktop) */
 document.querySelector(".review-wrapper")
   .addEventListener("mouseenter", stopAutoSlide);
 document.querySelector(".review-wrapper")
