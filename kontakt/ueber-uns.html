@@ -302,15 +302,14 @@ function updateSlider(){
   let step;
 
   if(isMobile()){
-    /* 🔥 EXAKT eine Karte pro Schritt */
-    step = reviews[0].getBoundingClientRect().width;
+    step = document.querySelector(".review-slider").offsetWidth;
   } else {
-    /* Desktop: alter Abstand */
     step = reviews[0].offsetWidth + 24;
   }
 
   track.style.transform = `translateX(-${index * step}px)`;
 }
+
 
 function nextReview(){
   index++;

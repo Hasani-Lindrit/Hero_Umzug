@@ -930,25 +930,25 @@ nav ul li a{
 @media (max-width: 900px){
 
   .review-slider{
-    overflow-x: hidden;
+    overflow: hidden;           /* ❌ kein Scroll */
   }
 
   .review-track{
     display: flex;
     gap: 0;
-    scroll-snap-type: x mandatory;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    width: 100%;
+    transform: translateX(0);
+    transition: transform .4s ease;
   }
 
   .review{
-    flex: 0 0 100%;
-    scroll-snap-align: center;
+    flex: 0 0 100%;              /* 🔥 exakt 1 Karte */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 
     margin: 0;
-    padding: 16px 18px;
+    padding: 18px 20px;
     border-radius: 16px;
   }
-
-  /* Pfeile bleiben sichtbar */
 }
