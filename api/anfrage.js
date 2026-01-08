@@ -49,8 +49,8 @@ export default async function handler(req, res) {
 
       // ---------- Mail senden ----------
       await resend.emails.send({
-        from: "Hero Umzug <info@hero-umzug.de>",
-        to: ["info@hero-umzug.de"], // ← deine Ziel-Mail
+        from: 'onboarding@resend.dev',
+        to: 'lindrithasani@gmail.com', // ← deine Ziel-Mail
         subject: "Neue Umzugsanfrage",
         html: `
           <h2>Neue Anfrage</h2>
