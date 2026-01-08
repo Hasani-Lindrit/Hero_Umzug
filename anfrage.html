@@ -13,217 +13,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Umzugsanfrage – Hero Umzug</title>
-
-<style>
-/* ====== BASIS (aus index übernommen) ====== */
-:root{
-  --brand:#ff7a18;
-  --brand2:#ffb056;
-  --bg:#1b2e27;
-  --card:rgba(255,255,255,.06);
-  --text:#fff;
-  --muted:rgba(255,255,255,.85);
-  --radius:18px;
-}
-
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background:linear-gradient(180deg,#35584b,#1b2e27);
-  color:var(--text);
-}
-
-a{text-decoration:none;color:inherit}
-
-/* ====== HEADER ====== */
-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(42,66,58,.95);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.12);
-}
-.nav{
-  max-width:1120px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.brand img{
-  width:96px;
-}
-.brand strong{font-size:20px}
-.brand span{font-size:13px;opacity:.85}
-
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:18px;
-  margin:0;
-  padding:0;
-}
-nav a{
-  padding:8px 10px;
-  border-radius:10px;
-  color:var(--muted);
-}
-nav a:hover{
-  background:rgba(255,255,255,.08);
-  color:#fff;
-}
-
-.actions{
-  display:flex;
-  gap:10px;
-}
-.btn{
-  padding:10px 14px;
-  border-radius:14px;
-  border:none;
-  cursor:pointer;
-  font-weight:600;
-}
-.btn.primary{
-  background:linear-gradient(135deg,var(--brand),var(--brand2));
-  color:#1b120a;
-}
-.btn.ghost{
-  background:rgba(255,255,255,.14);
-  color:#fff;
-}
-
-/* ====== MAIN ====== */
-main{
-  padding:40px 20px 60px;
-}
-.container{
-  max-width:720px;
-  margin:auto;
-  background:var(--card);
-  padding:28px;
-  border-radius:22px;
-  box-shadow:0 20px 60px rgba(0,0,0,.35);
-}
-
-h1{margin-top:0}
-
-/* ====== FORM ====== */
-label{
-  display:block;
-  margin-top:14px;
-  margin-bottom:6px;
-  font-size:14px;
-  opacity:.9;
-}
-input,textarea{
-  width:100%;
-  padding:12px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(0,0,0,.25);
-  color:#fff;
-  font-size:14px;
-}
-textarea{resize:vertical}
-
-.row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-@media(max-width:600px){
-  .row{grid-template-columns:1fr}
-}
-
-/* ====== FILES ====== */
-.files{margin-top:10px}
-.file-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:6px;
-  padding:8px 10px;
-  background:rgba(0,0,0,.3);
-  border-radius:10px;
-  font-size:13px;
-}
-.file-row button{
-  background:none;
-  border:none;
-  cursor:pointer;
-  color:var(--brand);
-  font-size:18px;
-}
-
-/* ====== SUBMIT ====== */
-.submit{
-  margin-top:26px;
-  width:100%;
-  padding:14px;
-  font-size:16px;
-  font-weight:700;
-  border:none;
-  border-radius:16px;
-  background:linear-gradient(135deg,var(--brand),var(--brand2));
-  color:#1b120a;
-  cursor:pointer;
-}
-</style>
+<link rel="stylesheet" href="../assets/head_style.css">
 </head>
 
 <body>
-
-<header>
-  <div class="nav">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.png" alt="Hero Umzug">
-      <div>
-        <strong>Hero Umzug</strong><br>
-        <span>Modern. Sicher. Stressfrei.</span>
-      </div>
-    </a>
-
-        <nav aria-label="Navigation">
-          <ul>
-            <li><a href="../index.html">Startseite</a></li>
-            <li class="has-dropdown">
-              <a href="#" aria-haspopup="true">Leistungen</a>
-
-              <ul class="dropdown">
-                <li>
-                  <a href="../leistungen/umzug.html">
-                    <strong>Umzug</strong>
-                  </a>
-                </li>
-                <li class="dropdown-divider"></li>
-                <li>
-                  <a href="../leistungen/entruempelung.html">
-                    <strong>Entrümpelung</strong>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li><a href="../kontakt/ueber-uns.html">Über Uns</a></li>
-            <li><a href="../kontakt/index.html">Kontakt</a></li>
-          </ul>
-        </nav>
-
-    <div class="actions">
-      <a class="btn ghost" href="tel:+4915906807385">Anrufen</a>
-      <a class="btn primary" href="anfrage.html">Angebot anfragen</a>
-    </div>
-  </div>
-</header>
+<div id="site-header"></div>
 
 <main>
   <div class="container">
@@ -378,6 +172,18 @@ document.querySelector("form").addEventListener("submit",()=>{
   files.forEach(f=>dt.items.add(f));
   fileInput.files=dt.files;
 });
+</script>
+<script>
+  fetch("/assets/header.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("site-header").innerHTML = html;
+
+      const s = document.createElement("script");
+      s.src = "/assets/header.js";
+      s.defer = true;
+      document.body.appendChild(s);
+    });
 </script>
 
 </body>
