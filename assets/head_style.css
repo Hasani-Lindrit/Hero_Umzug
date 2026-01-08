@@ -885,3 +885,10 @@
   .has-dropdown{
     padding: 0; }
 }
+@media (max-width: 900px){
+  .review p{
+    font-size: 12px;   /* oder 13px */
+    line-height: 1.4;
+    font-weight: 400;
+  }
+}

@@ -926,11 +926,3 @@ nav ul li a{
 .review-arrow.right{
   right: -24px;
 }
-
-@media (max-width: 900px){
-  .review p{
-    font-size: 12px;   /* oder 13px */
-    line-height: 1.4;
-    font-weight: 400;
-  }
-}
