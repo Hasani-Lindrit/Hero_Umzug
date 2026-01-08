@@ -278,91 +278,57 @@
 </footer>
 
 <script>
-/* =========================
-   SCROLL REVEAL
-========================= */
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add("show");
-    }
-  });
-},{threshold:0.15});
-
-document.querySelectorAll(".reveal")
-  .forEach(el => observer.observe(el));
-
-
-/* =========================
-   REVIEWS SLIDER – FINAL
-========================= */
 let index = 0;
 const track = document.querySelector(".review-track");
 const reviews = document.querySelectorAll(".review");
-let autoSlideTimer;
 
 function updateSlider(){
   if(!reviews.length) return;
 
-  const isMobile = window.innerWidth <= 900;
-
-  const slideWidth = isMobile
-    ? window.innerWidth               // 🔥 MOBILE: 1 Review = 1 Screen
-    : reviews[0].offsetWidth + 24;    // 🖥 DESKTOP: wie bisher
-
+  const slideWidth = reviews[0].offsetWidth;
   track.style.transform = `translateX(-${index * slideWidth}px)`;
 }
 
 function nextReview(){
-  index++;
-  if(index >= reviews.length){
-    index = 0;
-  }
+  index = (index + 1) % reviews.length;
   updateSlider();
 }
 
 function prevReview(){
-  index--;
-  if(index < 0){
-    index = reviews.length - 1;
-  }
+  index = (index - 1 + reviews.length) % reviews.length;
   updateSlider();
 }
 
+/* ===== TOUCH SWIPE ===== */
+let startX = 0;
+let currentX = 0;
+let isDragging = false;
 
-/* =========================
-   AUTO SLIDE
-========================= */
-function startAutoSlide(){
-  stopAutoSlide();
-  autoSlideTimer = setInterval(nextReview, 5000);
-}
-
-function stopAutoSlide(){
-  if(autoSlideTimer){
-    clearInterval(autoSlideTimer);
-  }
-}
-
-
-/* =========================
-   EVENTS
-========================= */
-window.addEventListener("load", () => {
-  index = 0;
-  updateSlider();
-  startAutoSlide();
+track.addEventListener("touchstart", e=>{
+  startX = e.touches[0].clientX;
+  isDragging = true;
 });
 
-window.addEventListener("resize", updateSlider);
+track.addEventListener("touchmove", e=>{
+  if(!isDragging) return;
+  currentX = e.touches[0].clientX;
+});
 
-/* Desktop Hover stoppen */
-const wrapper = document.querySelector(".review-wrapper");
-if(wrapper){
-  wrapper.addEventListener("mouseenter", stopAutoSlide);
-  wrapper.addEventListener("mouseleave", startAutoSlide);
-}
+track.addEventListener("touchend", ()=>{
+  if(!isDragging) return;
+  const diff = startX - currentX;
+
+  if(diff > 50) nextReview();
+  if(diff < -50) prevReview();
+
+  isDragging = false;
+});
+
+/* Init */
+window.addEventListener("load", updateSlider);
+window.addEventListener("resize", updateSlider);
 </script>
+
 
 <script>
 /* =========================

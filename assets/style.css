@@ -926,27 +926,15 @@ nav ul li a{
 .review-arrow.right{
   right: -24px;
 }
+/* =========================
+   REVIEWS – FINAL MOBILE
+========================= */
+
+/* Mobile: 1 Review = 100% */
 @media (max-width: 900px){
-
-  .review-wrapper{
-    padding: 0;
-  }
-
-  .review-slider{
-    overflow: hidden;
-  }
-
-  .review-track{
-    display: flex;
-    gap: 0;                     /* 🔥 KEIN Abstand */
-    transition: transform .35s ease;
-  }
-
   .review{
-    flex: 0 0 100vw;            /* 🔥 GENAU 1 Review */
-    max-width: 100vw;
-    padding: 16px 20px;
-    box-sizing: border-box;
+    flex: 0 0 100%;
+    padding: 16px;
     border-radius: 16px;
   }
 
@@ -957,11 +945,5 @@ nav ul li a{
 
   .review span{
     font-size: 12px;
-    opacity: .7;
-  }
-
-  /* Pfeile optional aus */
-  .review-arrow{
-    display: none;
   }
 }
