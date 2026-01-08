@@ -154,25 +154,24 @@ form.addEventListener("submit", async e => {
 
   const formData = new FormData(form);
 
-  try {
-    const res = await fetch("https://formspree.io/f/mnjnkepp", {
-      method: "POST",
-      body: formData,
-      headers: {
-        "Accept": "application/json"
-      }
-    });
+  const res = await fetch("https://formspree.io/f/mnjnkepp", {
+    method: "POST",
+    body: formData,
+    headers: { "Accept": "application/json" }
+  });
 
-    if (res.ok) {
-      window.location.href = "/anfrage-danke.html";
-    } else {
-      alert("Beim Senden ist ein Fehler aufgetreten. Bitte erneut versuchen.");
-    }
-  } catch (err) {
-    alert("Netzwerkfehler. Bitte später erneut versuchen.");
+  const data = await res.json();
+  console.log("Status:", res.status);
+  console.log("Antwort:", data);
+
+  if (res.ok) {
+    window.location.href = "/anfrage-danke.html";
+  } else {
+    alert(data.error || "Formspree-Fehler – siehe Konsole");
   }
 });
 </script>
+
 
 <script>
   fetch("/assets/header.html")
