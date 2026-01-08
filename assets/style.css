@@ -929,40 +929,26 @@ nav ul li a{
 
 @media (max-width: 900px){
 
-  .review-wrapper{
-    padding: 0;
-  }
-
   .review-slider{
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   .review-track{
     display: flex;
     gap: 0;
-    transition: transform .35s ease;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    scroll-behavior: smooth;
   }
 
   .review{
-    flex: 0 0 calc(100vw - 40px);   /* 🔥 etwas schmaler */
-    max-width: calc(100vw - 40px);
+    flex: 0 0 100%;
+    scroll-snap-align: center;
 
-    margin: 0 20px;                /* 🔥 gleichmäßige Luft */
-    padding: 12px 14px;            /* 🔥 deutlich kompakter */
-
-    box-sizing: border-box;
-    border-radius: 14px;           /* 🔥 weniger „Blob-Gefühl“ */
+    margin: 0;
+    padding: 16px 18px;
+    border-radius: 16px;
   }
 
-  .review p{
-    font-size: 13px;               /* 🔥 kleiner, aber gut lesbar */
-    line-height: 1.4;
-  }
-
-  .review span{
-    font-size: 11px;
-    opacity: .65;
-  }
-
+  /* Pfeile bleiben sichtbar */
 }
-
