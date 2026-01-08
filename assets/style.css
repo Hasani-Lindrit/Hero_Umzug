@@ -697,3 +697,107 @@ nav ul li a{
 /* =========================
    MOBILE MENU – CLEAN
 ========================= */
+/* =========================
+   ANFRAGE – FORM DESIGN
+========================= */
+
+.anfrage-page .container{
+  max-width: 760px;
+}
+
+/* Überschrift */
+.anfrage-page h1{
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+.anfrage-page p{
+  color: var(--muted);
+}
+
+/* Formular */
+.anfrage-page form{
+  margin-top: 28px;
+  padding: 26px;
+  border-radius: var(--radius2);
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+/* Labels */
+.anfrage-page label{
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 18px 0 6px;
+  color: rgba(255,255,255,.9);
+}
+
+/* Inputs */
+.anfrage-page input,
+.anfrage-page textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.25);
+  color: var(--text);
+  font-size: 15px;
+}
+
+.anfrage-page input::placeholder{
+  color: rgba(255,255,255,.45);
+}
+
+.anfrage-page input:focus,
+.anfrage-page textarea:focus{
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(255,122,24,.25);
+}
+
+/* Reihen */
+.anfrage-page .row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Mobile */
+@media (max-width: 700px){
+  .anfrage-page .row{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Datei-Upload */
+.anfrage-page input[type="file"]{
+  background: transparent;
+  padding: 8px 0;
+}
+
+/* Datenschutz */
+.anfrage-page .privacy{
+  margin-top: 20px;
+}
+
+/* Submit Button */
+.anfrage-page .submit{
+  margin-top: 26px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  color: #1b120a;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 18px 50px rgba(255,122,24,.35);
+}
+
+.anfrage-page .submit:hover{
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
