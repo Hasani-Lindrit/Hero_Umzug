@@ -32,7 +32,6 @@
 
     <!-- FORM: Formspree URL HIER EINTRAGEN -->
     <form id="umzugForm" enctype="multipart/form-data">
-    <input type="hidden" name="_redirect" value="https://hero-umzug.de/anfrage-danke.html">
 
       <label>Name</label>
       <input name="name" autocomplete="name" required>
@@ -154,23 +153,24 @@ form.addEventListener("submit", async e => {
 
   const formData = new FormData(form);
 
-  const res = await fetch("https://formspree.io/f/mnjnkepp", {
-    method: "POST",
-    body: formData,
-    headers: { "Accept": "application/json" }
-  });
+  try {
+    const res = await fetch("/api/anfrage", {
+      method: "POST",
+      body: formData
+    });
 
-  const data = await res.json();
-  console.log("Status:", res.status);
-  console.log("Antwort:", data);
+    if (!res.ok) {
+      throw new Error("Request failed");
+    }
 
-  if (res.ok) {
     window.location.href = "/anfrage-danke.html";
-  } else {
-    alert(data.error || "Formspree-Fehler – siehe Konsole");
+  } catch (err) {
+    alert("Beim Senden ist ein Fehler aufgetreten. Bitte erneut versuchen.");
+    console.error(err);
   }
 });
 </script>
+
 
 
 <script>
