@@ -926,44 +926,38 @@ nav ul li a{
 .review-arrow.right{
   right: -24px;
 }
+
+/* Mobile */
+/* =========================
+   ÜBER UNS – REVIEWS MOBILE FIX
+========================= */
+/* =========================
+   ÜBER UNS – REVIEWS MOBILE FINAL
+========================= */
 @media (max-width: 900px){
 
-  .review-wrapper{
-    padding: 0;
-  }
-
-  .review-slider{
-    overflow: hidden;
-  }
-
-  .review-track{
-    display: flex;
-    gap: 0;
-    transition: transform .35s ease;
-  }
-
   .review{
-    flex: 0 0 calc(100vw - 32px); /* 🔥 links + rechts je 16px Luft */
-    max-width: calc(100vw - 32px);
-
-    margin: 0 16px;              /* 🔥 optischer Rand */
-    padding: 16px 18px;
-
-    box-sizing: border-box;
-    border-radius: 16px;
+    width: 72vw;
+    padding: 14px;
+    border-radius: 14px;
   }
 
   .review p{
-    font-size: 14px;
-    line-height: 1.45;
+    font-size: 10x;          /* 🔥 kleiner als normaler Lead */
+    line-height: 1.4;
+    font-weight: 400;         /* 🔥 kein „Headline-Gewicht“ */
+    color: rgba(255,255,255,.88);
   }
 
   .review span{
-    font-size: 12px;
-    opacity: .7;
+    font-size: 9px;          /* 🔥 klar Meta-Text */
+    font-weight: 500;
+    color: rgba(255,255,255,.65);
   }
 
-  .review-arrow{
-    display: none;
+  /* Sterne optional minimal kleiner */
+  .review .stars{
+    font-size: 10px;
+    letter-spacing: 1px;
   }
 }
