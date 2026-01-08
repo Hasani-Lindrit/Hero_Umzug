@@ -937,37 +937,27 @@ nav ul li a{
 @media (max-width: 900px){
 
   .review{
-    width: 72vw;              /* 🔥 deutlich kleiner */
-    padding: 14px;            /* 🔥 kompakter */
+    width: 72vw;
+    padding: 14px;
     border-radius: 14px;
-    min-height: unset;
   }
 
   .review p{
-    font-size: 13px;          /* 🔥 klar kleiner */
+    font-size: 10x;          /* 🔥 kleiner als normaler Lead */
     line-height: 1.4;
-    margin-bottom: 10px;
+    font-weight: 400;         /* 🔥 kein „Headline-Gewicht“ */
+    color: rgba(255,255,255,.88);
   }
 
   .review span{
-    font-size: 11px;
+    font-size: 9px;          /* 🔥 klar Meta-Text */
+    font-weight: 500;
+    color: rgba(255,255,255,.65);
   }
 
-  .review-wrapper{
-    padding: 0 10px;
-  }
-
-  .review-arrow{
-    width: 36px;
-    height: 36px;
-    font-size: 22px;
-  }
-
-  .review-arrow.left{
-    left: -8px;
-  }
-
-  .review-arrow.right{
-    right: -8px;
+  /* Sterne optional minimal kleiner */
+  .review .stars{
+    font-size: 10px;
+    letter-spacing: 1px;
   }
 }
