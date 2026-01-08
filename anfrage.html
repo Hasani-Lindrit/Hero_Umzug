@@ -31,7 +31,7 @@
 </p>
 
     <!-- FORM: Formspree URL HIER EINTRAGEN -->
-    <form action="https://formspree.io/f/mnjnkepp" method="POST" enctype="multipart/form-data">
+    <form id="umzugForm" enctype="multipart/form-data">
     <input type="hidden" name="_redirect" value="https://hero-umzug.de/anfrage-danke.html">
 
       <label>Name</label>
@@ -117,7 +117,12 @@
       <textarea name="details" rows="4"></textarea>
 
       <label>Anhänge (Fotos, Möbelliste)</label>
-      <input type="file" id="fileInput" multiple>
+      <input
+        type="file"
+        id="fileInput"
+        name="attachments"
+        multiple
+      >
 
       <div id="fileList" class="files"></div>
 
@@ -142,37 +147,33 @@
 </main>
 
 <script>
-const fileInput=document.getElementById("fileInput");
-const fileList=document.getElementById("fileList");
-let files=[];
+const form = document.getElementById("umzugForm");
 
-fileInput.addEventListener("change",()=>{
-  files.push(...fileInput.files);
-  fileInput.value="";
-  render();
-});
+form.addEventListener("submit", async e => {
+  e.preventDefault();
 
-function render(){
-  fileList.innerHTML="";
-  files.forEach((f,i)=>{
-    const d=document.createElement("div");
-    d.className="file-row";
-    d.innerHTML=`<span>${f.name}</span><button type="button" onclick="removeFile(${i})">🗑</button>`;
-    fileList.appendChild(d);
-  });
-}
+  const formData = new FormData(form);
 
-function removeFile(i){
-  files.splice(i,1);
-  render();
-}
+  try {
+    const res = await fetch("https://formspree.io/f/mnjnkepp", {
+      method: "POST",
+      body: formData,
+      headers: {
+        "Accept": "application/json"
+      }
+    });
 
-document.querySelector("form").addEventListener("submit",()=>{
-  const dt=new DataTransfer();
-  files.forEach(f=>dt.items.add(f));
-  fileInput.files=dt.files;
+    if (res.ok) {
+      window.location.href = "/anfrage-danke.html";
+    } else {
+      alert("Beim Senden ist ein Fehler aufgetreten. Bitte erneut versuchen.");
+    }
+  } catch (err) {
+    alert("Netzwerkfehler. Bitte später erneut versuchen.");
+  }
 });
 </script>
+
 <script>
   fetch("/assets/header.html")
     .then(r => r.text())
