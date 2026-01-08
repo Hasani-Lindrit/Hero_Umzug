@@ -360,71 +360,15 @@
     .forEach(el => observer.observe(el));
 </script>
 <script>
-  const media = window.matchMedia("(max-width: 900px)");
-  const dropdownItem = document.querySelector(".has-dropdown");
-  const trigger = dropdownItem.querySelector("a");
-
-  trigger.addEventListener("click", e => {
-    if (!media.matches) return;
-    e.preventDefault();
-    e.stopPropagation();
-
-    dropdownItem.classList.toggle("open");
-  });
-</script>
-
-
-<script>
-  const toggle = document.querySelector(".mobile-toggle");
-  const nav = document.querySelector("header nav");
-
-  toggle.addEventListener("click", e => {
-    e.stopPropagation();
-    nav.classList.toggle("open");
-  });
-
-  document.addEventListener("click", () => {
-    nav.classList.remove("open");
-  });
-
-  nav.addEventListener("click", e => {
-    e.stopPropagation();
-  });
-</script>
-<script>
   fetch("/assets/header.html")
-    .then(res => res.text())
+    .then(r => r.text())
     .then(html => {
       document.getElementById("site-header").innerHTML = html;
 
-      /* ===== HEADER SCRIPTS ===== */
-
-      const media = window.matchMedia("(max-width: 900px)");
-      const dropdownItem = document.querySelector(".has-dropdown");
-      const dropdownTrigger = dropdownItem?.querySelector("a");
-
-      dropdownTrigger?.addEventListener("click", e => {
-        if (!media.matches) return;
-        e.preventDefault();
-        e.stopPropagation();
-        dropdownItem.classList.toggle("open");
-      });
-
-      const toggle = document.querySelector(".mobile-toggle");
-      const nav = document.querySelector("header nav");
-
-      toggle?.addEventListener("click", e => {
-        e.stopPropagation();
-        nav.classList.toggle("open");
-      });
-
-      document.addEventListener("click", () => {
-        nav.classList.remove("open");
-      });
-
-      nav?.addEventListener("click", e => {
-        e.stopPropagation();
-      });
+      const s = document.createElement("script");
+      s.src = "/assets/header.js";
+      s.defer = true;
+      document.body.appendChild(s);
     });
 </script>
 
