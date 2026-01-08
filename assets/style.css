@@ -928,22 +928,26 @@ nav ul li a{
 }
 @media (max-width: 900px){
 
+  .review-wrapper{
+    padding: 0 20px;
+  }
+
   .review{
-    width: 72vw;
-    padding: 14px;
+    width: 85vw;          /* 🔥 fast volle Breite */
+    max-width: 360px;     /* 🔥 nie größer */
+    padding: 14px 16px;
     border-radius: 14px;
   }
 
   .review p{
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.45;
     font-weight: 400;
-    color: rgba(255,255,255,.88);
   }
 
   .review span{
-    font-size: 10px;
-    font-weight: 500;
-    color: rgba(255,255,255,.65);
+    font-size: 11px;
+    opacity: .7;
   }
 }
+
