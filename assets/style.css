@@ -929,25 +929,39 @@ nav ul li a{
 @media (max-width: 900px){
 
   .review-wrapper{
-    padding: 0 20px;
+    padding: 0;
+  }
+
+  .review-slider{
+    overflow: hidden;
+  }
+
+  .review-track{
+    display: flex;
+    gap: 0;                     /* 🔥 KEIN Abstand */
+    transition: transform .35s ease;
   }
 
   .review{
-    width: 85vw;          /* 🔥 fast volle Breite */
-    max-width: 360px;     /* 🔥 nie größer */
-    padding: 14px 16px;
-    border-radius: 14px;
+    flex: 0 0 100vw;            /* 🔥 GENAU 1 Review */
+    max-width: 100vw;
+    padding: 16px 20px;
+    box-sizing: border-box;
+    border-radius: 16px;
   }
 
   .review p{
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.45;
-    font-weight: 400;
   }
 
   .review span{
-    font-size: 11px;
+    font-size: 12px;
     opacity: .7;
   }
-}
 
+  /* Pfeile optional aus */
+  .review-arrow{
+    display: none;
+  }
+}
