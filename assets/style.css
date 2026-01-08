@@ -927,13 +927,6 @@ nav ul li a{
   right: -24px;
 }
 
-/* Mobile */
-/* =========================
-   ÜBER UNS – REVIEWS MOBILE FIX
-========================= */
-/* =========================
-   ÜBER UNS – REVIEWS MOBILE FINAL
-========================= */
 @media (max-width: 900px){
 
   .review{
@@ -943,21 +936,20 @@ nav ul li a{
   }
 
   .review p{
-    font-size: 10x;          /* 🔥 kleiner als normaler Lead */
+    font-size: 12px;        /* 🔥 sichtbar kleiner */
     line-height: 1.4;
-    font-weight: 400;         /* 🔥 kein „Headline-Gewicht“ */
+    font-weight: 400;
     color: rgba(255,255,255,.88);
   }
 
   .review span{
-    font-size: 9px;          /* 🔥 klar Meta-Text */
+    font-size: 11px;
     font-weight: 500;
     color: rgba(255,255,255,.65);
   }
 
-  /* Sterne optional minimal kleiner */
   .review .stars{
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 1px;
   }
 }
