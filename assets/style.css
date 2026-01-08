@@ -928,8 +928,42 @@ nav ul li a{
 }
 
 /* Mobile */
+/* =========================
+   ÜBER UNS – REVIEWS MOBILE FIX
+========================= */
 @media (max-width: 900px){
+
   .review{
-    width: 88vw;
+    width: 78vw;              /* 🔥 deutlich schmaler */
+    min-height: auto;
+    padding: 16px;            /* weniger Innenabstand */
+    border-radius: 16px;
+  }
+
+  .review p{
+    font-size: 14px;          /* Text kompakter */
+    line-height: 1.45;
+  }
+
+  .review span{
+    font-size: 12px;
+  }
+
+  .review-wrapper{
+    padding: 0 12px;          /* mehr Platz links/rechts */
+  }
+
+  .review-arrow{
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .review-arrow.left{
+    left: -12px;
+  }
+
+  .review-arrow.right{
+    right: -12px;
   }
 }
