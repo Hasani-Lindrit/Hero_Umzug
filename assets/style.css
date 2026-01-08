@@ -927,7 +927,7 @@ nav ul li a{
   right: -24px;
 }
 
-@media (max-width: 900px){
+/* @media (max-width: 900px){
 
   .review{
     width: 72vw;
@@ -937,7 +937,7 @@ nav ul li a{
 
   .review p{
     font-size: 12px;        /* 🔥 sichtbar kleiner */
-    line-height: 1.4;
+    /* line-height: 1.4;
     font-weight: 400;
     color: rgba(255,255,255,.88);
   }
@@ -952,4 +952,4 @@ nav ul li a{
     font-size: 12px;
     letter-spacing: 1px;
   }
-}
+} */ 
