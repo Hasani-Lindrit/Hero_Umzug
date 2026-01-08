@@ -50,7 +50,7 @@ export default async function handler(req, res) {
       // ---------- Mail senden ----------
       await resend.emails.send({
         from: "Hero Umzug <info@hero-umzug.de>",
-        to: ["info@heroumzug.de"], // ← deine Ziel-Mail
+        to: ["info@hero-umzug.de"], // ← deine Ziel-Mail
         subject: "Neue Umzugsanfrage",
         html: `
           <h2>Neue Anfrage</h2>
