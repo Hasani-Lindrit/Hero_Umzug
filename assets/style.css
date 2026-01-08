@@ -929,26 +929,26 @@ nav ul li a{
 
 @media (max-width: 900px){
 
+  .review-wrapper{
+    padding: 0 10px;          /* 🔥 vorher 60px → jetzt fast Fullwidth */
+  }
+
   .review-slider{
-    overflow: hidden;           /* ❌ kein Scroll */
+    overflow: hidden;
   }
 
   .review-track{
     display: flex;
     gap: 0;
     width: 100%;
-    transform: translateX(0);
     transition: transform .4s ease;
   }
 
   .review{
-    flex: 0 0 100%;              /* 🔥 exakt 1 Karte */
+    flex: 0 0 100%;
     width: 100%;
     max-width: 100%;
-    box-sizing: border-box;
-
-    margin: 0;
-    padding: 18px 20px;
-    border-radius: 16px;
+    padding: 22px 24px;       /* 🔥 mehr Luft innen */
+    border-radius: 18px;
   }
 }
