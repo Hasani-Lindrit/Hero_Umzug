@@ -886,9 +886,23 @@
     padding: 0; }
 }
 @media (max-width: 900px){
+
+  .review{
+    width: 72vw;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
   .review p{
-    font-size: 12px;   /* oder 13px */
-    line-height: 1.4;
+    font-size: 12px;
+    line-height: 1.45;
     font-weight: 400;
+    color: rgba(255,255,255,.88);
+  }
+
+  .review span{
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255,255,255,.65);
   }
 }
