@@ -14,56 +14,12 @@
 
   <!-- ZENTRALE STYLES -->
   <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/head_style.css">
+
 </head>
 
 <body>
-
-<header>
-  <div class="container">
-    <div class="nav">
-
-      <a class="brand" href="../index.html">
-        <img src="../assets/logo.png" alt="Hero Umzug Logo">
-        <div class="name">
-          <strong>Hero Umzug</strong>
-          <span>Modern. Sicher. Stressfrei.</span>
-        </div>
-      </a>
-
-        <nav aria-label="Navigation">
-          <ul>
-            <li><a href="../index.html">Startseite</a></li>
-            <li class="has-dropdown">
-              <a href="#" aria-haspopup="true">Leistungen</a>
-
-              <ul class="dropdown">
-                <li>
-                  <a href="../leistungen/umzug.html">
-                    <strong>Umzug</strong>
-                  </a>
-                </li>
-                <li class="dropdown-divider"></li>
-                <li>
-                  <a href="../leistungen/entruempelung.html">
-                    <strong>Entrümpelung</strong>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li><a href="../kontakt/ueber-uns.html">Über Uns</a></li>
-            <li><a href="../kontakt/index.html">Kontakt</a></li>
-          </ul>
-        </nav>
-
-      <div class="actions">
-        <a class="btn" href="tel:+4915906807385">Anrufen</a>
-        <a class="btn primary" href="../anfrage.html">Angebot anfragen</a>
-      </div>
-
-    </div>
-  </div>
-</header>
+<div id="site-header"></div>
 
 <main>
 
@@ -272,6 +228,17 @@ const observer = new IntersectionObserver(entries=>{
 },{threshold:0.15});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
+<script>
+  fetch("/assets/header.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("site-header").innerHTML = html;
 
+      const s = document.createElement("script");
+      s.src = "/assets/header.js";
+      s.defer = true;
+      document.body.appendChild(s);
+    });
+</script>
 </body>
 </html>
