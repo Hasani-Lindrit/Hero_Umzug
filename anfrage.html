@@ -32,7 +32,12 @@
 </p>
 
     <!-- FORM: Formspree URL HIER EINTRAGEN -->
-    <form id="umzugForm" enctype="multipart/form-data">
+    <form
+  id="umzugForm"
+  action="/api/anfrage.php"
+  method="POST"
+  enctype="multipart/form-data"
+>
 
       <label>Name</label>
       <input name="name" autocomplete="name" required>
@@ -146,7 +151,7 @@
   </div>
 </main>
 
-<script>
+<!-- <script>
 const form = document.getElementById("umzugForm");
 
 form.addEventListener("submit", async e => {
@@ -170,7 +175,7 @@ form.addEventListener("submit", async e => {
     console.error(err);
   }
 });
-</script>
+</script> -->
 
 
 
