@@ -4,10 +4,9 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
   exit;
 }
 
-$to = "info@hero-umzug.de"; // ← HIER DEINE ZIELMAIL
+$to = "info@hero-umzug.de";
 $subject = "Neue Umzugsanfrage – Hero Umzug";
 
-// Textfelder sicher einsammeln
 function field($name) {
   return isset($_POST[$name]) ? trim($_POST[$name]) : "";
 }
@@ -37,47 +36,42 @@ Zusatzinfos:
 " . field("details") . "
 ";
 
-// Mail-Header vorbereiten
 $boundary = md5(time());
 $headers  = "From: Hero Umzug <info@hero-umzug.de>\r\n";
 $headers .= "Reply-To: " . field("email") . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"";
 
-// Body starten
 $body  = "--$boundary\r\n";
-$body .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$body .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+$body .= "Content-Type: text/plain; charset=UTF-8\r\n\r\n";
 $body .= $messageText . "\r\n";
 
-// Anhänge verarbeiten
 if (!empty($_FILES["attachments"]["name"][0])) {
   for ($i = 0; $i < count($_FILES["attachments"]["name"]); $i++) {
-    if ($_FILES["attachments"]["error"][$i] === UPLOAD_ERR_OK) {
 
-      $fileTmp  = $_FILES["attachments"]["tmp_name"][$i];
-      $fileName = basename($_FILES["attachments"]["name"][$i]);
-      $fileType = mime_content_type($fileTmp);
-      $fileData = chunk_split(base64_encode(file_get_contents($fileTmp)));
+    if ($_FILES["attachments"]["error"][$i] !== UPLOAD_ERR_OK) continue;
+    if ($_FILES["attachments"]["size"][$i] > 10 * 1024 * 1024) continue;
 
-      $body .= "--$boundary\r\n";
-      $body .= "Content-Type: $fileType; name=\"$fileName\"\r\n";
-      $body .= "Content-Disposition: attachment; filename=\"$fileName\"\r\n";
-      $body .= "Content-Transfer-Encoding: base64\r\n\r\n";
-      $body .= $fileData . "\r\n";
-    }
+    $tmp  = $_FILES["attachments"]["tmp_name"][$i];
+    $name = basename($_FILES["attachments"]["name"][$i]);
+    $type = mime_content_type($tmp) ?: "application/octet-stream";
+    $data = chunk_split(base64_encode(file_get_contents($tmp)));
+
+    $body .= "--$boundary\r\n";
+    $body .= "Content-Type: $type; name=\"$name\"\r\n";
+    $body .= "Content-Disposition: attachment; filename=\"$name\"\r\n";
+    $body .= "Content-Transfer-Encoding: base64\r\n\r\n";
+    $body .= $data . "\r\n";
   }
 }
 
 $body .= "--$boundary--";
 
-// Mail senden
-$success = mail($to, $subject, $body, $headers);
-
-if ($success) {
-  http_response_code(200);
-} else {
-  http_response_code(500);
+if (mail($to, $subject, $body, $headers)) {
+  header("Location: /anfrage-danke.html");
+  exit;
 }
-header("Location: /anfrage-danke.html");
-exit;
+
+http_response_code(500);
+echo "Fehler beim Senden der E-Mail.";
+exit
