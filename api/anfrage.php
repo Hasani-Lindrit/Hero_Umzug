@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -20,21 +23,16 @@ $mail = new PHPMailer(true);
 try {
   // SMTP CONFIG
   $mail->isSMTP();
-  $mail->Host       = 'smtp.udag.de';
-  $mail->SMTPAuth   = true;
-  $mail->Username   = 'info@hero-umzug.de';
-  $mail->Password   = 'HIER_DEIN_EMAIL_PASSWORT';
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-  $mail->Port       = 587;
+  $mail->Host = 'smtp.udag.de';
+  $mail->SMTPAuth = true;
+  $mail->Username = 'info@hero-umzug.de';
+  $mail->Password = 'Lindrit20!';
+  $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->Port = 587;
 
-  // MAIL
   $mail->setFrom('info@hero-umzug.de', 'Hero Umzug');
   $mail->addAddress('info@hero-umzug.de');
-
-  $replyTo = field("email");
-  if ($replyTo) {
-    $mail->addReplyTo($replyTo);
-  }
+  $mail->addReplyTo($replyTo)
 
   $mail->Subject = 'Neue Umzugsanfrage – Hero Umzug';
 
@@ -56,7 +54,7 @@ Straße: " . field("target_street") . " " . field("target_house") . "
 PLZ / Ort: " . field("target_zip") . " " . field("target_city") . "
 Etage: " . field("floor_target") . "
 
-Wohnfläche / Menge:
+Wohnfläche / Menge :
 " . field("size") . "
 
 Zusatzinfos:
