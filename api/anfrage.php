@@ -1,11 +1,11 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
-echo "<pre>";
-var_dump($_FILES);
-phpinfo();
-exit;
+// echo "<pre>";
+// var_dump($_FILES);
+// phpinfo();
+// exit;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
