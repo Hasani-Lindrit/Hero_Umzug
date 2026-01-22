@@ -69,27 +69,16 @@ Zusatzinfos:
 " . field('details');
 
   /* Anhänge */
-  if (!empty($_FILES['attachments']['tmp_name'])) {
-
-    // EINZELNE Datei
-    if (is_string($_FILES['attachments']['tmp_name'])) {
-      if ($_FILES['attachments']['error'] === UPLOAD_ERR_OK) {
-        $mail->addAttachment(
-          $_FILES['attachments']['tmp_name'],
-          $_FILES['attachments']['name']
-        );
-      }
-    }
-
-    // MEHRERE Dateien
-    if (is_array($_FILES['attachments']['tmp_name'])) {
-      foreach ($_FILES['attachments']['tmp_name'] as $i => $tmp) {
-        if ($_FILES['attachments']['error'][$i] === UPLOAD_ERR_OK) {
-          $mail->addAttachment($tmp, $_FILES['attachments']['name'][$i]);
-        }
-      }
+if (!empty($_FILES['attachments']['tmp_name'])) {
+  foreach ($_FILES['attachments']['tmp_name'] as $i => $tmp) {
+    if ($_FILES['attachments']['error'][$i] === UPLOAD_ERR_OK) {
+      $mail->addAttachment(
+        $tmp,
+        $_FILES['attachments']['name'][$i]
+      );
     }
   }
+}
 
   $mail->send();
 
