@@ -51,13 +51,20 @@ $body  = "--$boundary\r\n";
 $body .= "Content-Type: text/plain; charset=UTF-8\r\n\r\n";
 $body .= $messageText . "\r\n";
 
-if (!empty($_FILES["attachments"]["name"][0])) {
-  for ($i = 0; $i < count($_FILES["attachments"]["name"]); $i++) {
+if (
+  isset($_FILES["attachments"]) &&
+  is_array($_FILES["attachments"]["name"])
+) {
+  $count = count($_FILES["attachments"]["name"]);
+
+  for ($i = 0; $i < $count; $i++) {
 
     if ($_FILES["attachments"]["error"][$i] !== UPLOAD_ERR_OK) continue;
     if ($_FILES["attachments"]["size"][$i] > 10 * 1024 * 1024) continue;
 
     $tmp  = $_FILES["attachments"]["tmp_name"][$i];
+    if (!is_uploaded_file($tmp)) continue;
+
     $name = basename($_FILES["attachments"]["name"][$i]);
     $data = chunk_split(base64_encode(file_get_contents($tmp)));
 
