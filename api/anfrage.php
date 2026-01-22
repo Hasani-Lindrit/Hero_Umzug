@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
   http_response_code(405);
   exit;
@@ -20,13 +23,13 @@ Telefon: " . field("phone") . "
 Umzugsdatum: " . field("date") . "
 
 STARTADRESSE
-Straße: " . field("start_street") . " " . field("start_house") . "
-PLZ / Ort: " . field("start_zip") . " " . field("start_city") . "
+" . field("start_street") . " " . field("start_house") . "
+" . field("start_zip") . " " . field("start_city") . "
 Etage: " . field("floor_start") . "
 
 ZIELADRESSE
-Straße: " . field("target_street") . " " . field("target_house") . "
-PLZ / Ort: " . field("target_zip") . " " . field("target_city") . "
+" . field("target_street") . " " . field("target_house") . "
+" . field("target_zip") . " " . field("target_city") . "
 Etage: " . field("floor_target") . "
 
 Wohnfläche / Menge:
@@ -56,18 +59,17 @@ if (!empty($_FILES["attachments"]["name"][0])) {
 
     $tmp  = $_FILES["attachments"]["tmp_name"][$i];
     $name = basename($_FILES["attachments"]["name"][$i]);
-    $type = mime_content_type($tmp) ?: "application/octet-stream";
     $data = chunk_split(base64_encode(file_get_contents($tmp)));
 
     $body .= "--$boundary\r\n";
-    $body .= "Content-Type: $type; name=\"$name\"\r\n";
+    $body .= "Content-Type: application/octet-stream; name=\"$name\"\r\n";
     $body .= "Content-Disposition: attachment; filename=\"$name\"\r\n";
     $body .= "Content-Transfer-Encoding: base64\r\n\r\n";
     $body .= $data . "\r\n";
   }
 }
 
-$body .= "--$boundary--\r\n";
+$body .= "--$boundary--";
 
 if (mail($to, $subject, $body, $headers)) {
   header("Location: /anfrage-danke.html");
