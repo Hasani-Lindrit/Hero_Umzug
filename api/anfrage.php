@@ -46,19 +46,28 @@ try {
 
   $attachmentInfo = "Keine Anhänge";
 
-  if (!empty($_FILES['attachments']['tmp_name']) && is_array($_FILES['attachments']['tmp_name'])) {
-    $names = [];
+if (!empty($_FILES['attachments']) && $_FILES['attachments']['error'] !== UPLOAD_ERR_NO_FILE) {
+
+  // EIN Anhang
+  if (!is_array($_FILES['attachments']['name'])) {
+
+    if ($_FILES['attachments']['error'] === UPLOAD_ERR_OK) {
+      $mail->addAttachment(
+        $_FILES['attachments']['tmp_name'],
+        $_FILES['attachments']['name']
+      );
+    }
+
+  // MEHRERE Anhänge
+  } else {
 
     foreach ($_FILES['attachments']['tmp_name'] as $i => $tmp) {
       if ($_FILES['attachments']['error'][$i] === UPLOAD_ERR_OK) {
-        $names[] = $_FILES['attachments']['name'][$i];
+        $mail->addAttachment($tmp, $_FILES['attachments']['name'][$i]);
       }
     }
-
-    if (!empty($names)) {
-      $attachmentInfo = "Anhänge:\n- " . implode("\n- ", $names);
-    }
   }
+}
 
   $mail->Body =
 "Neue Umzugsanfrage

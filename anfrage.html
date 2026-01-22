@@ -177,6 +177,47 @@ form.addEventListener("submit", async e => {
 });
 </script> -->
 
+<script>
+const fileInput = document.getElementById("fileInput");
+const fileList = document.getElementById("fileList");
+
+const dataTransfer = new DataTransfer();
+
+fileInput.addEventListener("change", () => {
+  for (const file of fileInput.files) {
+    dataTransfer.items.add(file);
+  }
+
+  fileInput.files = dataTransfer.files;
+  renderFileList();
+});
+
+function renderFileList() {
+  fileList.innerHTML = "";
+
+  Array.from(dataTransfer.files).forEach((file, index) => {
+    const item = document.createElement("div");
+    item.className = "file-item";
+
+    item.innerHTML = `
+      <span>${file.name}</span>
+      <button type="button" data-index="${index}">✕</button>
+    `;
+
+    item.querySelector("button").addEventListener("click", () => {
+      removeFile(index);
+    });
+
+    fileList.appendChild(item);
+  });
+}
+
+function removeFile(index) {
+  dataTransfer.items.remove(index);
+  fileInput.files = dataTransfer.files;
+  renderFileList();
+}
+</script>
 
 
 <script>
