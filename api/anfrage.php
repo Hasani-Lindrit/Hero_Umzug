@@ -37,8 +37,10 @@ Zusatzinfos:
 ";
 
 $boundary = md5(time());
+$replyTo = field("email") ?: "info@hero-umzug.de";
+
 $headers  = "From: Hero Umzug <info@hero-umzug.de>\r\n";
-$headers .= "Reply-To: " . field("email") . "\r\n";
+$headers .= "Reply-To: $replyTo\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"";
 
@@ -65,7 +67,7 @@ if (!empty($_FILES["attachments"]["name"][0])) {
   }
 }
 
-$body .= "--$boundary--";
+$body .= "--$boundary--\r\n";
 
 if (mail($to, $subject, $body, $headers)) {
   header("Location: /anfrage-danke.html");
@@ -74,4 +76,4 @@ if (mail($to, $subject, $body, $headers)) {
 
 http_response_code(500);
 echo "Fehler beim Senden der E-Mail.";
-exit
+exit;
