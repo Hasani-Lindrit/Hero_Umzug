@@ -1,90 +1,84 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+ini_set('display_errors', 1);
 
-require __DIR__ . '/../lib/PHPMailer/src/Exception.php';
-require __DIR__ . '/../lib/PHPMailer/src/PHPMailer.php';
-require __DIR__ . '/../lib/PHPMailer/src/SMTP.php';
-
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+echo "<pre>";
+var_dump($_FILES);
+phpinfo();
+exit;
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   http_response_code(405);
   exit;
 }
 
-function field($name) {
-  return isset($_POST[$name]) ? trim($_POST[$name]) : "";
+$to = 'info@hero-umzug.de';
+$subject = 'Neue Umzugsanfrage – Hero Umzug';
+
+function field($key){
+  return isset($_POST[$key]) ? trim($_POST[$key]) : '';
 }
 
-$mail = new PHPMailer(true);
+$message = "
+Neue Umzugsanfrage
 
-try {
-  // SMTP CONFIG
-  $mail->isSMTP();
-  $mail->Host       = 'smtp.udag.de';
-  $mail->SMTPAuth   = true;
-  $mail->Username   = 'a118789';
-  $mail->Password   = 'Lindrit20!';
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-  $mail->Port       = 22;
-
-  // MAIL
-  $mail->setFrom('info@hero-umzug.de', 'Hero Umzug');
-  $mail->addAddress('info@hero-umzug.de');
-
-  $replyTo = field("email");
-  if ($replyTo) {
-    $mail->addReplyTo($replyTo);
-  }
-
-  $mail->Subject = 'Neue Umzugsanfrage – Hero Umzug';
-
-  $mail->Body =
-"Neue Umzugsanfrage
-
-Name: " . field("name") . "
-E-Mail: " . field("email") . "
-Telefon: " . field("phone") . "
-Umzugsdatum: " . field("date") . "
+Name: " . field('name') . "
+E-Mail: " . field('email') . "
+Telefon: " . field('phone') . "
+Umzugsdatum: " . field('date') . "
 
 STARTADRESSE
-Straße: " . field("start_street") . " " . field("start_house") . "
-PLZ / Ort: " . field("start_zip") . " " . field("start_city") . "
-Etage: " . field("floor_start") . "
+" . field('start_street') . " " . field('start_house') . "
+" . field('start_zip') . " " . field('start_city') . "
 
 ZIELADRESSE
-Straße: " . field("target_street") . " " . field("target_house") . "
-PLZ / Ort: " . field("target_zip") . " " . field("target_city") . "
-Etage: " . field("floor_target") . "
+" . field('target_street') . " " . field('target_house') . "
+" . field('target_zip') . " " . field('target_city') . "
 
-Wohnfläche / Menge :
-" . field("size") . "
+Etage Start: " . field('floor_start') . "
+Etage Ziel: " . field('floor_target') . "
+
+Wohnfläche / Menge:
+" . field('size') . "
 
 Zusatzinfos:
-" . field("details");
+" . field('details') . "
+";
 
-  // ATTACHMENTS
-  if (!empty($_FILES['attachments']['name'][0])) {
-    foreach ($_FILES['attachments']['tmp_name'] as $i => $tmp) {
-      if ($_FILES['attachments']['error'][$i] === UPLOAD_ERR_OK) {
-        if ($_FILES['attachments']['size'][$i] <= 10 * 1024 * 1024) {
-          $mail->addAttachment(
-            $tmp,
-            basename($_FILES['attachments']['name'][$i])
-          );
-        }
-      }
-    }
+$boundary = md5(time());
+
+$headers  = "From: Hero Umzug <info@hero-umzug.de>\r\n";
+$headers .= "Reply-To: " . field('email') . "\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"";
+
+$body  = "--$boundary\r\n";
+$body .= "Content-Type: text/plain; charset=UTF-8\r\n\r\n";
+$body .= $message . "\r\n";
+
+if (!empty($_FILES['attachments']['tmp_name'])) {
+  foreach ($_FILES['attachments']['tmp_name'] as $i => $tmp) {
+
+    if ($_FILES['attachments']['error'][$i] !== UPLOAD_ERR_OK) continue;
+    if ($_FILES['attachments']['size'][$i] > 8 * 1024 * 1024) continue;
+
+    $name = basename($_FILES['attachments']['name'][$i]);
+    $type = mime_content_type($tmp) ?: 'application/octet-stream';
+    $data = chunk_split(base64_encode(file_get_contents($tmp)));
+
+    $body .= "--$boundary\r\n";
+    $body .= "Content-Type: $type; name=\"$name\"\r\n";
+    $body .= "Content-Disposition: attachment; filename=\"$name\"\r\n";
+    $body .= "Content-Transfer-Encoding: base64\r\n\r\n";
+    $body .= $data . "\r\n";
   }
+}
 
-  $mail->send();
-  header("Location: /anfrage-danke.html");
-  exit;
+$body .= "--$boundary--";
 
-} catch (Exception $e) {
-  http_response_code(500);
-  echo "Mail Fehler: " . $mail->ErrorInfo;
+if (mail($to, $subject, $body, $headers)) {
+  header('Location: /anfrage-danke.html');
   exit;
 }
+
+http_response_code(500);
+echo 'E-Mail konnte nicht gesendet werden.';
