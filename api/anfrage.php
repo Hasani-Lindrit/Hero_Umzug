@@ -30,9 +30,9 @@ try {
   $mail->Host       = 'smtp.udag.de';
   $mail->SMTPAuth   = true;
   $mail->Username   = 'info@hero-umzug.de';
-  $mail->Password   = 'Lindrit2000!';
+  $mail->Password   = 'Lindrit20!';
   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-  $mail->Port       = 22;
+  $mail->Port       = 587;
 
   /* Absender / Empfänger */
   $mail->setFrom('info@hero-umzug.de', 'Hero Umzug');
@@ -43,6 +43,22 @@ try {
   $mail->CharSet = 'UTF-8';
   $mail->isHTML(false);
   $mail->Subject = 'Neue Umzugsanfrage – Hero Umzug';
+
+  $attachmentInfo = "Keine Anhänge";
+
+  if (!empty($_FILES['attachments']['tmp_name']) && is_array($_FILES['attachments']['tmp_name'])) {
+    $names = [];
+
+    foreach ($_FILES['attachments']['tmp_name'] as $i => $tmp) {
+      if ($_FILES['attachments']['error'][$i] === UPLOAD_ERR_OK) {
+        $names[] = $_FILES['attachments']['name'][$i];
+      }
+    }
+
+    if (!empty($names)) {
+      $attachmentInfo = "Anhänge:\n- " . implode("\n- ", $names);
+    }
+  }
 
   $mail->Body =
 "Neue Umzugsanfrage
@@ -66,7 +82,10 @@ Wohnfläche / Menge:
 " . field('size') . "
 
 Zusatzinfos:
-" . field('details');
+" . field('details') . "
+
+-----------------------
+" . $attachmentInfo;
 
   /* Anhänge */
 if (!empty($_FILES['attachments']['tmp_name'])) {
