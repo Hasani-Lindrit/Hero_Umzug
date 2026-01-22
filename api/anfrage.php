@@ -23,16 +23,21 @@ $mail = new PHPMailer(true);
 try {
   // SMTP CONFIG
   $mail->isSMTP();
-  $mail->Host = 'smtp.udag.de';
-  $mail->SMTPAuth = true;
-  $mail->Username = 'info@hero-umzug.de';
-  $mail->Password = 'Lindrit20!';
-  $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-  $mail->Port = 587;
+  $mail->Host       = 'smtp.udag.de';
+  $mail->SMTPAuth   = true;
+  $mail->Username   = 'a118789';
+  $mail->Password   = 'Lindrit20!';
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->Port       = 22;
 
+  // MAIL
   $mail->setFrom('info@hero-umzug.de', 'Hero Umzug');
   $mail->addAddress('info@hero-umzug.de');
-  $mail->addReplyTo($replyTo)
+
+  $replyTo = field("email");
+  if ($replyTo) {
+    $mail->addReplyTo($replyTo);
+  }
 
   $mail->Subject = 'Neue Umzugsanfrage – Hero Umzug';
 
