@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Umzug in Stuttgart | Umzugsunternehmen Hero Umzug</title>
+  <meta name="description" content="Umzug in Stuttgart mit Hero Umzug. Professionelle Umzugsfirma für Stuttgart und Umgebung. Sicher, termintreu und mit Festpreis-Angebot.">
+  <meta name="keywords" content="Umzug Stuttgart, Umzugsfirma Stuttgart, Umzugsunternehmen Stuttgart, Möbeltransport Stuttgart, Umzug Region Stuttgart">
+
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/head_style.css">
+</head>
+
+<body>
+
+<div id="site-header"></div>
+
+<main class="content-page">
+  <div class="container">
+
+    <h1>Umzug in Stuttgart – Professionell und stressfrei umziehen</h1>
+
+    <p>
+      Ein Umzug in Stuttgart stellt besondere Anforderungen. Enge Straßen,
+      steile Lagen, wenig Parkraum und dichter Verkehr gehören hier zum Alltag.
+      Mit Hero Umzug haben Sie einen erfahrenen Partner, der die Region kennt
+      und Ihren Umzug effizient plant und durchführt.
+    </p>
+
+    <h2>Umzüge in allen Stadtteilen Stuttgarts</h2>
+
+    <p>
+      Wir führen Umzüge in Stuttgart-Mitte, Bad Cannstatt, Degerloch,
+      Vaihingen, Feuerbach, Zuffenhausen, Möhringen und allen weiteren
+      Stadtteilen durch.
+    </p>
+
+    <ul>
+      <li>Privatumzüge</li>
+      <li>Firmen- und Büroumzüge</li>
+      <li>Seniorenumzüge</li>
+      <li>Möbelmontage</li>
+      <li>Entrümpelungen</li>
+      <li>Halteverbotszonen-Service</li>
+    </ul>
+
+    <h2>Warum Hero Umzug in Stuttgart?</h2>
+
+    <p>
+      Unsere Mitarbeiter arbeiten strukturiert, sorgfältig und termingerecht.
+      Möbel werden fachgerecht demontiert und am Zielort wieder aufgebaut.
+      Empfindliche Gegenstände werden transportsicher verpackt.
+    </p>
+
+    <h2>Festpreis für Ihren Umzug in Stuttgart</h2>
+
+    <p>
+      Nach einer kurzen Besichtigung oder digitalen Vorabprüfung erhalten Sie
+      ein transparentes Festpreis-Angebot ohne versteckte Zusatzkosten.
+    </p>
+
+    <div class="cta-box">
+      <a class="btn primary" href="../anfrage.html">Angebot anfragen</a>
+      <a class="btn" href="tel:+4915906807385">Direkt anrufen</a>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  fetch("/assets/header.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("site-header").innerHTML = html;
+      const s = document.createElement("script");
+      s.src = "/assets/header.js";
+      s.defer = true;
+      document.body.appendChild(s);
+    });
+</script>
+
+</body>
+</html>
